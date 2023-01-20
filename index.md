@@ -1,4 +1,4 @@
-# TongWang(https://github.com/wangtong627)
+# TongWang
 ------
 
 >**PhD Student**<br>
@@ -8,17 +8,17 @@
 
 
 # Biography
-**TongWang (王通)** is a PhD Student at degree School of Computer Science and Engineering, Southeast University (China). He is supervised by Prof. YANG Guanyu in Lab of Image Science and Technology (LIST). His research interests include deep learning, pattern recognition, graph learning, medical image analysis.
+**TongWang (王通)** is a PhD Student at degree School of Computer Science and Engineering, Southeast University (China). He is supervised by Prof. YANG Guanyu in Lab of Image Science and Technology (LIST).<br> His research interests include deep learning, pattern recognition, graph learning, medical image analysis.
 
 
 # Education 
-* Sept., 2022 – Now,	Southeast University, Nanjing, China
-				Ph.D. , Computer Science and Technology<br>
+* Sept., 2022 – Now,	Southeast University, Nanjing, China<br>
+			 Ph.D. , Computer Science and Technology<br>
 				
-* Sept., 2019 - Jun., 2022	Nanjing Tech University, Nanjing, China
+* Sept., 2019 - Jun., 2022	Nanjing Tech University, Nanjing, China<br>
 				Master, Computer Technology<br>
 
-* Sept., 2014 - Jun., 2018 	Lanzhou University of Technology, Lanzhou, China
+* Sept., 2014 - Jun., 2018 	Lanzhou University of Technology, Lanzhou, China<br>
 				Bachelor, Software Engineering
 
 
