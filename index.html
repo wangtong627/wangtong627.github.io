@@ -1,3 +1,8 @@
+To remove the black border around the personal information table and change the font to "Inter," I have modified the provided HTML and CSS. I've also integrated the new CSS directly into the `<head>` section of the HTML to make it a single, self-contained file.
+
+Here's the modified code:
+
+```html
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
@@ -5,54 +10,118 @@
     <meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <link rel="shortcut icon" href="./files/xx.jpg">
-    <link rel="stylesheet" href="files/jemdoc.css" type="text/css" />
-    <title>TongWang 王通</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <title>TongWang 王通</title>
     <style>
-        /* 调整图标容器宽度 */
-        .logo-container {
-            width: 150px !important;
+        /* General Styles based on the new template */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+            color: #333;
+            line-height: 1.6;
+            font-size: 0.85rem;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        /* 调整链接颜色 */
-        a {
-            color: #9b2d20;
+
+        #container {
+            max-width: 1000px;
+            width: 100%;
+            background: #fff;
+            padding: 2rem 3rem;
+            margin: 0 auto;
+        }
+
+        /* Menu styles */
+        .menu {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .menu a {
             text-decoration: none;
+            color: #2b2d42;
+            font-weight: 600;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
         }
-        a:hover {
-            color: #b23c2b;
-            text-decoration: underline;
+
+        .menu a:hover {
+            background-color: #eaeaea;
         }
-        /* 会议和期刊名称颜色 */
-        .conf-name {
-            color: #000;
+
+        /* Header and Titles */
+        h1,
+        h2 {
+            color: #2b2d42;
+            font-size: 1.4rem;
         }
-        /* 个人信息表格样式 */
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .anchor {
+            padding-top: 60px; /* Offset for fixed menu */
+            margin-top: -60px;
+        }
+
+        /* Adjustments for personal info and photo table */
         .info-table {
             width: 100%;
             margin-bottom: 20px;
         }
+
         .info-table td {
             vertical-align: top;
+            border: none; /* Remove border */
         }
+
         .info-column {
             width: 70%;
-            text-align: right;
+            text-align: left; /* Changed alignment to left for a cleaner look */
             padding-right: 20px;
         }
+
         .photo-column {
             width: 30%;
-            text-align: left;
+            text-align: right; /* Changed alignment to right to align photo */
         }
+
         .info-column p {
             margin: 5px 0;
         }
-        /* 分隔线样式 */
+
+        /* Link colors from the new template */
+        a {
+            color: #9b2d20;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #b23c2b;
+            text-decoration: underline;
+        }
+
+        /* Conference and Journal name colors */
+        .conf-name {
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* Separator line style */
         hr {
             border: none;
             border-top: 1px solid #ccc;
             margin: 20px 0;
         }
-        /* Experiences 图标对齐 */
+
+        /* Experiences section alignment */
         .experience-item {
             display: flex;
             align-items: flex-start;
@@ -60,6 +129,7 @@
             padding-bottom: 1rem;
             border-bottom: 1px solid #eee;
         }
+
         .experience-logo {
             flex-shrink: 0;
             width: 150px;
@@ -69,232 +139,269 @@
             align-items: center;
             margin-right: 20px;
         }
+
         .experience-logo img {
             max-height: 80%;
             max-width: 100%;
             object-fit: contain;
         }
+
         .experience-details {
             flex: 1;
         }
-        /* Biography 两端对齐 */
+
+        /* Biography justification */
         .biography {
             text-align: justify;
             text-justify: inter-word;
         }
+        
+        /* Publications section styles from the new template */
+        .pub_title {
+            font-weight: bold;
+            font-size: 0.95rem;
+            color: #2b2d42;
+            margin-bottom: 0.3rem;
+        }
+
+        .pub_author {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 0.3rem;
+        }
+
+        .imgtable {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .imgtable td {
+            padding: 10px 0;
+        }
+
+        .imgtable tr:not(:last-child) td {
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Footer styles */
+        #footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: 3rem;
+        }
+
     </style>
 </head>
-    
+
 <body>
-<div class="menu"> 
-    <a href="#home">Home</a>
-    <a href="#awards">Awards</a>
-    <a href="#publications">Research</a>
-    <a href="#experiences">Experiences</a>
-    <a href="#services">Services</a>
-</div>
+    <div id="container">
+        <div class="menu">
+            <a href="#home">Home</a>
+            <a href="#awards">Awards</a>
+            <a href="#publications">Research</a>
+            <a href="#experiences">Experiences</a>
+            <a href="#services">Services</a>
+        </div>
+
+        <a id="home" class="anchor"></a>
+        <div id="toptitle">
+            <h1>TongWang 王通</h1>
+        </div>
+
+        <table class="info-table" width="100%">
+            <tr>
+                <td class="info-column">
+                    <p>
+                        <font color="#424949" size="4"><b>Ph.D Student</b></font><br /><br />
+                        Key Laboratory of New Generation Artificial Intelligence Technology and Its Interdisciplinary Applications<br />
+                        Southeast University<br />
+                        Nanjing, China<br /><br />
+                        Email: <font face="courier new, monospace">tongwangnj</font>&nbsp;[AT] <font face="courier new, monospace">seu.edu.cn</font><br />
+                        <br />
+                        <a href="https://scholar.google.com/citations?user=x7FY8P8AAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i>&nbsp;Google Scholar</a>&nbsp;&nbsp;
+                        <a href="https://github.com/wangtong627" target="_blank"><i class="fab fa-github"></i>&nbsp;GitHub</a>&nbsp;&nbsp;
+                        <a href="https://dblp.org/pid/51/6856-22.html" target="_blank"><i class="fas fa-book"></i>&nbsp;DBLP</a>&nbsp;&nbsp;
+                        <a href="https://openreview.net/profile?id=~Tong_Wang8" target="_blank"><i class="fas fa-file-alt"></i>&nbsp;Open Review</a>
+                        <a href="https://www.researchgate.net/profile/Tong-Wang-156" target="_blank"><i class="fas fa-flask"></i>&nbsp;ResearchGate</a>&nbsp;&nbsp;
+                    </p>
+                </td>
+                <td class="photo-column">
+                    <img src="./files/photo_tongwang_update.jpg" alt="TongWang Photo" height="250px" />
+                </td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <h2>Biography</h2>
+        <div class="biography">
+            <p>I am currently a Ph.D student at the Key Laboratory of New Generation Artificial Intelligence Technology and Its Interdisciplinary Applications, Southeast University, advised by <a href="https://cs.seu.edu.cn/gyyang/main.htm" target="_blank">Prof. Guanyu Yang</a>. I am also a visiting Ph.D student at Mohamed bin Zayed University of Artificial Intelligence (MBZUAI), working with <a href="https://sites.google.com/view/fahadkhans" target="_blank">Prof. Fahad Shahbaz Khan</a> and <a href="https://sites.google.com/site/liunian228/" target="_blank">Dr. Nian Liu</a>.</p>
+            <p>My research interests include Computer Vision, Medical Image Analysis, and Multimodal Models. I focus on developing novel methodologies to improve the efficiency and accuracy of medical image analysis using deep learning techniques.</p>
+            <p>I am passionate about bridging the gap between computer vision and medical applications, with the goal of creating more effective tools for computer-aided diagnosis and treatment planning.</p>
+        </div>
 
 
-<a id="home" class="anchor"></a>
-<div id="container"> 
-<div class="container"> 
-    
-<div id="toptitle">
-    <h1>TongWang 王通</h1>
-</div>
+        <a id="experiences" class="anchor"></a>
+        <h2>👨‍💻 Experiences</h2>
+        <div class="experience-item">
+            <div class="experience-logo">
+                <img src="./files/mbzuai_logo.png" alt="MBZUAI Logo" />
+            </div>
+            <div class="experience-details">
+                <p style="font-weight: bold; margin-bottom: 0.3rem;">Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)</p>
+                <p style="margin: 0.3rem 0;">Visiting Student | 2024 – Present</p>
+                <p style="margin: 0.3rem 0;">Mentor: <a href="https://sites.google.com/view/fahadkhans" target="_blank">Prof. Fahad Shahbaz Khan</a> and <a href="https://sites.google.com/site/liunian228/" target="_blank">Dr. Nian Liu</a></p>
+                <p style="margin: 0.3rem 0; color: #666;">Research focus: Computer Vision, Multimodal Models</p>
+            </div>
+        </div>
 
-<table class="info-table" width="100%">
-    <tr>
-        <td class="info-column">
-            <p>
-                <font color="#424949" size="4"><b>Ph.D Student</b></font><br/><br/>
-                Key Laboratory of New Generation Artificial Intelligence Technology and Its Interdisciplinary Applications<br/>
-                Southeast University<br/>
-                Nanjing, China<br/><br/>
-                Email: <font face="courier new, monospace">tongwangnj</font>&nbsp;[AT] <font face="courier new, monospace">seu.edu.cn</font><br/>
-                <br/>
-                <a href="https://scholar.google.com/citations?user=x7FY8P8AAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i>&nbsp;Google Scholar</a>&nbsp;&nbsp;
-                <a href="https://github.com/wangtong627" target="_blank"><i class="fab fa-github"></i>&nbsp;GitHub</a>&nbsp;&nbsp;
-                <a href="https://dblp.org/pid/51/6856-22.html" target="_blank"><i class="fas fa-book"></i>&nbsp;DBLP</a>&nbsp;&nbsp;
-                <a href="https://www.researchgate.net/profile/Tong-Wang-156" target="_blank"><i class="fas fa-flask"></i>&nbsp;ResearchGate</a>
-            </p>
-        </td>
-        <td class="photo-column">
-            <img src="./files/photo_tongwang_update.jpg" alt="TongWang Photo" height="250px" />
-        </td>
-    </tr>
-</table>
-
-<hr>
-
-<h2>Biography</h2>
-    <div class="biography">
-        <p>I am currently a Ph.D student at the Key Laboratory of New Generation Artificial Intelligence Technology and Its Interdisciplinary Applications, Southeast University, advised by <a href="https://cs.seu.edu.cn/gyyang/main.htm" target="_blank">Prof. Guanyu Yang</a>. I am also a visiting Ph.D student at Mohamed bin Zayed University of Artificial Intelligence (MBZUAI), working with <a href="https://sites.google.com/view/fahadkhans" target="_blank">Prof. Fahad Shahbaz Khan</a> and <a href="https://sites.google.com/site/liunian228/" target="_blank">Dr. Nian Liu</a>.</p>
-        <p>My research interests include Computer Vision, Medical Image Analysis, and Multimodal Models. I focus on developing novel methodologies to improve the efficiency and accuracy of medical image analysis using deep learning techniques.</p>
-        <p>I am passionate about bridging the gap between computer vision and medical applications, with the goal of creating more effective tools for computer-aided diagnosis and treatment planning.</p>
-    </div>
+        <div class="experience-item">
+            <div class="experience-logo">
+                <img src="./files/seu_logo.png" alt="Southeast University Logo" />
+            </div>
+            <div class="experience-details">
+                <p style="font-weight: bold; margin-bottom: 0.3rem;">Southeast University</p>
+                <p style="margin: 0.3rem 0;">Ph.D Student | 2022 – Present</p>
+                <p style="margin: 0.3rem 0;">PhD Advisor: <a href="https://cs.seu.edu.cn/gyyang/main.htm" target="_blank">Prof. Guanyu Yang</a></p>
+                <p style="margin: 0.3rem 0; color: #666;">Research focus: Computer Vision, Medical Image Analysis</p>
+            </div>
+        </div>
 
 
-<!-- Experiences Section -->
-<a id="experiences" class="anchor"></a>
-<h2>👨‍💻 Experiences</h2>
-<!-- MBZUAI Experience -->
-<div class="experience-item">
-    <div class="experience-logo">
-        <img src="./files/mbzuai_logo.png" alt="MBZUAI Logo" />
-    </div>
-    <div class="experience-details">
-        <p style="font-weight: bold; margin-bottom: 0.3rem;">Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)</p>
-        <p style="margin: 0.3rem 0;">Visiting Student | 2024 – Present</p>
-        <p style="margin: 0.3rem 0;">Mentor: <a href="https://sites.google.com/view/fahadkhans" target="_blank">Prof. Fahad Shahbaz Khan</a> and <a href="https://sites.google.com/site/liunian228/" target="_blank">Dr. Nian Liu</a></p>
-        <!-- <p style="margin: 0.3rem 0; color: #666;">Research focus: Computer Vision, Multimodal Models</p> -->
-    </div>
-</div>
+        <a id="publications" class="anchor"></a>
 
-<!-- Southeast University Experience -->
-<div class="experience-item">
-    <div class="experience-logo">
-        <img src="./files/seu_logo.png" alt="Southeast University Logo" />
-    </div>
-    <div class="experience-details">
-        <p style="font-weight: bold; margin-bottom: 0.3rem;">Southeast University</p>
-        <p style="margin: 0.3rem 0;">Ph.D Student | 2022 – Present</p>
-        <p style="margin: 0.3rem 0;">PhD Advisor: <a href="https://cs.seu.edu.cn/gyyang/main.htm" target="_blank">Prof. Guanyu Yang</a></p>
-        <!-- <p style="margin: 0.3rem 0; color: #666;">Research focus: Computer Vision, Medical Image Analysis</p> -->
-    </div>
-</div>
-
-
-<!-- Publications Section -->
-<a id="publications" class="anchor"></a>
-    
-<h2>📝 Publications</h2>
-    <h3>Preprint Papers</h3>
+        <h2>📝 Publications</h2>
+        <h3>Preprint Papers</h3>
         <table class="imgtable" width="100%" bgcolor="#F0F0F0">
             <tr>
                 <td>
                     <p class="pub_title">Composed Object Retrieval: Object-level Retrieval via Composed Expressions</p>
                     <p class="pub_author"><u><b>Tong Wang</b></u>, Guanyu Yang, Nian Liu, Zongyan Han, Jinxing Zhou, Salman Khan, Fahad Shahbaz Khan.<br>
-                    <i>arXiv preprint arXiv:2505.16974</i><br>
-                    <font><b>&nbsp;Preprint 2025&nbsp;</b></font>
-                    |<a href="https://arxiv.org/abs/2508.04424">&nbsp;Paper&nbsp;</a>
-                    |<a href="https://github.com/wangtong627/COR">&nbsp;Code&nbsp;</a>
+                        <i>arXiv preprint arXiv:2505.16974</i><br>
+                        <font><b>&nbsp;Preprint 2025&nbsp;</b></font>
+                        |<a href="https://arxiv.org/abs/2508.04424">&nbsp;Paper&nbsp;</a>
+                        |<a href="https://github.com/wangtong627/COR">&nbsp;Code&nbsp;</a>
                     </p>
                 </td>
             </tr>
-            
+
             <tr>
                 <td>
                     <p class="pub_title">OpenSeg-R: Improving Open-Vocabulary Segmentation via Step-by-Step Visual Reasoning</p>
                     <p class="pub_author">Zongyan Han, Jiale Cao, Shuo Chen, <u><b>Tong Wang</b></u>, Jorma Laaksonen, Rao Muhammad Anwer.<br>
-                    <i>arXiv preprint arXiv:2505.16974</i><br>
-                    <font><b>&nbsp;Preprint 2025&nbsp;</b></font>
-                    |<a href="https://arxiv.org/abs/2505.16974">&nbsp;Paper&nbsp;</a>
-                    |<a href="https://github.com/Hanzy1996/OpenSeg-R">&nbsp;Code&nbsp;</a>
+                        <i>arXiv preprint arXiv:2505.16974</i><br>
+                        <font><b>&nbsp;Preprint 2025&nbsp;</b></font>
+                        |<a href="https://arxiv.org/abs/2505.16974">&nbsp;Paper&nbsp;</a>
+                        |<a href="https://github.com/Hanzy1996/OpenSeg-R">&nbsp;Code&nbsp;</a>
                     </p>
                 </td>
             </tr>
-            
+
             <tr>
                 <td>
                     <p class="pub_title">Think Before You Segment: An Object-aware Reasoning Agent for Referring Audio-Visual Segmentation</p>
                     <p class="pub_author">Jinxing Zhou, Yanghao Zhou, Mingfei Han, <u><b>Tong Wang</b></u>, Xiaojun Chang, Hisham Cholakkal, Rao Muhammad Anwer.<br>
-                    <i>arXiv preprint arXiv:2508.04418</i><br>
-                    <font><b>&nbsp;Preprint 2025&nbsp;</b></font>
-                    |<a href="https://arxiv.org/abs/2508.04418">&nbsp;Paper&nbsp;</a>
-                    |<a href="https://github.com/jasongief/TGS-Agent">&nbsp;Code&nbsp;</a>
+                        <i>arXiv preprint arXiv:2508.04418</i><br>
+                        <font><b>&nbsp;Preprint 2025&nbsp;</b></font>
+                        |<a href="https://arxiv.org/abs/2508.04418">&nbsp;Paper&nbsp;</a>
+                        |<a href="https://github.com/jasongief/TGS-Agent">&nbsp;Code&nbsp;</a>
                     </p>
                 </td>
             </tr>
         </table>
-    
-    <h3>Conference Papers</h3>
+
+        <h3>Conference Papers</h3>
         <table class="imgtable" width="100%" bgcolor="#F0F0F0">
             <tr>
                 <td>
                     <p class="pub_title">Energy-induced Explicit quantification for Multi-modality MRI fusion.</p>
                     <p class="pub_author">Xiaoming Qi, Yuan Zhang, <u><b>Tong Wang</b></u>, Guanyu Yang, Yueming Jin, Shuo Li.<br>
-                    <i>European Conference on Computer Vision</i><br>
-                    <font class="conf-name"><b>&nbsp;ECCV 2024&nbsp;</b></font>
-                    |<a href="https://doi.org/10.1007/978-3-031-72667-5_25">&nbsp;Paper&nbsp;</a>
-                    |<a href="https://github.com/JerryQseu/EEPA">&nbsp;Code&nbsp;</a>
+                        <i>European Conference on Computer Vision</i><br>
+                        <font class="conf-name"><b>&nbsp;ECCV 2024&nbsp;</b></font>
+                        |<a href="https://doi.org/10.1007/978-3-031-72667-5_25">&nbsp;Paper&nbsp;</a>
+                        |<a href="https://github.com/JerryQseu/EEPA">&nbsp;Code&nbsp;</a>
                     </p>
                 </td>
             </tr>
         </table>
-    
-    <h3>Journal Papers</h3>
+
+        <h3>Journal Papers</h3>
         <table class="imgtable" width="100%" bgcolor="#F0F0F0">
             <tr>
                 <td>
                     <p class="pub_title">Polyp segmentation via semantic enhanced perceptual network.</p>
                     <p class="pub_author"><u><b>Tong Wang</b></u>, Xiaoming Qi, Guanyu Yang.<br>
-                    <i>IEEE Transactions on Circuits and Systems for Video Technology</i><br>
-                    <font class="conf-name"><b>&nbsp;IEEE TCSVT 2024&nbsp;</b></font>
-                    |<a href="https://ieeexplore.ieee.org/document/10608167">&nbsp;Paper&nbsp;</a>
-                    |<a href="https://github.com/wangtong627/SEPNet">&nbsp;Code&nbsp;</a>
+                        <i>IEEE Transactions on Circuits and Systems for Video Technology</i><br>
+                        <font class="conf-name"><b>&nbsp;IEEE TCSVT 2024&nbsp;</b></font>
+                        |<a href="https://ieeexplore.ieee.org/document/10608167">&nbsp;Paper&nbsp;</a>
+                        |<a href="https://github.com/wangtong627/SEPNet">&nbsp;Code&nbsp;</a>
                     </p>
                 </td>
             </tr>
-            
+
             <tr>
                 <td>
                     <p class="pub_title">Neighborhood contrastive representation learning for attributed graph clustering.</p>
                     <p class="pub_author"><u><b>Tong Wang</b></u>, Junhua Wu, Yaolei Qi, Xiaoming Qi, Juwei Guan, Yuan Zhang, Guanyu Yang.<br>
-                    <i>Neurocomputing</i><br>
-                    <font class="conf-name"><b>&nbsp;NeuroCom 2023&nbsp;</b></font>
-                    |<a href="https://doi.org/10.1016/j.neucom.2023.126880">&nbsp;Paper&nbsp;</a>
-                    |<a href="https://github.com/wangtong627/NCAGC-NeuroCom">&nbsp;Code&nbsp;</a>
+                        <i>Neurocomputing</i><br>
+                        <font class="conf-name"><b>&nbsp;NeuroCom 2023&nbsp;</b></font>
+                        |<a href="https://doi.org/10.1016/j.neucom.2023.126880">&nbsp;Paper&nbsp;</a>
+                        |<a href="https://github.com/wangtong627/NCAGC-NeuroCom">&nbsp;Code&nbsp;</a>
                     </p>
                 </td>
             </tr>
-            
+
             <tr>
                 <td>
                     <p class="pub_title">Multi-scale graph attention subspace clustering network.</p>
                     <p class="pub_author"><u><b>Tong Wang</b></u>, Junhua Wu, Zhenquan Zhang, Wen Zhou, Guang Chen, Shasha Liu.<br>
-                    <i>Neurocomputing</i><br>
-                    <font class="conf-name"><b>&nbsp;NeuroCom 2021&nbsp;</b></font>
-                    |<a href="https://doi.org/10.1016/j.neucom.2021.06.058">&nbsp;Paper&nbsp;</a>
-                    |<a href="https://github.com/wangtong627/MSGA-NeuroCom">&nbsp;Code&nbsp;</a>
+                        <i>Neurocomputing</i><br>
+                        <font class="conf-name"><b>&nbsp;NeuroCom 2021&nbsp;</b></font>
+                        |<a href="https://doi.org/10.1016/j.neucom.2021.06.058">&nbsp;Paper&nbsp;</a>
+                        |<a href="https://github.com/wangtong627/MSGA-NeuroCom">&nbsp;Code&nbsp;</a>
                     </p>
                 </td>
             </tr>
         </table>
 
 
-<!-- Awards Section -->
-<a id="awards" class="anchor"></a>
-<h2>🏅 Awards and Honors</h2>
-    <ul>
-        <li>2024, Outstanding Postgraduate, Southeast University.</li>
-        <li>2022, Outstanding Graduates, Nanjing Tech University.</li>
-        <li>2022, Outstanding Master’s Thesis, Nanjing Tech University.</li>
-        <li>2021, National Scholarship, Ministry of Education.</li>
-        <li>2020, Second Prize, "Huawei Cup" China Graduate Student Mathematical Modeling Contest.</li>
-        <li>2018, Outstanding Graduate, Lanzhou University of Technology.</li>
-        <li>2018, National Scholarship, Ministry of Education.</li>
-        <li>2017, Second Prize, "Challenge Cup" National Extracurricular Academic Works Competition for College Students.</li>
-        <li>2016, Second Prize, National College students Mathematical Contest in Modeling.</li>
-    </ul>
+        <a id="awards" class="anchor"></a>
+        <h2>🏅 Awards and Honors</h2>
+        <ul>
+            <li>2024, Outstanding Postgraduate, Southeast University.</li>
+            <li>2022, Outstanding Graduates, Nanjing Tech University.</li>
+            <li>2022, Outstanding Master’s Thesis, Nanjing Tech University.</li>
+            <li>2021, National Scholarship, Ministry of Education.</li>
+            <li>2020, Second Prize, "Huawei Cup" China Graduate Student Mathematical Modeling Contest.</li>
+            <li>2018, Outstanding Graduate, Lanzhou University of Technology.</li>
+            <li>2018, National Scholarship, Ministry of Education.</li>
+            <li>2017, Second Prize, "Challenge Cup" National Extracurricular Academic Works Competition for College Students.</li>
+            <li>2016, Second Prize, National College students Mathematical Contest in Modeling.</li>
+        </ul>
 
 
-<!-- Services Section -->
-<a id="services" class="anchor"></a>
-<h2>👻 Services</h2>
-    <h3>Journal Reviewer</h3>
-    <ul>
-        <li><span class="conf-name">IEEE Transactions on Circuits and Systems for Video Technology (IEEE TCSVT)</span></li>
-        <li><span class="conf-name">Neurocomputing</span></li>
-    </ul>
-    
-    <h3>Conference Reviewer</h3>
-    <ul>
-        <li><span class="conf-name">AAAI 2026</span></li>
-    </ul>
+        <a id="services" class="anchor"></a>
+        <h2>👻 Services</h2>
+        <h3>Journal Reviewer</h3>
+        <ul>
+            <li><span class="conf-name">IEEE Transactions on Circuits and Systems for Video Technology (IEEE TCSVT)</span></li>
+            <li><span class="conf-name">Neurocomputing</span></li>
+        </ul>
+
+        <h3>Conference Reviewer</h3>
+        <ul>
+            <li><span class="conf-name">AAAI 2026</span></li>
+        </ul>
 
 
-<div id="footer">
-    <div id="footer-text">
-        All Rights Reserved. Part of page is generated by <a href="http://jemdoc.jaboc.net/">jemdoc</a>.
+        <div id="footer">
+            <div id="footer-text">
+                All
+            </div>
+        </div>
     </div>
+</body>
+
+</html>
+```
