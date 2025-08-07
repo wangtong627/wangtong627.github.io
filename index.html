@@ -24,30 +24,15 @@
         #container {
             max-width: 1000px;
             min-width: 700px;
-            width: 60%;
+            width: 65%;
             background: #fff;
             padding: 2rem 3rem;
             margin: 0 auto;
         }
 
-        /* Menu styles */
+        /* Menu styles - REMOVED */
         .menu {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            justify-content: center;
-        }
-
-        .menu a {
-            text-decoration: none;
-            color: #2b2d42;
-            font-weight: 600;
-            padding: 0.3rem 0.6rem;
-            border-radius: 6px;
-        }
-
-        .menu a:hover {
-            background-color: #eaeaea;
+            display: none; /* Hide the menu */
         }
 
         /* Header and Titles */
@@ -63,9 +48,8 @@
         }
 
         .anchor {
-            padding-top: 60px;
-            /* Offset for fixed menu */
-            margin-top: -60px;
+            padding-top: 0; /* No offset needed without the menu */
+            margin-top: 0;
         }
 
         /* Adjustments for personal info and photo table */
@@ -299,14 +283,6 @@
 
 <body>
     <div id="container">
-        <div class="menu">
-            <a href="#home">Home</a>
-            <a href="#awards">Awards</a>
-            <a href="#publications">Research</a>
-            <a href="#experiences">Experiences</a>
-            <a href="#services">Services</a>
-        </div>
-
         <a id="home" class="anchor"></a>
         <div id="toptitle">
             <h1>TongWang 王通</h1>
