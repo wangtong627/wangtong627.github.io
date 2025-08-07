@@ -22,8 +22,9 @@
         }
 
         #container {
-            max-width: 1000px;
-            width: 100%;
+            max-width: 1200px;
+            min-width: 700px;
+            width: 80%;
             background: #fff;
             padding: 2rem 3rem;
             margin: 0 auto;
@@ -165,14 +166,13 @@
         }
 
         .experience-details p {
-            margin: 0.2rem 0; /* Adjusted for tighter spacing */
+            margin: 0.1rem 0; /* Adjusted for tighter spacing */
             color: #000;
         }
 
         .experience-details .subtitle {
              color: #666;
         }
-
 
         /* Biography justification */
         .biography {
@@ -208,12 +208,12 @@
 
         .publication-authors {
             margin-bottom: 0.1rem;
-/*            color: #000;*/
+            color: #000;
             font-size: 0.85rem;
         }
 
         .publication-info {
-/*            color: #000;*/
+            color: #000;
             font-size: 0.85rem;
             margin-bottom: 0.1rem;
         }
@@ -228,21 +228,26 @@
             font-size: 0.85rem;
             margin-top: 0.1rem;
         }
-
-        .publication-links a {
-            margin-right: 0.8rem;
-        }
         
-        /* Updated link styling for brackets */
-        .publication-links a.bracket-link {
-            padding: 0;
-            margin-right: 0.5em; /* Space after link */
+        .publication-links a {
+            margin-right: 0.5em; /* Space between links */
         }
-        .publication-links a.bracket-link::before {
-            content: "[";
+
+        /* New link button style */
+        .link-button {
+            display: inline-block;
+            background-color: #f7f9fc;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 0.2em 0.5em;
+            text-decoration: none;
+            color: #9b2d20; /* Keeping your red link color */
+            margin-right: 0.5em;
         }
-        .publication-links a.bracket-link::after {
-            content: "]";
+
+        .link-button:hover {
+            background-color: #e9ecef;
+            text-decoration: none;
         }
 
 
@@ -358,9 +363,9 @@
                         <div class="publication-authors">Tong Wang, Guanyu Yang, Nian Liu, Zongyan Han, Jinxing Zhou, Salman Khan, Fahad Shahbaz Khan.</div>
                         <div class="publication-info">arXiv preprint arXiv:2505.16974</div>
                         <div class="publication-links">
-                            <span class="pub_year">Preprint 2025</span> 
-                            <a class="bracket-link" href="https://arxiv.org/abs/2508.04424">Paper</a> 
-                            <a class="bracket-link" href="https://github.com/wangtong627/COR">Code</a>
+                            <b class="pub_year">Preprint 2025</b> 
+                            <a class="link-button" href="https://arxiv.org/abs/2508.04424">Paper</a> 
+                            <a class="link-button" href="https://github.com/wangtong627/COR">Code</a>
                         </div>
                     </div>
                 </td>
@@ -372,9 +377,9 @@
                         <div class="publication-authors">Zongyan Han, Jiale Cao, Shuo Chen, Tong Wang, Jorma Laaksonen, Rao Muhammad Anwer.</div>
                         <div class="publication-info">arXiv preprint arXiv:2505.16974</div>
                         <div class="publication-links">
-                            <span class="pub_year">Preprint 2025</span>
-                            <a class="bracket-link" href="https://arxiv.org/abs/2505.16974">Paper</a>
-                            <a class="bracket-link" href="https://github.com/Hanzy1996/OpenSeg-R">Code</a>
+                            <b class="pub_year">Preprint 2025</b>
+                            <a class="link-button" href="https://arxiv.org/abs/2505.16974">Paper</a>
+                            <a class="link-button" href="https://github.com/Hanzy1996/OpenSeg-R">Code</a>
                         </div>
                     </div>
                 </td>
@@ -386,9 +391,9 @@
                         <div class="publication-authors">Jinxing Zhou, Yanghao Zhou, Mingfei Han, Tong Wang, Xiaojun Chang, Hisham Cholakkal, Rao Muhammad Anwer.</div>
                         <div class="publication-info">arXiv preprint arXiv:2508.04418</div>
                         <div class="publication-links">
-                            <span class="pub_year">Preprint 2025</span>
-                            <a class="bracket-link" href="https://arxiv.org/abs/2508.04418">Paper</a>
-                            <a class="bracket-link" href="https://github.com/jasongief/TGS-Agent">Code</a>
+                            <b class="pub_year">Preprint 2025</b>
+                            <a class="link-button" href="https://arxiv.org/abs/2508.04418">Paper</a>
+                            <a class="link-button" href="https://github.com/jasongief/TGS-Agent">Code</a>
                         </div>
                     </div>
                 </td>
@@ -404,9 +409,9 @@
                         <div class="publication-authors">Xiaoming Qi, Yuan Zhang, Tong Wang, Guanyu Yang, Yueming Jin, Shuo Li.</div>
                         <div class="publication-info">European Conference on Computer Vision</div>
                         <div class="publication-links">
-                            <span class="pub_conf_name"><b>ECCV 2024</b></span>
-                            <a class="bracket-link" href="https://doi.org/10.1007/978-3-031-72667-5_25">Paper</a>
-                            <a class="bracket-link" href="https://github.com/JerryQseu/EEPA">Code</a>
+                            <b class="pub_conf_name">ECCV 2024</b>
+                            <a class="link-button" href="https://doi.org/10.1007/978-3-031-72667-5_25">Paper</a>
+                            <a class="link-button" href="https://github.com/JerryQseu/EEPA">Code</a>
                         </div>
                     </div>
                 </td>
@@ -422,9 +427,9 @@
                         <div class="publication-authors">Tong Wang, Xiaoming Qi, Guanyu Yang.</div>
                         <div class="publication-info">IEEE Transactions on Circuits and Systems for Video Technology</div>
                         <div class="publication-links">
-                            <span class="pub_conf_name"><b>IEEE TCSVT 2024</b></span>
-                            <a class="bracket-link" href="https://ieeexplore.ieee.org/document/10608167">Paper</a>
-                            <a class="bracket-link" href="https://github.com/wangtong627/SEPNet">Code</a>
+                            <b class="pub_conf_name">IEEE TCSVT 2024</b>
+                            <a class="link-button" href="https://ieeexplore.ieee.org/document/10608167">Paper</a>
+                            <a class="link-button" href="https://github.com/wangtong627/SEPNet">Code</a>
                         </div>
                     </div>
                 </td>
@@ -436,9 +441,9 @@
                         <div class="publication-authors">Tong Wang, Junhua Wu, Yaolei Qi, Xiaoming Qi, Juwei Guan, Yuan Zhang, Guanyu Yang.</div>
                         <div class="publication-info">Neurocomputing</div>
                         <div class="publication-links">
-                            <span class="pub_conf_name"><b>NeuroCom 2023</b></span>
-                            <a class="bracket-link" href="https://doi.org/10.1016/j.neucom.2023.126880">Paper</a>
-                            <a class="bracket-link" href="https://github.com/wangtong627/NCAGC-NeuroCom">Code</a>
+                            <b class="pub_conf_name">NeuroCom 2023</b>
+                            <a class="link-button" href="https://doi.org/10.1016/j.neucom.2023.126880">Paper</a>
+                            <a class="link-button" href="https://github.com/wangtong627/NCAGC-NeuroCom">Code</a>
                         </div>
                     </div>
                 </td>
@@ -450,9 +455,9 @@
                         <div class="publication-authors">Tong Wang, Junhua Wu, Zhenquan Zhang, Wen Zhou, Guang Chen, Shasha Liu.</div>
                         <div class="publication-info">Neurocomputing</div>
                         <div class="publication-links">
-                            <span class="pub_conf_name"><b>NeuroCom 2021</b></span>
-                            <a class="bracket-link" href="https://doi.org/10.1016/j.neucom.2021.06.058">Paper</a>
-                            <a class="bracket-link" href="https://github.com/wangtong627/MSGA-NeuroCom">Code</a>
+                            <b class="pub_conf_name">NeuroCom 2021</b>
+                            <a class="link-button" href="https://doi.org/10.1016/j.neucom.2021.06.058">Paper</a>
+                            <a class="link-button" href="https://github.com/wangtong627/MSGA-NeuroCom">Code</a>
                         </div>
                     </div>
                 </td>
