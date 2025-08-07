@@ -132,21 +132,13 @@
             color: #000;
             font-weight: bold;
         }
-
-        /* Separator line style */
-        hr {
-            border: none;
-            border-top: 1px solid #eee;
-            margin: 1rem 0;
-        }
-
+        
         /* Experiences section alignment */
         .experience-item {
             display: flex;
-            align-items: center; /* Vertical center alignment */
+            align-items: flex-start; /* Vertical top alignment */
             margin-bottom: 1rem;
             padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
         }
         
         /* Adjusted logo container width to 25% */
@@ -171,6 +163,16 @@
             flex: 1;
             padding-left: 10px; /* Slight right shift */
         }
+        
+        .experience-details p {
+            margin: 0.3rem 0;
+            color: #000; /* Set to black */
+        }
+
+        .experience-details .subtitle {
+             color: #666;
+        }
+
 
         /* Biography justification */
         .biography {
@@ -210,7 +212,7 @@
         }
         
         .publication-info {
-            color: #333;
+            color: #000; /* Changed to black */
             font-size: 0.85rem;
             margin-bottom: 0.1rem;
         }
@@ -237,6 +239,19 @@
             color: #999;
             margin-top: 3rem;
         }
+        
+        /* Adjustments for no horizontal lines */
+        hr {
+            display: none;
+        }
+        
+        .experience-item {
+            border-bottom: none;
+        }
+        
+        .experience-item + .experience-item {
+            border-top: none;
+        }
 
     </style>
 </head>
@@ -261,8 +276,7 @@
                 <td class="info-column">
                     <p>
                         <font color="#424949" size="4"><b>Ph.D Student</b></font><br /><br />
-                        Key Laboratory of New Generation Artificial Intelligence Technology and Its Interdisciplinary Applications of Ministry of Education<br/>
-                        School of Computer Science and Engineering<br/>
+                        Key Laboratory of New Generation Artificial Intelligence Technology and Its Interdisciplinary Applications of Ministry of Education, School of Computer Science and Engineering,<br/>
                         Southeast University<br />
                         Nanjing, China<br /><br />
                         Email: <font face="courier new, monospace">tong</font>&nbsp;[DOT] <font face="courier new, monospace">wang</font>&nbsp;[AT] <font face="courier new, monospace">mbzuai</font>&nbsp;[DOT] <font face="courier new, monospace">ac</font>&nbsp;[DOT] <font face="courier new, monospace">ae</font><br/>
@@ -281,8 +295,7 @@
                 </td>
             </tr>
         </table>
-
-        <hr>
+        
 
         <h2>Biography</h2>
         <div class="biography">
@@ -291,9 +304,7 @@
             <p>I am passionate about bridging the gap between computer vision and medical applications, with the goal of creating more effective tools for computer-aided diagnosis and treatment planning.</p>
         </div>
 
-        <hr>
-        
-        <a id="experiences" class="anchor"></a>
+
         <h2>👨‍💻 Experiences</h2>
         <div class="experience-item">
             <div class="experience-logo">
@@ -303,7 +314,7 @@
                 <p style="font-weight: bold; margin-bottom: 0.3rem;">Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)</p>
                 <p style="margin: 0.3rem 0;">Visiting Student | 2024 – Present</p>
                 <p style="margin: 0.3rem 0;">Mentor: <a href="https://sites.google.com/view/fahadkhans" target="_blank">Prof. Fahad Shahbaz Khan</a> and <a href="https://sites.google.com/site/liunian228/" target="_blank">Dr. Nian Liu</a></p>
-                <p style="margin: 0.3rem 0; color: #666;">Research focus: Computer Vision, Multimodal Models</p>
+                <p style="margin: 0.3rem 0; color: #000;">Research focus: Computer Vision, Multimodal Models</p>
             </div>
         </div>
 
@@ -315,12 +326,11 @@
                 <p style="font-weight: bold; margin-bottom: 0.3rem;">Southeast University</p>
                 <p style="margin: 0.3rem 0;">Ph.D Student | 2022 – Present</p>
                 <p style="margin: 0.3rem 0;">PhD Advisor: <a href="https://cs.seu.edu.cn/gyyang/main.htm" target="_blank">Prof. Guanyu Yang</a></p>
-                <p style="margin: 0.3rem 0; color: #666;">Research focus: Computer Vision, Medical Image Analysis</p>
+                <p style="margin: 0.3rem 0; color: #000;">Research focus: Computer Vision, Medical Image Analysis</p>
             </div>
         </div>
 
 
-        <a id="publications" class="anchor"></a>
         <h2>📝 Publications</h2>
 
         <h3>Preprint Papers</h3>
@@ -331,7 +341,7 @@
                         <div class="publication-title">Composed Object Retrieval: Object-level Retrieval via Composed Expressions</div>
                         <div class="publication-authors">Tong Wang, Guanyu Yang, Nian Liu, Zongyan Han, Jinxing Zhou, Salman Khan, Fahad Shahbaz Khan.</div>
                         <div class="publication-info">arXiv preprint arXiv:2505.16974</div>
-                        <div class="publication-links"><b>Preprint 2025</b> | <a href="https://arxiv.org/abs/2508.04424">Paper</a> | <a href="https://github.com/wangtong627/COR">Code</a></div>
+                        <div class="publication-links"><b>Preprint 2025</b> &nbsp;|&nbsp; <a href="https://arxiv.org/abs/2508.04424">Paper</a> &nbsp;|&nbsp; <a href="https://github.com/wangtong627/COR">Code</a></div>
                     </div>
                 </td>
             </tr>
@@ -341,7 +351,7 @@
                         <div class="publication-title">OpenSeg-R: Improving Open-Vocabulary Segmentation via Step-by-Step Visual Reasoning</div>
                         <div class="publication-authors">Zongyan Han, Jiale Cao, Shuo Chen, Tong Wang, Jorma Laaksonen, Rao Muhammad Anwer.</div>
                         <div class="publication-info">arXiv preprint arXiv:2505.16974</div>
-                        <div class="publication-links"><b>Preprint 2025</b> | <a href="https://arxiv.org/abs/2505.16974">Paper</a> | <a href="https://github.com/Hanzy1996/OpenSeg-R">Code</a></div>
+                        <div class="publication-links"><b>Preprint 2025</b> &nbsp;|&nbsp; <a href="https://arxiv.org/abs/2505.16974">Paper</a> &nbsp;|&nbsp; <a href="https://github.com/Hanzy1996/OpenSeg-R">Code</a></div>
                     </div>
                 </td>
             </tr>
@@ -351,7 +361,7 @@
                         <div class="publication-title">Think Before You Segment: An Object-aware Reasoning Agent for Referring Audio-Visual Segmentation</div>
                         <div class="publication-authors">Jinxing Zhou, Yanghao Zhou, Mingfei Han, Tong Wang, Xiaojun Chang, Hisham Cholakkal, Rao Muhammad Anwer.</div>
                         <div class="publication-info">arXiv preprint arXiv:2508.04418</div>
-                        <div class="publication-links"><b>Preprint 2025</b> | <a href="https://arxiv.org/abs/2508.04418">Paper</a> | <a href="https://github.com/jasongief/TGS-Agent">Code</a></div>
+                        <div class="publication-links"><b>Preprint 2025</b> &nbsp;|&nbsp; <a href="https://arxiv.org/abs/2508.04418">Paper</a> &nbsp;|&nbsp; <a href="https://github.com/jasongief/TGS-Agent">Code</a></div>
                     </div>
                 </td>
             </tr>
@@ -365,7 +375,7 @@
                         <div class="publication-title">Energy-induced Explicit quantification for Multi-modality MRI fusion.</div>
                         <div class="publication-authors">Xiaoming Qi, Yuan Zhang, Tong Wang, Guanyu Yang, Yueming Jin, Shuo Li.</div>
                         <div class="publication-info">European Conference on Computer Vision</div>
-                        <div class="publication-links"><b class="conf-name">ECCV 2024</b> | <a href="https://doi.org/10.1007/978-3-031-72667-5_25">Paper</a> | <a href="https://github.com/JerryQseu/EEPA">Code</a></div>
+                        <div class="publication-links"><b class="conf-name">ECCV 2024</b> &nbsp;|&nbsp; <a href="https://doi.org/10.1007/978-3-031-72667-5_25">Paper</a> &nbsp;|&nbsp; <a href="https://github.com/JerryQseu/EEPA">Code</a></div>
                     </div>
                 </td>
             </tr>
@@ -379,7 +389,7 @@
                         <div class="publication-title">Polyp segmentation via semantic enhanced perceptual network.</div>
                         <div class="publication-authors">Tong Wang, Xiaoming Qi, Guanyu Yang.</div>
                         <div class="publication-info">IEEE Transactions on Circuits and Systems for Video Technology</div>
-                        <div class="publication-links"><b class="conf-name">IEEE TCSVT 2024</b> | <a href="https://ieeexplore.ieee.org/document/10608167">Paper</a> | <a href="https://github.com/wangtong627/SEPNet">Code</a></div>
+                        <div class="publication-links"><b class="conf-name">IEEE TCSVT 2024</b> &nbsp;|&nbsp; <a href="https://ieeexplore.ieee.org/document/10608167">Paper</a> &nbsp;|&nbsp; <a href="https://github.com/wangtong627/SEPNet">Code</a></div>
                     </div>
                 </td>
             </tr>
@@ -389,7 +399,7 @@
                         <div class="publication-title">Neighborhood contrastive representation learning for attributed graph clustering.</div>
                         <div class="publication-authors">Tong Wang, Junhua Wu, Yaolei Qi, Xiaoming Qi, Juwei Guan, Yuan Zhang, Guanyu Yang.</div>
                         <div class="publication-info">Neurocomputing</div>
-                        <div class="publication-links"><b class="conf-name">NeuroCom 2023</b> | <a href="https://doi.org/10.1016/j.neucom.2023.126880">Paper</a> | <a href="https://github.com/wangtong627/NCAGC-NeuroCom">Code</a></div>
+                        <div class="publication-links"><b class="conf-name">NeuroCom 2023</b> &nbsp;|&nbsp; <a href="https://doi.org/10.1016/j.neucom.2023.126880">Paper</a> &nbsp;|&nbsp; <a href="https://github.com/wangtong627/NCAGC-NeuroCom">Code</a></div>
                     </div>
                 </td>
             </tr>
@@ -399,14 +409,13 @@
                         <div class="publication-title">Multi-scale graph attention subspace clustering network.</div>
                         <div class="publication-authors">Tong Wang, Junhua Wu, Zhenquan Zhang, Wen Zhou, Guang Chen, Shasha Liu.</div>
                         <div class="publication-info">Neurocomputing</div>
-                        <div class="publication-links"><b class="conf-name">NeuroCom 2021</b> | <a href="https://doi.org/10.1016/j.neucom.2021.06.058">Paper</a> | <a href="https://github.com/wangtong627/MSGA-NeuroCom">Code</a></div>
+                        <div class="publication-links"><b class="conf-name">NeuroCom 2021</b> &nbsp;|&nbsp; <a href="https://doi.org/10.1016/j.neucom.2021.06.058">Paper</a> &nbsp;|&nbsp; <a href="https://github.com/wangtong627/MSGA-NeuroCom">Code</a></div>
                     </div>
                 </td>
             </tr>
         </table>
 
 
-        <a id="awards" class="anchor"></a>
         <h2>🏅 Awards and Honors</h2>
         <ul>
             <li>2024, Outstanding Postgraduate, Southeast University.</li>
@@ -421,17 +430,16 @@
         </ul>
 
 
-        <a id="services" class="anchor"></a>
         <h2>👻 Services</h2>
         <h3>Journal Reviewer</h3>
         <ul>
-            <li><span class="conf-name">IEEE Transactions on Circuits and Systems for Video Technology (IEEE TCSVT)</span></li>
-            <li><span class="conf-name">Neurocomputing</span></li>
+            <li><span>IEEE Transactions on Circuits and Systems for Video Technology (IEEE TCSVT)</span></li>
+            <li><span>Neurocomputing</span></li>
         </ul>
 
         <h3>Conference Reviewer</h3>
         <ul>
-            <li><span class="conf-name">AAAI 2026</span></li>
+            <li><span>AAAI 2026</span></li>
         </ul>
 
 
