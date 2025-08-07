@@ -60,7 +60,7 @@
             font-size: 1.8rem;
             margin-bottom: 1rem;
         }
-        
+
         .anchor {
             padding-top: 60px; /* Offset for fixed menu */
             margin-top: -60px;
@@ -88,7 +88,7 @@
             text-align: right;
             padding-left: 20px;
         }
-        
+
         .photo-column img {
             height: 200px;
             width: auto;
@@ -98,7 +98,7 @@
         .info-column p {
             margin: 5px 0;
         }
-        
+
         .info-column .email-link {
             display: inline-block;
             margin-top: 5px;
@@ -110,7 +110,7 @@
             text-decoration: none;
             color: #9b2d20;
         }
-        
+
         .social-links a:hover {
             color: #b23c2b;
             text-decoration: underline;
@@ -132,7 +132,7 @@
             color: #000;
             font-weight: bold;
         }
-        
+
         /* Experiences section alignment */
         .experience-item {
             display: flex;
@@ -140,7 +140,7 @@
             margin-bottom: 1rem;
             padding-bottom: 1rem;
         }
-        
+
         /* Adjusted logo container width to 25% */
         .experience-logo {
             flex-shrink: 0;
@@ -157,13 +157,13 @@
             max-width: 100%;
             object-fit: contain;
         }
-        
+
         /* Experiences text right shift */
         .experience-details {
             flex: 1;
             padding-left: 10px; /* Slight right shift */
         }
-        
+
         .experience-details p {
             margin: 0.3rem 0;
             color: #000; /* Set to black */
@@ -179,57 +179,65 @@
             text-align: justify;
             text-justify: inter-word;
         }
-        
+
         /* Publications section styles */
         .pub-table {
             border-collapse: collapse;
             width: 100%;
             background-color: #F0F0F0;
         }
-        
+
         .pub-table td {
-            padding: 1rem;
+            padding: 0.7rem 1rem; /* Adjusted padding */
         }
-        
+
         .pub-table tr:not(:last-child) td {
             border-bottom: 1px solid #ddd;
         }
-        
+
         .publication-item {
-            margin: 0;
+            margin: 0; /* Removed margin */
         }
-        
+
         .publication-title {
             font-weight: bold;
             font-size: 0.95rem;
-            margin-bottom: 0.1rem;
+            margin-bottom: 0.05rem; /* Adjusted margin */
         }
-        
+
         .publication-authors {
-            margin-bottom: 0.1rem;
-            color: #000;
+            margin-bottom: 0.05rem; /* Adjusted margin */
+/*            color: #000;*/
             font-size: 0.85rem;
         }
-        
+
         .publication-info {
-            color: #000; /* Changed to black */
+/*            color: #000; */
             font-size: 0.85rem;
-            margin-bottom: 0.1rem;
+            margin-bottom: 0.05rem; /* Adjusted margin */
         }
-        
+
         .publication-info .conf-name {
             font-weight: bold;
             color: #000;
         }
-        
+
         .publication-links {
             color: #333;
             font-size: 0.85rem;
-            margin-top: 0.2rem;
+            margin-top: 0.1rem; /* Adjusted margin */
+        }
+
+        .publication-links a {
+            padding: 0 0.3rem; /* Added padding for link separation */
+            margin-right: 0; /* Reset margin */
         }
         
-        .publication-links a {
-            margin-right: 0.8rem;
+        .publication-links a:not(:last-child)::after {
+            content: "|";
+            padding-left: 0.6rem;
+            padding-right: 0.3rem;
+            color: #666;
         }
 
         /* Footer styles */
@@ -239,16 +247,22 @@
             color: #999;
             margin-top: 3rem;
         }
-        
-        /* Adjustments for no horizontal lines */
+
+        /* Adjustments for horizontal lines */
         hr {
-            display: none;
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 2rem 0 1rem 0; /* Adjusted margin to create space around h2 */
         }
-        
+
+        hr:first-of-type {
+            display: none; /* Hide the first hr before Biography */
+        }
+
         .experience-item {
             border-bottom: none;
         }
-        
+
         .experience-item + .experience-item {
             border-top: none;
         }
@@ -279,7 +293,8 @@
                         Key Laboratory of New Generation Artificial Intelligence Technology and Its Interdisciplinary Applications of Ministry of Education, School of Computer Science and Engineering,<br/>
                         Southeast University<br />
                         Nanjing, China<br /><br />
-                        Email: <font face="courier new, monospace">tong</font>&nbsp;[DOT] <font face="courier new, monospace">wang</font>&nbsp;[AT] <font face="courier new, monospace">mbzuai</font>&nbsp;[DOT] <font face="courier new, monospace">ac</font>&nbsp;[DOT] <font face="courier new, monospace">ae</font><br/>
+                        Email: <font face="courier new, monospace">tong</font>&nbsp;
+                        [[email protected]](mailto:[email protected])<br/>
                         <br />
                         <span class="social-links">
                             <a href="https://scholar.google.com/citations?user=x7FY8P8AAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i>&nbsp;Google Scholar</a>
@@ -295,16 +310,16 @@
                 </td>
             </tr>
         </table>
-        
 
-        <h2>Biography</h2>
+        <hr>
+        <h2>🎈 Biography</h2>
         <div class="biography">
             <p>I am currently a Ph.D student at the Key Laboratory of New Generation Artificial Intelligence Technology and Its Interdisciplinary Applications of Ministry of Education, School of Computer Science and Engineering, Southeast University, advised by <a href="https://cs.seu.edu.cn/gyyang/main.htm" target="_blank">Prof. Guanyu Yang</a>. I am also a visiting Ph.D student at Mohamed bin Zayed University of Artificial Intelligence (MBZUAI), working with <a href="https://sites.google.com/view/fahadkhans" target="_blank">Prof. Fahad Shahbaz Khan</a> and <a href="https://sites.google.com/site/liunian228/" target="_blank">Dr. Nian Liu</a>.</p>
             <p>My research interests include Computer Vision, Medical Image Analysis, and Multimodal Models. I focus on developing novel methodologies to improve the efficiency and accuracy of medical image analysis using deep learning techniques.</p>
             <p>I am passionate about bridging the gap between computer vision and medical applications, with the goal of creating more effective tools for computer-aided diagnosis and treatment planning.</p>
         </div>
 
-
+        <hr>
         <h2>👨‍💻 Experiences</h2>
         <div class="experience-item">
             <div class="experience-logo">
@@ -330,7 +345,7 @@
             </div>
         </div>
 
-
+        <hr>
         <h2>📝 Publications</h2>
 
         <h3>Preprint Papers</h3>
@@ -341,7 +356,7 @@
                         <div class="publication-title">Composed Object Retrieval: Object-level Retrieval via Composed Expressions</div>
                         <div class="publication-authors">Tong Wang, Guanyu Yang, Nian Liu, Zongyan Han, Jinxing Zhou, Salman Khan, Fahad Shahbaz Khan.</div>
                         <div class="publication-info">arXiv preprint arXiv:2505.16974</div>
-                        <div class="publication-links"><b>Preprint 2025</b> &nbsp;|&nbsp; <a href="https://arxiv.org/abs/2508.04424">Paper</a> &nbsp;|&nbsp; <a href="https://github.com/wangtong627/COR">Code</a></div>
+                        <div class="publication-links"><b>Preprint 2025</b> <a href="https://arxiv.org/abs/2508.04424">Paper</a> <a href="https://github.com/wangtong627/COR">Code</a></div>
                     </div>
                 </td>
             </tr>
@@ -351,7 +366,7 @@
                         <div class="publication-title">OpenSeg-R: Improving Open-Vocabulary Segmentation via Step-by-Step Visual Reasoning</div>
                         <div class="publication-authors">Zongyan Han, Jiale Cao, Shuo Chen, Tong Wang, Jorma Laaksonen, Rao Muhammad Anwer.</div>
                         <div class="publication-info">arXiv preprint arXiv:2505.16974</div>
-                        <div class="publication-links"><b>Preprint 2025</b> &nbsp;|&nbsp; <a href="https://arxiv.org/abs/2505.16974">Paper</a> &nbsp;|&nbsp; <a href="https://github.com/Hanzy1996/OpenSeg-R">Code</a></div>
+                        <div class="publication-links"><b>Preprint 2025</b> <a href="https://arxiv.org/abs/2505.16974">Paper</a> <a href="https://github.com/Hanzy1996/OpenSeg-R">Code</a></div>
                     </div>
                 </td>
             </tr>
@@ -361,7 +376,7 @@
                         <div class="publication-title">Think Before You Segment: An Object-aware Reasoning Agent for Referring Audio-Visual Segmentation</div>
                         <div class="publication-authors">Jinxing Zhou, Yanghao Zhou, Mingfei Han, Tong Wang, Xiaojun Chang, Hisham Cholakkal, Rao Muhammad Anwer.</div>
                         <div class="publication-info">arXiv preprint arXiv:2508.04418</div>
-                        <div class="publication-links"><b>Preprint 2025</b> &nbsp;|&nbsp; <a href="https://arxiv.org/abs/2508.04418">Paper</a> &nbsp;|&nbsp; <a href="https://github.com/jasongief/TGS-Agent">Code</a></div>
+                        <div class="publication-links"><b>Preprint 2025</b> <a href="https://arxiv.org/abs/2508.04418">Paper</a> <a href="https://github.com/jasongief/TGS-Agent">Code</a></div>
                     </div>
                 </td>
             </tr>
@@ -375,7 +390,7 @@
                         <div class="publication-title">Energy-induced Explicit quantification for Multi-modality MRI fusion.</div>
                         <div class="publication-authors">Xiaoming Qi, Yuan Zhang, Tong Wang, Guanyu Yang, Yueming Jin, Shuo Li.</div>
                         <div class="publication-info">European Conference on Computer Vision</div>
-                        <div class="publication-links"><b class="conf-name">ECCV 2024</b> &nbsp;|&nbsp; <a href="https://doi.org/10.1007/978-3-031-72667-5_25">Paper</a> &nbsp;|&nbsp; <a href="https://github.com/JerryQseu/EEPA">Code</a></div>
+                        <div class="publication-links"><b class="conf-name">ECCV 2024</b> <a href="https://doi.org/10.1007/978-3-031-72667-5_25">Paper</a> <a href="https://github.com/JerryQseu/EEPA">Code</a></div>
                     </div>
                 </td>
             </tr>
@@ -389,7 +404,7 @@
                         <div class="publication-title">Polyp segmentation via semantic enhanced perceptual network.</div>
                         <div class="publication-authors">Tong Wang, Xiaoming Qi, Guanyu Yang.</div>
                         <div class="publication-info">IEEE Transactions on Circuits and Systems for Video Technology</div>
-                        <div class="publication-links"><b class="conf-name">IEEE TCSVT 2024</b> &nbsp;|&nbsp; <a href="https://ieeexplore.ieee.org/document/10608167">Paper</a> &nbsp;|&nbsp; <a href="https://github.com/wangtong627/SEPNet">Code</a></div>
+                        <div class="publication-links"><b class="conf-name">IEEE TCSVT 2024</b> <a href="https://ieeexplore.ieee.org/document/10608167">Paper</a> <a href="https://github.com/wangtong627/SEPNet">Code</a></div>
                     </div>
                 </td>
             </tr>
@@ -399,7 +414,7 @@
                         <div class="publication-title">Neighborhood contrastive representation learning for attributed graph clustering.</div>
                         <div class="publication-authors">Tong Wang, Junhua Wu, Yaolei Qi, Xiaoming Qi, Juwei Guan, Yuan Zhang, Guanyu Yang.</div>
                         <div class="publication-info">Neurocomputing</div>
-                        <div class="publication-links"><b class="conf-name">NeuroCom 2023</b> &nbsp;|&nbsp; <a href="https://doi.org/10.1016/j.neucom.2023.126880">Paper</a> &nbsp;|&nbsp; <a href="https://github.com/wangtong627/NCAGC-NeuroCom">Code</a></div>
+                        <div class="publication-links"><b class="conf-name">NeuroCom 2023</b> <a href="https://doi.org/10.1016/j.neucom.2023.126880">Paper</a> <a href="https://github.com/wangtong627/NCAGC-NeuroCom">Code</a></div>
                     </div>
                 </td>
             </tr>
@@ -409,13 +424,13 @@
                         <div class="publication-title">Multi-scale graph attention subspace clustering network.</div>
                         <div class="publication-authors">Tong Wang, Junhua Wu, Zhenquan Zhang, Wen Zhou, Guang Chen, Shasha Liu.</div>
                         <div class="publication-info">Neurocomputing</div>
-                        <div class="publication-links"><b class="conf-name">NeuroCom 2021</b> &nbsp;|&nbsp; <a href="https://doi.org/10.1016/j.neucom.2021.06.058">Paper</a> &nbsp;|&nbsp; <a href="https://github.com/wangtong627/MSGA-NeuroCom">Code</a></div>
+                        <div class="publication-links"><b class="conf-name">NeuroCom 2021</b> <a href="https://doi.org/10.1016/j.neucom.2021.06.058">Paper</a> <a href="https://github.com/wangtong627/MSGA-NeuroCom">Code</a></div>
                     </div>
                 </td>
             </tr>
         </table>
 
-
+        <hr>
         <h2>🏅 Awards and Honors</h2>
         <ul>
             <li>2024, Outstanding Postgraduate, Southeast University.</li>
@@ -429,7 +444,7 @@
             <li>2016, Second Prize, National College students Mathematical Contest in Modeling.</li>
         </ul>
 
-
+        <hr>
         <h2>👻 Services</h2>
         <h3>Journal Reviewer</h3>
         <ul>
@@ -442,7 +457,7 @@
             <li><span>AAAI 2026</span></li>
         </ul>
 
-
+        <hr>
         <div id="footer">
             <div id="footer-text">
                 All
