@@ -52,6 +52,36 @@
             border-top: 1px solid #ccc;
             margin: 20px 0;
         }
+        /* Experiences 图标对齐 */
+        .experience-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        .experience-logo {
+            flex-shrink: 0;
+            width: 150px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .experience-logo img {
+            max-height: 80%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+        .experience-details {
+            flex: 1;
+        }
+        /* Biography 两端对齐 */
+        .biography {
+            text-align: justify;
+            text-justify: inter-word;
+        }
     </style>
 </head>
     
@@ -98,37 +128,39 @@
 <hr>
 
 <h2>Biography</h2>
-    <p>I am currently a Ph.D student at the Key Laboratory of New Generation Artificial Intelligence Technology and Its Interdisciplinary Applications, Southeast University, advised by <a href="https://scholar.google.com/citations?user=xxxxxx" target="_blank">Prof. Guanyu Yang</a>. I am also a visiting Ph.D student at Mohamed bin Zayed University of Artificial Intelligence (MBZUAI), working with <a href="https://mbzuai.ac.ae/study/faculty/fahad-shahbaz-khan/" target="_blank">Prof. Fahad Shahbaz Khan</a> and <a href="https://scholar.google.com/citations?user=5Yj-6dAAAAAJ&hl=en" target="_blank">Dr. Nian Liu</a>.</p>
-    <p>My research interests include Computer Vision, Medical Image Analysis, and Multimodal Models. I focus on developing novel methodologies to improve the efficiency and accuracy of medical image analysis using deep learning techniques.</p>
-    <p>I am passionate about bridging the gap between computer vision and medical applications, with the goal of creating more effective tools for computer-aided diagnosis and treatment planning.</p>
+    <div class="biography">
+        <p>I am currently a Ph.D student at the Key Laboratory of New Generation Artificial Intelligence Technology and Its Interdisciplinary Applications, Southeast University, advised by <a href="https://cs.seu.edu.cn/gyyang/main.htm" target="_blank">Prof. Guanyu Yang</a>. I am also a visiting Ph.D student at Mohamed bin Zayed University of Artificial Intelligence (MBZUAI), working with <a href="https://sites.google.com/view/fahadkhans" target="_blank">Prof. Fahad Shahbaz Khan</a> and <a href="https://sites.google.com/site/liunian228/" target="_blank">Dr. Nian Liu</a>.</p>
+        <p>My research interests include Computer Vision, Medical Image Analysis, and Multimodal Models. I focus on developing novel methodologies to improve the efficiency and accuracy of medical image analysis using deep learning techniques.</p>
+        <p>I am passionate about bridging the gap between computer vision and medical applications, with the goal of creating more effective tools for computer-aided diagnosis and treatment planning.</p>
+    </div>
 
 
 <!-- Experiences Section -->
 <a id="experiences" class="anchor"></a>
 <h2>👨‍💻 Experiences</h2>
 <!-- MBZUAI Experience -->
-<div style="display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #eee;">
-    <div class="logo-container" style="flex-shrink: 0; height: 100px; display: flex; justify-content: center; align-items: center;">
-        <img src="./files/mbzuai_logo.png" alt="MBZUAI Logo" style="height: 80%; width: auto; object-fit: contain;" />
+<div class="experience-item">
+    <div class="experience-logo">
+        <img src="./files/mbzuai_logo.png" alt="MBZUAI Logo" />
     </div>
-    <div>
+    <div class="experience-details">
         <p style="font-weight: bold; margin-bottom: 0.3rem;">Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)</p>
         <p style="margin: 0.3rem 0;">Visiting Student | 2024 – Present</p>
-        <p style="margin: 0.3rem 0;">Mentor: <a href="https://mbzuai.ac.ae/study/faculty/fahad-shahbaz-khan/" target="_blank">Prof. Fahad Shahbaz Khan</a> and <a href="https://scholar.google.com/citations?user=5Yj-6dAAAAAJ&hl=en" target="_blank">Dr. Nian Liu</a></p>
-        <p style="margin: 0.3rem 0; color: #666;">Research focus: Computer Vision, Multimodal Models</p>
+        <p style="margin: 0.3rem 0;">Mentor: <a href="https://sites.google.com/view/fahadkhans" target="_blank">Prof. Fahad Shahbaz Khan</a> and <a href="https://sites.google.com/site/liunian228/" target="_blank">Dr. Nian Liu</a></p>
+        <!-- <p style="margin: 0.3rem 0; color: #666;">Research focus: Computer Vision, Multimodal Models</p> -->
     </div>
 </div>
 
 <!-- Southeast University Experience -->
-<div style="display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 2rem;">
-    <div class="logo-container" style="flex-shrink: 0; height: 100px; display: flex; justify-content: center; align-items: center;">
-        <img src="./files/seu_logo.png" alt="Southeast University Logo" style="height: 80%; width: auto; object-fit: contain;" />
+<div class="experience-item">
+    <div class="experience-logo">
+        <img src="./files/seu_logo.png" alt="Southeast University Logo" />
     </div>
-    <div>
+    <div class="experience-details">
         <p style="font-weight: bold; margin-bottom: 0.3rem;">Southeast University</p>
         <p style="margin: 0.3rem 0;">Ph.D Student | 2022 – Present</p>
-        <p style="margin: 0.3rem 0;">PhD Advisor: <a href="https://scholar.google.com/citations?user=xxxxxx" target="_blank">Prof. Guanyu Yang</a></p>
-        <p style="margin: 0.3rem 0; color: #666;">Research focus: Computer Vision, Medical Image Analysis</p>
+        <p style="margin: 0.3rem 0;">PhD Advisor: <a href="https://cs.seu.edu.cn/gyyang/main.htm" target="_blank">Prof. Guanyu Yang</a></p>
+        <!-- <p style="margin: 0.3rem 0; color: #666;">Research focus: Computer Vision, Medical Image Analysis</p> -->
     </div>
 </div>
 
@@ -266,10 +298,3 @@
     <div id="footer-text">
         All Rights Reserved. Part of page is generated by <a href="http://jemdoc.jaboc.net/">jemdoc</a>.
     </div>
-</div>
-
-</div>
-</div>
-
-</body>
-</html>
