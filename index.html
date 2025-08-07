@@ -95,6 +95,13 @@
         /* Social links spacing */
         .social-links a {
             margin-right: 1.5rem;
+            text-decoration: none;
+            color: #9b2d20;
+        }
+        
+        .social-links a:hover {
+            color: #b23c2b;
+            text-decoration: underline;
         }
 
         /* Link colors from the new template */
@@ -117,8 +124,8 @@
         /* Separator line style */
         hr {
             border: none;
-            border-top: 1px solid #ccc;
-            margin: 20px 0;
+            border-top: 1px solid #eee;
+            margin: 1rem 0;
         }
 
         /* Experiences section alignment */
@@ -158,35 +165,49 @@
         }
         
         /* Publications section styles */
-        .pub_title {
-            font-weight: bold;
-            font-size: 1.1rem; /* Larger font size for title */
-            color: #2b2d42;
-            margin-bottom: 0.3rem;
-        }
-
-        .pub_author {
-            color: #666;
-            font-style: normal; /* Removed italic */
-            margin-bottom: 0.3rem;
-            font-size: 0.9rem; /* Smaller font size for authors/info */
+        .publication-item {
+            margin-bottom: 1.5rem;
         }
         
-        .pub_info {
-            font-size: 0.9rem; /* Smaller font size for info */
+        .publication-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
         }
-
-        .imgtable {
+        
+        .publication-authors {
+            margin-bottom: 0.3rem;
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .publication-info {
+            color: #333;
+            font-size: 0.9rem;
+        }
+        
+        .publication-info .conf-name {
+            font-weight: bold;
+            color: #000;
+        }
+        
+        .publication-info a {
+            margin-left: 0.5rem;
+        }
+        
+        /* Table styles for Publications, with gray background */
+        .pub-table {
             border-collapse: collapse;
             width: 100%;
+            background-color: #F0F0F0;
         }
-
-        .imgtable td {
-            padding: 10px 0;
+        
+        .pub-table td {
+            padding: 1rem;
         }
-
-        .imgtable tr:not(:last-child) td {
-            border-bottom: 1px solid #eee;
+        
+        .pub-table tr:not(:last-child) td {
+            border-bottom: 1px solid #ddd;
         }
 
         /* Footer styles */
@@ -278,97 +299,79 @@
 
 
         <a id="publications" class="anchor"></a>
-
         <h2>📝 Publications</h2>
+
         <h3>Preprint Papers</h3>
-        <table class="imgtable" width="100%" bgcolor="#F0F0F0">
+        <table class="pub-table">
             <tr>
                 <td>
-                    <p class="pub_title">Composed Object Retrieval: Object-level Retrieval via Composed Expressions</p>
-                    <p class="pub_author"><u><b>Tong Wang</b></u>, Guanyu Yang, Nian Liu, Zongyan Han, Jinxing Zhou, Salman Khan, Fahad Shahbaz Khan.<br>
-                    <span class="pub_info">arXiv preprint arXiv:2505.16974<br>
-                    <b>&nbsp;Preprint 2025&nbsp;</b>
-                    |<a href="https://arxiv.org/abs/2508.04424">&nbsp;Paper&nbsp;</a>
-                    |<a href="https://github.com/wangtong627/COR">&nbsp;Code&nbsp;</a></span>
-                    </p>
+                    <div class="publication-item">
+                        <div class="publication-title">Composed Object Retrieval: Object-level Retrieval via Composed Expressions</div>
+                        <div class="publication-authors"><u><b>Tong Wang</b></u>, Guanyu Yang, Nian Liu, Zongyan Han, Jinxing Zhou, Salman Khan, Fahad Shahbaz Khan.</div>
+                        <div class="publication-info">| Preprint 2025 | arXiv preprint arXiv:2505.16974 | <a href="https://arxiv.org/abs/2508.04424">Paper</a> | <a href="https://github.com/wangtong627/COR">Code</a> |</div>
+                    </div>
                 </td>
             </tr>
-
             <tr>
                 <td>
-                    <p class="pub_title">OpenSeg-R: Improving Open-Vocabulary Segmentation via Step-by-Step Visual Reasoning</p>
-                    <p class="pub_author">Zongyan Han, Jiale Cao, Shuo Chen, <u><b>Tong Wang</b></u>, Jorma Laaksonen, Rao Muhammad Anwer.<br>
-                    <span class="pub_info">arXiv preprint arXiv:2505.16974<br>
-                    <b>&nbsp;Preprint 2025&nbsp;</b>
-                    |<a href="https://arxiv.org/abs/2505.16974">&nbsp;Paper&nbsp;</a>
-                    |<a href="https://github.com/Hanzy1996/OpenSeg-R">&nbsp;Code&nbsp;</a></span>
-                    </p>
+                    <div class="publication-item">
+                        <div class="publication-title">OpenSeg-R: Improving Open-Vocabulary Segmentation via Step-by-Step Visual Reasoning</div>
+                        <div class="publication-authors">Zongyan Han, Jiale Cao, Shuo Chen, <u><b>Tong Wang</b></u>, Jorma Laaksonen, Rao Muhammad Anwer.</div>
+                        <div class="publication-info">| Preprint 2025 | arXiv preprint arXiv:2505.16974 | <a href="https://arxiv.org/abs/2505.16974">Paper</a> | <a href="https://github.com/Hanzy1996/OpenSeg-R">Code</a> |</div>
+                    </div>
                 </td>
             </tr>
-
             <tr>
                 <td>
-                    <p class="pub_title">Think Before You Segment: An Object-aware Reasoning Agent for Referring Audio-Visual Segmentation</p>
-                    <p class="pub_author">Jinxing Zhou, Yanghao Zhou, Mingfei Han, <u><b>Tong Wang</b></u>, Xiaojun Chang, Hisham Cholakkal, Rao Muhammad Anwer.<br>
-                    <span class="pub_info">arXiv preprint arXiv:2508.04418<br>
-                    <b>&nbsp;Preprint 2025&nbsp;</b>
-                    |<a href="https://arxiv.org/abs/2508.04418">&nbsp;Paper&nbsp;</a>
-                    |<a href="https://github.com/jasongief/TGS-Agent">&nbsp;Code&nbsp;</a></span>
-                    </p>
+                    <div class="publication-item">
+                        <div class="publication-title">Think Before You Segment: An Object-aware Reasoning Agent for Referring Audio-Visual Segmentation</div>
+                        <div class="publication-authors">Jinxing Zhou, Yanghao Zhou, Mingfei Han, <u><b>Tong Wang</b></u>, Xiaojun Chang, Hisham Cholakkal, Rao Muhammad Anwer.</div>
+                        <div class="publication-info">| Preprint 2025 | arXiv preprint arXiv:2508.04418 | <a href="https://arxiv.org/abs/2508.04418">Paper</a> | <a href="https://github.com/jasongief/TGS-Agent">Code</a> |</div>
+                    </div>
                 </td>
             </tr>
         </table>
 
         <h3>Conference Papers</h3>
-        <table class="imgtable" width="100%" bgcolor="#F0F0F0">
+        <table class="pub-table">
             <tr>
                 <td>
-                    <p class="pub_title">Energy-induced Explicit quantification for Multi-modality MRI fusion.</p>
-                    <p class="pub_author">Xiaoming Qi, Yuan Zhang, <u><b>Tong Wang</b></u>, Guanyu Yang, Yueming Jin, Shuo Li.<br>
-                    <span class="pub_info">European Conference on Computer Vision<br>
-                    <font class="conf-name"><b>&nbsp;ECCV 2024&nbsp;</b></font>
-                    |<a href="https://doi.org/10.1007/978-3-031-72667-5_25">&nbsp;Paper&nbsp;</a>
-                    |<a href="https://github.com/JerryQseu/EEPA">&nbsp;Code&nbsp;</a></span>
-                    </p>
+                    <div class="publication-item">
+                        <div class="publication-title">Energy-induced Explicit quantification for Multi-modality MRI fusion.</div>
+                        <div class="publication-authors">Xiaoming Qi, Yuan Zhang, <u><b>Tong Wang</b></u>, Guanyu Yang, Yueming Jin, Shuo Li.</div>
+                        <div class="publication-info">| <b class="conf-name">ECCV 2024</b> | European Conference on Computer Vision | <a href="https://doi.org/10.1007/978-3-031-72667-5_25">Paper</a> | <a href="https://github.com/JerryQseu/EEPA">Code</a> |</div>
+                    </div>
                 </td>
             </tr>
         </table>
 
         <h3>Journal Papers</h3>
-        <table class="imgtable" width="100%" bgcolor="#F0F0F0">
+        <table class="pub-table">
             <tr>
                 <td>
-                    <p class="pub_title">Polyp segmentation via semantic enhanced perceptual network.</p>
-                    <p class="pub_author"><u><b>Tong Wang</b></u>, Xiaoming Qi, Guanyu Yang.<br>
-                    <span class="pub_info">IEEE Transactions on Circuits and Systems for Video Technology<br>
-                    <font class="conf-name"><b>&nbsp;IEEE TCSVT 2024&nbsp;</b></font>
-                    |<a href="https://ieeexplore.ieee.org/document/10608167">&nbsp;Paper&nbsp;</a>
-                    |<a href="https://github.com/wangtong627/SEPNet">&nbsp;Code&nbsp;</a></span>
-                    </p>
+                    <div class="publication-item">
+                        <div class="publication-title">Polyp segmentation via semantic enhanced perceptual network.</div>
+                        <div class="publication-authors"><u><b>Tong Wang</b></u>, Xiaoming Qi, Guanyu Yang.</div>
+                        <div class="publication-info">| <b class="conf-name">IEEE TCSVT 2024</b> | IEEE Transactions on Circuits and Systems for Video Technology | <a href="https://ieeexplore.ieee.org/document/10608167">Paper</a> | <a href="https://github.com/wangtong627/SEPNet">Code</a> |</div>
+                    </div>
                 </td>
             </tr>
-
             <tr>
                 <td>
-                    <p class="pub_title">Neighborhood contrastive representation learning for attributed graph clustering.</p>
-                    <p class="pub_author"><u><b>Tong Wang</b></u>, Junhua Wu, Yaolei Qi, Xiaoming Qi, Juwei Guan, Yuan Zhang, Guanyu Yang.<br>
-                    <span class="pub_info">Neurocomputing<br>
-                    <font class="conf-name"><b>&nbsp;NeuroCom 2023&nbsp;</b></font>
-                    |<a href="https://doi.org/10.1016/j.neucom.2023.126880">&nbsp;Paper&nbsp;</a>
-                    |<a href="https://github.com/wangtong627/NCAGC-NeuroCom">&nbsp;Code&nbsp;</a></span>
-                    </p>
+                    <div class="publication-item">
+                        <div class="publication-title">Neighborhood contrastive representation learning for attributed graph clustering.</div>
+                        <div class="publication-authors"><u><b>Tong Wang</b></u>, Junhua Wu, Yaolei Qi, Xiaoming Qi, Juwei Guan, Yuan Zhang, Guanyu Yang.</div>
+                        <div class="publication-info">| <b class="conf-name">NeuroCom 2023</b> | Neurocomputing | <a href="https://doi.org/10.1016/j.neucom.2023.126880">Paper</a> | <a href="https://github.com/wangtong627/NCAGC-NeuroCom">Code</a> |</div>
+                    </div>
                 </td>
             </tr>
-
             <tr>
                 <td>
-                    <p class="pub_title">Multi-scale graph attention subspace clustering network.</p>
-                    <p class="pub_author"><u><b>Tong Wang</b></u>, Junhua Wu, Zhenquan Zhang, Wen Zhou, Guang Chen, Shasha Liu.<br>
-                    <span class="pub_info">Neurocomputing<br>
-                    <font class="conf-name"><b>&nbsp;NeuroCom 2021&nbsp;</b></font>
-                    |<a href="https://doi.org/10.1016/j.neucom.2021.06.058">&nbsp;Paper&nbsp;</a>
-                    |<a href="https://github.com/wangtong627/MSGA-NeuroCom">&nbsp;Code&nbsp;</a></span>
-                    </p>
+                    <div class="publication-item">
+                        <div class="publication-title">Multi-scale graph attention subspace clustering network.</div>
+                        <div class="publication-authors"><u><b>Tong Wang</b></u>, Junhua Wu, Zhenquan Zhang, Wen Zhou, Guang Chen, Shasha Liu.</div>
+                        <div class="publication-info">| <b class="conf-name">NeuroCom 2021</b> | Neurocomputing | <a href="https://doi.org/10.1016/j.neucom.2021.06.058">Paper</a> | <a href="https://github.com/wangtong627/MSGA-NeuroCom">Code</a> |</div>
+                    </div>
                 </td>
             </tr>
         </table>
