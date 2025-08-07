@@ -1,8 +1,3 @@
-To remove the black border around the personal information table and change the font to "Inter," I have modified the provided HTML and CSS. I've also integrated the new CSS directly into the `<head>` section of the HTML to make it a single, self-contained file.
-
-Here's the modified code:
-
-```html
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
@@ -84,17 +79,22 @@ Here's the modified code:
 
         .info-column {
             width: 70%;
-            text-align: left; /* Changed alignment to left for a cleaner look */
+            text-align: left;
             padding-right: 20px;
         }
 
         .photo-column {
             width: 30%;
-            text-align: right; /* Changed alignment to right to align photo */
+            text-align: right;
         }
 
         .info-column p {
             margin: 5px 0;
+        }
+
+        /* Social links spacing */
+        .social-links a {
+            margin-right: 1.5rem;
         }
 
         /* Link colors from the new template */
@@ -129,10 +129,11 @@ Here's the modified code:
             padding-bottom: 1rem;
             border-bottom: 1px solid #eee;
         }
-
+        
+        /* Adjusted logo container width to 25% */
         .experience-logo {
             flex-shrink: 0;
-            width: 150px;
+            width: 25%;
             height: 100px;
             display: flex;
             justify-content: center;
@@ -156,18 +157,23 @@ Here's the modified code:
             text-justify: inter-word;
         }
         
-        /* Publications section styles from the new template */
+        /* Publications section styles */
         .pub_title {
             font-weight: bold;
-            font-size: 0.95rem;
+            font-size: 1.1rem; /* Larger font size for title */
             color: #2b2d42;
             margin-bottom: 0.3rem;
         }
 
         .pub_author {
             color: #666;
-            font-style: italic;
+            font-style: normal; /* Removed italic */
             margin-bottom: 0.3rem;
+            font-size: 0.9rem; /* Smaller font size for authors/info */
+        }
+        
+        .pub_info {
+            font-size: 0.9rem; /* Smaller font size for info */
         }
 
         .imgtable {
@@ -217,13 +223,15 @@ Here's the modified code:
                         Key Laboratory of New Generation Artificial Intelligence Technology and Its Interdisciplinary Applications<br />
                         Southeast University<br />
                         Nanjing, China<br /><br />
-                        Email: <font face="courier new, monospace">tongwangnj</font>&nbsp;[AT] <font face="courier new, monospace">seu.edu.cn</font><br />
+                        Email: <font face="courier new, monospace"><i>tong.wang</i></font>&nbsp;AT <font face="courier new, monospace"><i>mbzuai.ac.ae</i></font><br/>
                         <br />
-                        <a href="https://scholar.google.com/citations?user=x7FY8P8AAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i>&nbsp;Google Scholar</a>&nbsp;&nbsp;
-                        <a href="https://github.com/wangtong627" target="_blank"><i class="fab fa-github"></i>&nbsp;GitHub</a>&nbsp;&nbsp;
-                        <a href="https://dblp.org/pid/51/6856-22.html" target="_blank"><i class="fas fa-book"></i>&nbsp;DBLP</a>&nbsp;&nbsp;
-                        <a href="https://openreview.net/profile?id=~Tong_Wang8" target="_blank"><i class="fas fa-file-alt"></i>&nbsp;Open Review</a>
-                        <a href="https://www.researchgate.net/profile/Tong-Wang-156" target="_blank"><i class="fas fa-flask"></i>&nbsp;ResearchGate</a>&nbsp;&nbsp;
+                        <span class="social-links">
+                            <a href="https://scholar.google.com/citations?user=x7FY8P8AAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i>&nbsp;Google Scholar</a>
+                            <a href="https://github.com/wangtong627" target="_blank"><i class="fab fa-github"></i>&nbsp;GitHub</a>
+                            <a href="https://dblp.org/pid/51/6856-22.html" target="_blank"><i class="fas fa-book"></i>&nbsp;DBLP</a>
+                            <a href="https://openreview.net/profile?id=~Tong_Wang8" target="_blank"><i class="fas fa-file-alt"></i>&nbsp;Open Review</a>
+                            <a href="https://www.researchgate.net/profile/Tong-Wang-156" target="_blank"><i class="fas fa-flask"></i>&nbsp;ResearchGate</a>
+                        </span>
                     </p>
                 </td>
                 <td class="photo-column">
@@ -278,10 +286,10 @@ Here's the modified code:
                 <td>
                     <p class="pub_title">Composed Object Retrieval: Object-level Retrieval via Composed Expressions</p>
                     <p class="pub_author"><u><b>Tong Wang</b></u>, Guanyu Yang, Nian Liu, Zongyan Han, Jinxing Zhou, Salman Khan, Fahad Shahbaz Khan.<br>
-                        <i>arXiv preprint arXiv:2505.16974</i><br>
-                        <font><b>&nbsp;Preprint 2025&nbsp;</b></font>
-                        |<a href="https://arxiv.org/abs/2508.04424">&nbsp;Paper&nbsp;</a>
-                        |<a href="https://github.com/wangtong627/COR">&nbsp;Code&nbsp;</a>
+                    <span class="pub_info">arXiv preprint arXiv:2505.16974<br>
+                    <b>&nbsp;Preprint 2025&nbsp;</b>
+                    |<a href="https://arxiv.org/abs/2508.04424">&nbsp;Paper&nbsp;</a>
+                    |<a href="https://github.com/wangtong627/COR">&nbsp;Code&nbsp;</a></span>
                     </p>
                 </td>
             </tr>
@@ -290,10 +298,10 @@ Here's the modified code:
                 <td>
                     <p class="pub_title">OpenSeg-R: Improving Open-Vocabulary Segmentation via Step-by-Step Visual Reasoning</p>
                     <p class="pub_author">Zongyan Han, Jiale Cao, Shuo Chen, <u><b>Tong Wang</b></u>, Jorma Laaksonen, Rao Muhammad Anwer.<br>
-                        <i>arXiv preprint arXiv:2505.16974</i><br>
-                        <font><b>&nbsp;Preprint 2025&nbsp;</b></font>
-                        |<a href="https://arxiv.org/abs/2505.16974">&nbsp;Paper&nbsp;</a>
-                        |<a href="https://github.com/Hanzy1996/OpenSeg-R">&nbsp;Code&nbsp;</a>
+                    <span class="pub_info">arXiv preprint arXiv:2505.16974<br>
+                    <b>&nbsp;Preprint 2025&nbsp;</b>
+                    |<a href="https://arxiv.org/abs/2505.16974">&nbsp;Paper&nbsp;</a>
+                    |<a href="https://github.com/Hanzy1996/OpenSeg-R">&nbsp;Code&nbsp;</a></span>
                     </p>
                 </td>
             </tr>
@@ -302,10 +310,10 @@ Here's the modified code:
                 <td>
                     <p class="pub_title">Think Before You Segment: An Object-aware Reasoning Agent for Referring Audio-Visual Segmentation</p>
                     <p class="pub_author">Jinxing Zhou, Yanghao Zhou, Mingfei Han, <u><b>Tong Wang</b></u>, Xiaojun Chang, Hisham Cholakkal, Rao Muhammad Anwer.<br>
-                        <i>arXiv preprint arXiv:2508.04418</i><br>
-                        <font><b>&nbsp;Preprint 2025&nbsp;</b></font>
-                        |<a href="https://arxiv.org/abs/2508.04418">&nbsp;Paper&nbsp;</a>
-                        |<a href="https://github.com/jasongief/TGS-Agent">&nbsp;Code&nbsp;</a>
+                    <span class="pub_info">arXiv preprint arXiv:2508.04418<br>
+                    <b>&nbsp;Preprint 2025&nbsp;</b>
+                    |<a href="https://arxiv.org/abs/2508.04418">&nbsp;Paper&nbsp;</a>
+                    |<a href="https://github.com/jasongief/TGS-Agent">&nbsp;Code&nbsp;</a></span>
                     </p>
                 </td>
             </tr>
@@ -317,10 +325,10 @@ Here's the modified code:
                 <td>
                     <p class="pub_title">Energy-induced Explicit quantification for Multi-modality MRI fusion.</p>
                     <p class="pub_author">Xiaoming Qi, Yuan Zhang, <u><b>Tong Wang</b></u>, Guanyu Yang, Yueming Jin, Shuo Li.<br>
-                        <i>European Conference on Computer Vision</i><br>
-                        <font class="conf-name"><b>&nbsp;ECCV 2024&nbsp;</b></font>
-                        |<a href="https://doi.org/10.1007/978-3-031-72667-5_25">&nbsp;Paper&nbsp;</a>
-                        |<a href="https://github.com/JerryQseu/EEPA">&nbsp;Code&nbsp;</a>
+                    <span class="pub_info">European Conference on Computer Vision<br>
+                    <font class="conf-name"><b>&nbsp;ECCV 2024&nbsp;</b></font>
+                    |<a href="https://doi.org/10.1007/978-3-031-72667-5_25">&nbsp;Paper&nbsp;</a>
+                    |<a href="https://github.com/JerryQseu/EEPA">&nbsp;Code&nbsp;</a></span>
                     </p>
                 </td>
             </tr>
@@ -332,10 +340,10 @@ Here's the modified code:
                 <td>
                     <p class="pub_title">Polyp segmentation via semantic enhanced perceptual network.</p>
                     <p class="pub_author"><u><b>Tong Wang</b></u>, Xiaoming Qi, Guanyu Yang.<br>
-                        <i>IEEE Transactions on Circuits and Systems for Video Technology</i><br>
-                        <font class="conf-name"><b>&nbsp;IEEE TCSVT 2024&nbsp;</b></font>
-                        |<a href="https://ieeexplore.ieee.org/document/10608167">&nbsp;Paper&nbsp;</a>
-                        |<a href="https://github.com/wangtong627/SEPNet">&nbsp;Code&nbsp;</a>
+                    <span class="pub_info">IEEE Transactions on Circuits and Systems for Video Technology<br>
+                    <font class="conf-name"><b>&nbsp;IEEE TCSVT 2024&nbsp;</b></font>
+                    |<a href="https://ieeexplore.ieee.org/document/10608167">&nbsp;Paper&nbsp;</a>
+                    |<a href="https://github.com/wangtong627/SEPNet">&nbsp;Code&nbsp;</a></span>
                     </p>
                 </td>
             </tr>
@@ -344,10 +352,10 @@ Here's the modified code:
                 <td>
                     <p class="pub_title">Neighborhood contrastive representation learning for attributed graph clustering.</p>
                     <p class="pub_author"><u><b>Tong Wang</b></u>, Junhua Wu, Yaolei Qi, Xiaoming Qi, Juwei Guan, Yuan Zhang, Guanyu Yang.<br>
-                        <i>Neurocomputing</i><br>
-                        <font class="conf-name"><b>&nbsp;NeuroCom 2023&nbsp;</b></font>
-                        |<a href="https://doi.org/10.1016/j.neucom.2023.126880">&nbsp;Paper&nbsp;</a>
-                        |<a href="https://github.com/wangtong627/NCAGC-NeuroCom">&nbsp;Code&nbsp;</a>
+                    <span class="pub_info">Neurocomputing<br>
+                    <font class="conf-name"><b>&nbsp;NeuroCom 2023&nbsp;</b></font>
+                    |<a href="https://doi.org/10.1016/j.neucom.2023.126880">&nbsp;Paper&nbsp;</a>
+                    |<a href="https://github.com/wangtong627/NCAGC-NeuroCom">&nbsp;Code&nbsp;</a></span>
                     </p>
                 </td>
             </tr>
@@ -356,10 +364,10 @@ Here's the modified code:
                 <td>
                     <p class="pub_title">Multi-scale graph attention subspace clustering network.</p>
                     <p class="pub_author"><u><b>Tong Wang</b></u>, Junhua Wu, Zhenquan Zhang, Wen Zhou, Guang Chen, Shasha Liu.<br>
-                        <i>Neurocomputing</i><br>
-                        <font class="conf-name"><b>&nbsp;NeuroCom 2021&nbsp;</b></font>
-                        |<a href="https://doi.org/10.1016/j.neucom.2021.06.058">&nbsp;Paper&nbsp;</a>
-                        |<a href="https://github.com/wangtong627/MSGA-NeuroCom">&nbsp;Code&nbsp;</a>
+                    <span class="pub_info">Neurocomputing<br>
+                    <font class="conf-name"><b>&nbsp;NeuroCom 2021&nbsp;</b></font>
+                    |<a href="https://doi.org/10.1016/j.neucom.2021.06.058">&nbsp;Paper&nbsp;</a>
+                    |<a href="https://github.com/wangtong627/MSGA-NeuroCom">&nbsp;Code&nbsp;</a></span>
                     </p>
                 </td>
             </tr>
@@ -397,11 +405,10 @@ Here's the modified code:
 
         <div id="footer">
             <div id="footer-text">
-                All
+                This page was generated with ChatGPT.
             </div>
         </div>
     </div>
 </body>
 
 </html>
-```
