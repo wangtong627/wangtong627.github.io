@@ -64,6 +64,10 @@
             width: 70%;
             text-align: left;
             padding-right: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 240px; /* 控制文字与图像等高 */
         }
 
         .photo-column {
@@ -73,7 +77,7 @@
         }
 
         .photo-column img {
-            max-height: 100%;
+            max-height: 240px;
             max-width: 100%;
             object-fit: contain;
         }
@@ -82,10 +86,16 @@
             margin: 5px 0;
         }
 
+        .social-links {
+            margin-top: 5px;
+        }
+
         .social-links a {
-            margin-right: 1.5rem;
+            margin-right: 0.8rem;
             text-decoration: none;
             color: #9b2d20;
+            font-size: 0.85rem;
+            white-space: nowrap;
         }
 
         .social-links a:hover {
@@ -264,22 +274,29 @@
         <table class="info-table" width="100%">
             <tr>
                 <td class="info-column">
-                    <p>
-                        <font color="#424949" size="4"><b>Ph.D Student</b></font><br /><br />
-                        Computer Vision Department, 1B Building,<br />
-                        Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)<br />
-                        Masdar City, Abu Dhabi<br />
-                        United Arab Emirates<br /><br />
-                        Email: <font face="courier new, monospace">tong</font>&nbsp;[DOT] <font face="courier new, monospace">wang</font>&nbsp;[AT] <font face="courier new, monospace">mbzuai</font>&nbsp;[DOT] <font face="courier new, monospace">ac</font>&nbsp;[DOT] <font face="courier new, monospace">ae</font><br />
-                        <br />
-                        <span class="social-links">
-                            <a href="https://scholar.google.com/citations?user=x7FY8P8AAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i>&nbsp;Google Scholar</a>
-                            <a href="https://github.com/wangtong627" target="_blank"><i class="fab fa-github"></i>&nbsp;GitHub</a>
-                            <a href="https://dblp.org/pid/51/6856-22.html" target="_blank"><i class="fas fa-book"></i>&nbsp;DBLP</a>
-                            <a href="https://openreview.net/profile?id=~Tong_Wang8" target="_blank"><i class="fas fa-file-alt"></i>&nbsp;Open Review</a>
-                            <a href="https://www.researchgate.net/profile/Tong-Wang-156" target="_blank"><i class="fas fa-flask"></i>&nbsp;ResearchGate</a>
-                        </span>
-                    </p>
+                    <div>
+                        <p>
+                            <font color="#424949" size="4"><b>Ph.D Student</b></font><br /><br />
+                            Computer Vision Department, 1B Building,<br />
+                            Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)<br />
+                            Masdar City, Abu Dhabi<br />
+                            United Arab Emirates<br /><br />
+                            Email:
+                            <font face="courier new, monospace">tong</font>&nbsp;[DOT]
+                            <font face="courier new, monospace">wang</font>&nbsp;[AT]
+                            <font face="courier new, monospace">mbzuai</font>&nbsp;[DOT]
+                            <font face="courier new, monospace">ac</font>&nbsp;[DOT]
+                            <font face="courier new, monospace">ae</font>
+                        </p>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://scholar.google.com/citations?user=x7FY8P8AAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i>&nbsp;Google Scholar</a>
+                        <a href="https://github.com/wangtong627" target="_blank"><i class="fab fa-github"></i>&nbsp;GitHub</a>
+                        <a href="https://dblp.org/pid/51/6856-22.html" target="_blank"><i class="fas fa-book"></i>&nbsp;DBLP</a>
+                        <a href="https://openreview.net/profile?id=~Tong_Wang8" target="_blank"><i class="fas fa-file-alt"></i>&nbsp;Open Review</a>
+                        <a href="https://www.researchgate.net/profile/Tong-Wang-156" target="_blank"><i class="fas fa-flask"></i>&nbsp;ResearchGate</a>
+                    </div>
                 </td>
                 <td class="photo-column">
                     <img src="./files/photo_tongwang_update.jpg" alt="TongWang Photo" />
