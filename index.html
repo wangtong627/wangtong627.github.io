@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <title>TongWang 王通</title>
     <style>
-        /* General Styles based on the new template */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f7f9fc;
@@ -30,12 +29,10 @@
             margin: 0 auto;
         }
 
-        /* Menu styles - REMOVED */
         .menu {
-            display: none; /* Hide the menu */
+            display: none;
         }
 
-        /* Header and Titles */
         h1,
         h2 {
             color: #2b2d42;
@@ -48,11 +45,10 @@
         }
 
         .anchor {
-            padding-top: 0; /* No offset needed without the menu */
+            padding-top: 0;
             margin-top: 0;
         }
 
-        /* Adjustments for personal info and photo table */
         .info-table {
             width: 100%;
             margin-bottom: 20px;
@@ -61,7 +57,7 @@
         .info-table td {
             vertical-align: top;
             border: none;
-            /* Remove border */
+            padding-top: 0;
         }
 
         .info-column {
@@ -77,22 +73,15 @@
         }
 
         .photo-column img {
-            height: 250px;
-            /* Adjusted for higher photo */
-            width: auto;
-            object-fit: cover;
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
         }
 
         .info-column p {
             margin: 5px 0;
         }
 
-        .info-column .email-link {
-            display: inline-block;
-            margin-top: 5px;
-        }
-
-        /* Social links spacing */
         .social-links a {
             margin-right: 1.5rem;
             text-decoration: none;
@@ -104,7 +93,6 @@
             text-decoration: underline;
         }
 
-        /* Link colors from the new template */
         a {
             color: #9b2d20;
             text-decoration: none;
@@ -115,13 +103,11 @@
             text-decoration: underline;
         }
 
-        /* Conference and Journal name colors */
         .conf-name {
             color: #000;
             font-weight: bold;
         }
 
-        /* Experiences section alignment */
         .experience-item {
             display: flex;
             align-items: flex-start;
@@ -129,7 +115,6 @@
             padding-bottom: 1rem;
         }
 
-        /* Adjusted logo container width to 25% */
         .experience-logo {
             flex-shrink: 0;
             width: 25%;
@@ -146,7 +131,6 @@
             object-fit: contain;
         }
 
-        /* Experiences text right shift */
         .experience-details {
             flex: 1;
             padding-left: 20px;
@@ -154,7 +138,6 @@
 
         .experience-details p {
             margin: 0.1rem 0;
-            /* Adjusted for tighter spacing */
             color: #000;
         }
 
@@ -162,30 +145,32 @@
             color: #666;
         }
 
-        /* Biography justification */
         .biography {
             text-align: justify;
             text-justify: inter-word;
         }
 
-        /* Publications section styles */
+        .biography ul {
+            padding-left: 1.2em;
+            margin-top: 0.2em;
+            margin-bottom: 1.5em;
+            list-style-type: disc;
+        }
+
         .pub-table {
             border-collapse: collapse;
             width: 100%;
             background-color: #F0F0F0;
             margin-top: 0.5rem;
-            /* Reduced top margin */
         }
 
         .pub-table td {
-            padding: 0.3rem 1rem; /* Adjusted for tighter spacing */
+            padding: 0.3rem 1rem;
             border-bottom: none;
-            /* Removed border-bottom for each pub */
         }
 
         .pub-table tr {
             border-bottom: 1px solid #ddd;
-            /* Add border to the row instead of cell */
         }
 
         .pub-table tr:last-child {
@@ -207,7 +192,7 @@
             color: #000;
             font-size: 0.85rem;
         }
-        
+
         .publication-authors .me {
             font-weight: bold;
             text-decoration: underline;
@@ -219,34 +204,25 @@
             margin-bottom: 0.1rem;
         }
 
-        .publication-info .conf-name {
-            font-weight: bold;
-            color: #000;
-        }
-
         .publication-links {
             color: #333;
             font-size: 0.85rem;
             margin-top: 0.1rem;
         }
 
-        /* Spacing between year and link buttons */
         .publication-links b.pub_year,
         .publication-links b.pub_conf_name {
             margin-right: 0.8em;
         }
 
-        /* New link button style */
         .link-button {
             display: inline-block;
             background-color: #f7f9fc;
             border: 1px solid #ccc;
             border-radius: 4px;
             padding: 0.1em 0.4em;
-            /* Adjusted padding for smaller button */
             text-decoration: none;
             color: #9b2d20;
-            /* Keeping your red link color */
             margin-right: 0.5em;
         }
 
@@ -255,8 +231,6 @@
             text-decoration: none;
         }
 
-
-        /* Footer styles */
         #footer {
             text-align: center;
             font-size: 0.8rem;
@@ -264,7 +238,6 @@
             margin-top: 3rem;
         }
 
-        /* Adjustments for horizontal lines */
         hr {
             border: none;
             border-top: 1px solid #eee;
@@ -293,15 +266,14 @@
                 <td class="info-column">
                     <p>
                         <font color="#424949" size="4"><b>Ph.D Student</b></font><br /><br />
-                        Key Laboratory of New Generation Artificial Intelligence Technology and Its Interdisciplinary Applications of Ministry of Education<br />
-                        School of Computer Science and Engineering<br />
-                        Southeast University<br />
-                        Nanjing, China<br /><br />
+                        Computer Vision Department, 1B Building,<br />
+                        Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)<br />
+                        Masdar City, Abu Dhabi<br />
+                        United Arab Emirates<br /><br />
                         Email: <font face="courier new, monospace">tong</font>&nbsp;[DOT] <font face="courier new, monospace">wang</font>&nbsp;[AT] <font face="courier new, monospace">mbzuai</font>&nbsp;[DOT] <font face="courier new, monospace">ac</font>&nbsp;[DOT] <font face="courier new, monospace">ae</font><br />
                         <br />
                         <span class="social-links">
-                            <a href="https://scholar.google.com/citations?user=x7FY8P8AAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i>&nbsp;Google
-                                Scholar</a>
+                            <a href="https://scholar.google.com/citations?user=x7FY8P8AAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i>&nbsp;Google Scholar</a>
                             <a href="https://github.com/wangtong627" target="_blank"><i class="fab fa-github"></i>&nbsp;GitHub</a>
                             <a href="https://dblp.org/pid/51/6856-22.html" target="_blank"><i class="fas fa-book"></i>&nbsp;DBLP</a>
                             <a href="https://openreview.net/profile?id=~Tong_Wang8" target="_blank"><i class="fas fa-file-alt"></i>&nbsp;Open Review</a>
@@ -319,8 +291,13 @@
         <h2>🎈 Biography</h2>
         <div class="biography">
             <p>I am currently a Ph.D student at the Key Laboratory of New Generation Artificial Intelligence Technology and Its Interdisciplinary Applications of Ministry of Education, School of Computer Science and Engineering, Southeast University, advised by <a href="https://cs.seu.edu.cn/gyyang/main.htm" target="_blank">Prof. Guanyu Yang</a>. I am also a visiting Ph.D student at Mohamed bin Zayed University of Artificial Intelligence (MBZUAI), working with <a href="https://sites.google.com/view/fahadkhans" target="_blank">Prof. Fahad Shahbaz Khan</a> and <a href="https://sites.google.com/site/liunian228/" target="_blank">Dr. Nian Liu</a>.</p>
-            <p>My research interests include Computer Vision, Medical Image Analysis, and Multimodal Models. I focus on developing novel methodologies to improve the efficiency and accuracy of medical image analysis using deep learning techniques.</p>
-<!--             <p>I am passionate about bridging the gap between computer vision and medical applications, with the goal of creating more effective tools for computer-aided diagnosis and treatment planning.</p> -->
+            
+            <p><strong>Research Interests:</strong></p>
+            <ul>
+                <li><strong>Computer Vision:</strong> Image Segmentation, Video Object Segmentation, Open-World Representation Learning</li>
+                <li><strong>Medical Image Analysis:</strong> Medical Video Analysis, Medical Image Representation Learning</li>
+                <li><strong>Multimodal Models:</strong> Vision-Language Models, Audio-Visual Models, Large Multimodal Models</li>
+            </ul>
         </div>
 
         <hr>
@@ -499,6 +476,7 @@
 </body>
 
 </html>
+
 
 
 
