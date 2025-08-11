@@ -93,21 +93,32 @@
             display: flex;
             justify-content: center; /* 居中对齐 */
             gap: 1.5rem; /* 链接之间的间距 */
-            margin-bottom: 1.5rem; /* 与下方内容的距离 */
+            /* margin-bottom: 1.5rem; */ /* 移除与下方内容的距离 */
             flex-wrap: wrap; /* 如果空间不足，允许换行 */
+            background-color: #fff; /* 可选：添加背景色使导航栏更突出 */
+            padding: 0.5rem 0; /* 可选：添加内边距 */
+            /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */ /* 可选：添加阴影 */
+            position: sticky; /* 可选：固定在顶部 */
+            top: 0; /* 可选：固定在顶部 */
+            z-index: 1000; /* 可选：确保在其他内容之上 */
         }
         .top-nav a {
             text-decoration: none;
-            color: #000; /* 黑色 */
-            font-weight: normal; /* 正常字体粗细 */
+            /* color: #000; */ /* 黑色 */
+            color: #9b2d20; /* 链接的红色 */
+            /* font-weight: normal; */ /* 正常字体粗细 */
+            font-weight: bold; /* 加粗 */
             font-size: 0.9rem; /* 字体大小 */
             padding: 0.3rem 0.5rem; /* 内边距，增加点击区域 */
             border-radius: 4px; /* 圆角 */
-            transition: background-color 0.2s ease; /* 背景颜色过渡效果 */
+            /* transition: background-color 0.2s ease; */ /* 背景颜色过渡效果 */
+            transition: color 0.2s ease, background-color 0.2s ease; /* 颜色和背景色过渡 */
         }
         .top-nav a:hover {
-            background-color: #e9ecef; /* 悬停时的背景色 */
-            color: #000; /* 悬停时文字颜色保持黑色 */
+            /* background-color: #e9ecef; */ /* 悬停时的背景色 */
+            /* color: #000; */ /* 悬停时文字颜色保持黑色 */
+            color: #b23c2b; /* 悬停时变为链接悬停的红色 */
+            background-color: #f8f9fa; /* 可选：轻微背景色变化 */
             text-decoration: underline; /* 悬停时添加下划线 */
         }
         /* .social-links 类（容器样式） */
@@ -120,7 +131,7 @@
         }
         /* .social-links a 类（链接样式） */
         .social-links a {
-            margin-right: 0.75rem; /* 每个链接右侧的间距，拉开链接之间的距离 */
+            margin-right: 0.65rem; /* 每个链接右侧的间距，拉开链接之间的距离 */
             text-decoration: none; /* 去除链接默认的下划线 */
             color: #9b2d20; /* 链接文字和图标的颜色（深红褐色） */
             font-size: 0.85rem; /* 链接文字大小为0.85rem（约13.6px） */
@@ -265,20 +276,21 @@
     </style>
 </head>
 <body>
+    <!-- 将导航栏移动到最顶部 -->
+    <div class="top-nav">
+        <a href="#biography">Biography</a>
+        <a href="#experiences">Experiences</a>
+        <a href="#publications">Publications</a>
+        <a href="#awards">Awards</a>
+        <a href="#services">Services</a>
+    </div>
+
     <div id="container">
         <a id="home" class="anchor"></a>
         <div id="toptitle">
             <h1>TongWang 王通</h1>
         </div>
-
-        <!-- 新增顶部导航栏 -->
-        <div class="top-nav">
-            <a href="#biography">Biography</a>
-            <a href="#experiences">Experiences</a>
-            <a href="#publications">Publications</a>
-            <a href="#awards">Awards</a>
-            <a href="#services">Services</a>
-        </div>
+        <!-- 原来的导航栏位置现在为空 -->
 
         <table class="info-table" width="100%">
             <tr>
@@ -502,4 +514,3 @@
     </div>
 </body>
 </html>
-
