@@ -360,11 +360,6 @@
             position: relative;
             overflow: hidden;
             padding: 1.45rem;
-            border-color: color-mix(in srgb, var(--accent) 18%, var(--border));
-            background: color-mix(in srgb, var(--panel) 48%, transparent);
-            box-shadow: 0 18px 46px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.30);
-            backdrop-filter: blur(30px) saturate(1.28);
-            -webkit-backdrop-filter: blur(30px) saturate(1.28);
             text-align: center;
         }
 
@@ -519,19 +514,7 @@
         }
 
         .side-card {
-            border-color: color-mix(in srgb, var(--accent) 16%, var(--border));
             padding: 1.05rem;
-            background: color-mix(in srgb, var(--panel) 42%, transparent);
-            box-shadow: 0 14px 34px rgba(15, 23, 42, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.26);
-            backdrop-filter: blur(28px) saturate(1.24);
-            -webkit-backdrop-filter: blur(28px) saturate(1.24);
-        }
-
-        :root[data-theme="dark"] .profile-card,
-        :root[data-theme="dark"] .side-card {
-            border-color: rgba(148, 163, 184, 0.28);
-            background: rgba(17, 24, 39, 0.46);
-            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.08);
         }
 
         .side-card h2 {
