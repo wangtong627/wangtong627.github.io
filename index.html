@@ -90,6 +90,11 @@
             --accent-glow: rgba(240, 168, 157, 0.22);
         }
 
+        :root[data-theme="dark"] .card {
+            border-color: rgba(148, 163, 184, 0.26);
+            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
         :root[data-theme="dark"][data-accent="blue"] {
             --accent: #93c5fd;
             --accent-hover: #bfdbfe;
@@ -536,81 +541,19 @@
             font-size: 0.78rem;
             font-weight: 700;
             line-height: 1.3;
+            transition: transform 160ms ease, border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+        }
+
+        .chip:hover {
+            border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+            color: var(--accent);
+            background: color-mix(in srgb, var(--accent) 14%, transparent);
+            transform: translateY(-1px);
         }
 
         .content-column {
             display: grid;
             gap: 1rem;
-        }
-
-        .hero-card {
-            padding: clamp(1.35rem, 3vw, 2rem);
-            overflow: hidden;
-        }
-
-        .hero-kicker {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.9rem;
-            border: 1px solid color-mix(in srgb, var(--accent) 34%, var(--border));
-            border-radius: 999px;
-            padding: 0.32rem 0.68rem;
-            color: var(--accent);
-            background: var(--accent-soft);
-            font-size: 0.82rem;
-            font-weight: 800;
-        }
-
-        .hero-title {
-            max-width: 760px;
-            margin: 0;
-            color: var(--heading);
-            font-size: clamp(2rem, 4vw, 3.35rem);
-            font-weight: 800;
-            line-height: 1.05;
-            letter-spacing: -0.07em;
-        }
-
-        .hero-title span {
-            color: var(--accent);
-        }
-
-        .hero-lead {
-            max-width: 780px;
-            margin: 1rem 0 0;
-            color: var(--muted-strong);
-            font-size: 1rem;
-        }
-
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 0.7rem;
-            margin-top: 1.35rem;
-        }
-
-        .stat {
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 0.85rem;
-            background: color-mix(in srgb, var(--panel) 70%, transparent);
-        }
-
-        .stat strong {
-            display: block;
-            color: var(--heading);
-            font-size: 1.15rem;
-            line-height: 1.1;
-        }
-
-        .stat span {
-            display: block;
-            margin-top: 0.25rem;
-            color: var(--muted);
-            font-size: 0.76rem;
-            font-weight: 700;
-            text-transform: uppercase;
         }
 
         .section-card {
@@ -716,11 +659,31 @@
             padding-left: 1.15rem;
         }
 
+        .news-list {
+            gap: 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
         .research-list li,
         .news-list li {
             color: var(--muted-strong);
             padding-left: 0.1rem;
             line-height: 1.34;
+        }
+
+        .news-list li {
+            display: grid;
+            grid-template-columns: 6.4rem minmax(0, 1fr);
+            gap: 0.7rem;
+            align-items: baseline;
+            padding: 0.32rem 0;
+            border-top: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+        }
+
+        .news-list li:first-child {
+            border-top: 0;
+            padding-top: 0;
         }
 
         .research-list li::marker,
@@ -730,38 +693,10 @@
 
         .news-date {
             display: inline-block;
-            min-width: 6.2rem;
             color: var(--heading);
+            font-size: 0.82rem;
             font-weight: 800;
             white-space: nowrap;
-        }
-
-        .interest-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
-
-        .interest-box {
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 0.9rem;
-            background: color-mix(in srgb, var(--panel) 76%, transparent);
-        }
-
-        .interest-box strong {
-            display: block;
-            color: var(--heading);
-            font-size: 0.9rem;
-        }
-
-        .interest-box span {
-            display: block;
-            margin-top: 0.32rem;
-            color: var(--muted);
-            font-size: 0.82rem;
-            line-height: 1.34;
         }
 
         .experience-list {
@@ -860,6 +795,7 @@
 
         .publication-card {
             position: relative;
+            overflow: hidden;
             border: 1px solid transparent;
             border-radius: 14px;
             padding: 0.68rem 0.78rem;
@@ -867,11 +803,30 @@
             transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
         }
 
+        .publication-card::before {
+            position: absolute;
+            top: 0.72rem;
+            bottom: 0.72rem;
+            left: 0;
+            width: 3px;
+            border-radius: 999px;
+            content: "";
+            background: var(--accent);
+            opacity: 0;
+            transform: scaleY(0.55);
+            transition: opacity 180ms ease, transform 180ms ease;
+        }
+
         .publication-card:hover {
             border-color: color-mix(in srgb, var(--accent) 32%, var(--border));
             background: color-mix(in srgb, var(--panel) 78%, transparent);
             box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
             transform: translateY(-2px);
+        }
+
+        .publication-card:hover::before {
+            opacity: 1;
+            transform: scaleY(1);
         }
 
         .publication-card:hover .publication-title {
@@ -1061,9 +1016,6 @@
                 justify-content: flex-start;
             }
 
-            .interest-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         @media (max-width: 720px) {
@@ -1115,8 +1067,6 @@
                 justify-content: center;
             }
 
-            .hero-stats,
-            .interest-grid,
             .service-grid {
                 grid-template-columns: 1fr;
             }
