@@ -388,18 +388,25 @@
         .email-line {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 0.45rem;
+            width: 100%;
             max-width: 100%;
             margin-top: 1rem;
             border: 1px solid var(--border);
-            border-radius: 999px;
+            border-radius: 16px;
             padding: 0.46rem 0.78rem;
             color: var(--muted-strong);
             background: var(--accent-soft);
             font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
             font-size: 0.77rem;
-            white-space: nowrap;
+            text-align: left;
+            white-space: normal;
+        }
+
+        .email-line span {
+            min-width: 0;
+            overflow-wrap: anywhere;
         }
 
         .social-links {
@@ -411,6 +418,7 @@
         }
 
         .social-links a {
+            position: relative;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -427,6 +435,47 @@
             border-color: var(--accent);
             background: var(--accent);
             transform: translateY(-2px);
+        }
+
+        .social-tooltip {
+            position: absolute;
+            bottom: calc(100% + 10px);
+            left: 50%;
+            z-index: 20;
+            width: max-content;
+            max-width: 180px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 0.32rem 0.62rem;
+            color: var(--heading);
+            background: var(--panel);
+            box-shadow: var(--shadow-soft);
+            font-size: 0.76rem;
+            font-weight: 800;
+            line-height: 1.2;
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, 4px);
+            transition: opacity 160ms ease, transform 160ms ease;
+        }
+
+        .social-tooltip::after {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            content: "";
+            background: var(--panel);
+            transform: translate(-50%, -4px) rotate(45deg);
+        }
+
+        .social-links a:hover .social-tooltip,
+        .social-links a:focus-visible .social-tooltip {
+            opacity: 1;
+            transform: translate(-50%, 0);
         }
 
         .side-card {
@@ -604,6 +653,31 @@
 
         .body-copy p:last-child {
             margin-bottom: 0;
+        }
+
+        .research-list,
+        .news-list {
+            display: grid;
+            gap: 0.55rem;
+            margin: 0.55rem 0 0;
+            padding-left: 1.15rem;
+        }
+
+        .research-list li,
+        .news-list li {
+            color: var(--muted-strong);
+            padding-left: 0.1rem;
+        }
+
+        .research-list li::marker,
+        .news-list li::marker {
+            color: var(--accent);
+        }
+
+        .news-date {
+            color: var(--heading);
+            font-weight: 800;
+            white-space: nowrap;
         }
 
         .interest-grid {
@@ -1025,6 +1099,7 @@
             </a>
             <nav class="nav-links" aria-label="Primary navigation">
                 <a class="nav-link active" href="#biography"><span class="lang-en">Biography</span><span class="lang-zh">个人简介</span></a>
+                <a class="nav-link" href="#news"><span class="lang-en">News</span><span class="lang-zh">动态</span></a>
                 <a class="nav-link" href="#experiences"><span class="lang-en">Experiences</span><span class="lang-zh">经历</span></a>
                 <a class="nav-link" href="#publications"><span class="lang-en">Publications</span><span class="lang-zh">论文</span></a>
                 <a class="nav-link" href="#awards"><span class="lang-en">Awards</span><span class="lang-zh">荣誉</span></a>
@@ -1067,13 +1142,13 @@
                             <span>tong [DOT] wang [AT] mbzuai [DOT] ac [DOT] ae</span>
                         </div>
                         <div class="social-links" aria-label="Academic links">
-                            <a href="https://github.com/wangtong627" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="https://huggingface.co/TongWang-NJ" target="_blank" rel="noopener noreferrer" aria-label="Hugging Face"><i class="fas fa-robot"></i></a>
-                            <a href="https://scholar.google.com/citations?user=x7FY8P8AAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                            <a href="https://www.semanticscholar.org/author/Tong-Wang/2155339760" target="_blank" rel="noopener noreferrer" aria-label="Semantic Scholar"><i class="fas fa-book-open"></i></a>
-                            <a href="https://dblp.org/pid/51/6856-22.html" target="_blank" rel="noopener noreferrer" aria-label="DBLP"><i class="fas fa-book"></i></a>
-                            <a href="https://openreview.net/profile?id=~Tong_Wang8" target="_blank" rel="noopener noreferrer" aria-label="OpenReview"><i class="fas fa-file-alt"></i></a>
-                            <a href="https://www.researchgate.net/profile/Tong-Wang-156" target="_blank" rel="noopener noreferrer" aria-label="ResearchGate"><i class="fas fa-flask"></i></a>
+                            <a href="https://github.com/wangtong627" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i><span class="social-tooltip">GitHub</span></a>
+                            <a href="https://huggingface.co/TongWang-NJ" target="_blank" rel="noopener noreferrer" aria-label="Hugging Face"><i class="fas fa-robot"></i><span class="social-tooltip">Hugging Face</span></a>
+                            <a href="https://scholar.google.com/citations?user=x7FY8P8AAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i><span class="social-tooltip">Google Scholar</span></a>
+                            <a href="https://www.semanticscholar.org/author/Tong-Wang/2155339760" target="_blank" rel="noopener noreferrer" aria-label="Semantic Scholar"><i class="fas fa-book-open"></i><span class="social-tooltip">Semantic Scholar</span></a>
+                            <a href="https://dblp.org/pid/51/6856-22.html" target="_blank" rel="noopener noreferrer" aria-label="DBLP"><i class="fas fa-book"></i><span class="social-tooltip">DBLP</span></a>
+                            <a href="https://openreview.net/profile?id=~Tong_Wang8" target="_blank" rel="noopener noreferrer" aria-label="OpenReview"><i class="fas fa-file-alt"></i><span class="social-tooltip">OpenReview</span></a>
+                            <a href="https://www.researchgate.net/profile/Tong-Wang-156" target="_blank" rel="noopener noreferrer" aria-label="ResearchGate"><i class="fas fa-flask"></i><span class="social-tooltip">ResearchGate</span></a>
                         </div>
                     </div>
                 </section>
@@ -1107,23 +1182,6 @@
             </aside>
 
             <div class="content-column">
-                <section class="card hero-card reveal" aria-label="Intro">
-                    <div class="hero-kicker"><i class="fas fa-star" aria-hidden="true"></i><span class="lang-en">Academic Homepage</span><span class="lang-zh">个人学术主页</span></div>
-                    <h2 class="hero-title">
-                        <span class="lang-en">Multimodal models, generative AI, and medical vision.</span>
-                        <span class="lang-zh">多模态模型、生成式 AI 与医学视觉。</span>
-                    </h2>
-                    <p class="hero-lead">
-                        <span class="lang-en">I work on computer vision systems that connect visual understanding, generation, and real-world medical applications.</span>
-                        <span class="lang-zh">我的研究关注连接视觉理解、内容生成与医学应用的计算机视觉系统。</span>
-                    </p>
-                    <div class="hero-stats">
-                        <div class="stat"><strong>9</strong><span><span class="lang-en">Papers Listed</span><span class="lang-zh">收录论文</span></span></div>
-                        <div class="stat"><strong>3</strong><span><span class="lang-en">Research Areas</span><span class="lang-zh">研究方向</span></span></div>
-                        <div class="stat"><strong>2024+</strong><span><span class="lang-en">MBZUAI Visit</span><span class="lang-zh">MBZUAI 访问</span></span></div>
-                    </div>
-                </section>
-
                 <section id="biography" class="card section-card reveal">
                     <div class="section-header">
                         <h2 class="section-title"><i class="fas fa-user-astronaut" aria-hidden="true"></i><span class="lang-en">Biography</span><span class="lang-zh">个人简介</span></h2>
@@ -1133,20 +1191,25 @@
                         <p class="lang-en">I am currently a Ph.D. student at the Key Laboratory of New Generation Artificial Intelligence Technology and Its Interdisciplinary Applications of Ministry of Education, Southeast University. I am also a visiting Ph.D. student at Mohamed bin Zayed University of Artificial Intelligence (MBZUAI).</p>
                         <p class="lang-zh">我目前是东南大学教育部新一代人工智能技术及其交叉应用重点实验室的博士研究生，同时也是阿联酋人工智能大学（MBZUAI）的访问博士生。</p>
                     </div>
-                    <div class="interest-grid">
-                        <div class="interest-box">
-                            <strong><span class="lang-en">Multimodal Models</span><span class="lang-zh">多模态模型</span></strong>
-                            <span><span class="lang-en">Vision-Language Models, LLM-based Visual Grounding Models</span><span class="lang-zh">视觉语言模型，基于大语言模型的视觉定位模型</span></span>
-                        </div>
-                        <div class="interest-box">
-                            <strong><span class="lang-en">Generative AI</span><span class="lang-zh">生成式 AI</span></strong>
-                            <span><span class="lang-en">Autoregressive Models, Diffusion Models, Efficient Generative Models</span><span class="lang-zh">自回归模型，扩散模型，高效生成模型</span></span>
-                        </div>
-                        <div class="interest-box">
-                            <strong><span class="lang-en">Medical Image Analysis</span><span class="lang-zh">医学图像分析</span></strong>
-                            <span><span class="lang-en">Image Segmentation, Medical Video Analysis, Medical Image Representation Learning</span><span class="lang-zh">图像分割，医学视频分析，医学图像表征学习</span></span>
-                        </div>
+                    <p><strong><span class="lang-en">Research Interests:</span><span class="lang-zh">研究兴趣：</span></strong></p>
+                    <ul class="research-list">
+                        <li><strong><span class="lang-en">Multimodal Models:</span><span class="lang-zh">多模态模型：</span></strong> <span class="lang-en">Vision-Language Models, LLM-based Visual Grounding Models</span><span class="lang-zh">视觉语言模型，基于大语言模型的视觉定位模型</span></li>
+                        <li><strong><span class="lang-en">Generative AI:</span><span class="lang-zh">生成式 AI：</span></strong> <span class="lang-en">Autoregressive Models, Diffusion Models, Efficient Generative Models</span><span class="lang-zh">自回归模型，扩散模型，高效生成模型</span></li>
+                        <li><strong><span class="lang-en">Medical Image Analysis:</span><span class="lang-zh">医学图像分析：</span></strong> <span class="lang-en">Image Segmentation, Medical Video Analysis, Medical Image Representation Learning</span><span class="lang-zh">图像分割，医学视频分析，医学图像表征学习</span></li>
+                    </ul>
+                </section>
+
+                <section id="news" class="card section-card reveal">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-bullhorn" aria-hidden="true"></i><span class="lang-en">News</span><span class="lang-zh">最新动态</span></h2>
+                        <span class="section-tag"><span class="lang-en">Recent</span><span class="lang-zh">近期</span></span>
                     </div>
+                    <ul class="news-list">
+                        <li><span class="news-date">2026.05</span> <span class="lang-en">Our paper CMSA-Net has been accepted as a MICCAI 2026 Early Accept paper.</span><span class="lang-zh">我们的论文 CMSA-Net 被 MICCAI 2026 提前接收。</span></li>
+                        <li><span class="news-date">2025.11.08</span> <span class="lang-en">Our paper Think Before You Segment: An Object-aware Reasoning Agent for Referring Audio-Visual Segmentation got accepted to AAAI 2026.</span><span class="lang-zh">我们的论文 Think Before You Segment: An Object-aware Reasoning Agent for Referring Audio-Visual Segmentation 被 AAAI 2026 接收。</span></li>
+                        <li><span class="news-date">2025.11</span> <span class="lang-en">We proposed DiverseVAR in Diversity Has Always Been There in Your Visual Autoregressive Models.</span><span class="lang-zh">我们提出了 DiverseVAR，相关论文为 Diversity Has Always Been There in Your Visual Autoregressive Models。</span></li>
+                        <li><span class="news-date">2025.08</span> <span class="lang-en">Our work Composed Object Retrieval was released on arXiv.</span><span class="lang-zh">我们的工作 Composed Object Retrieval 已发布在 arXiv。</span></li>
+                    </ul>
                 </section>
 
                 <section id="experiences" class="card section-card reveal">
