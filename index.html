@@ -38,7 +38,7 @@
             --bg: #f7f9fc;
             --bg-soft: #eef3f8;
             --panel: #ffffff;
-            --panel-elevated: rgba(255, 255, 255, 0.86);
+            --panel-elevated: rgba(255, 255, 255, 0.76);
             --text: #111827;
             --heading: #111827;
             --muted: #475467;
@@ -76,7 +76,7 @@
             --bg: #0b1120;
             --bg-soft: #111827;
             --panel: #111827;
-            --panel-elevated: rgba(17, 24, 39, 0.84);
+            --panel-elevated: rgba(17, 24, 39, 0.70);
             --text: #f3f4f6;
             --heading: #f9fafb;
             --muted: #cbd5e1;
@@ -116,20 +116,31 @@
             min-height: 100vh;
             margin: 0;
             color: var(--text);
-            background:
-                radial-gradient(circle at top left, var(--accent-glow), transparent 30rem),
-                radial-gradient(circle at 88% 12%, rgba(212, 165, 98, 0.16), transparent 24rem),
-                linear-gradient(180deg, var(--bg), var(--bg-soft));
+            background: linear-gradient(180deg, var(--bg), var(--bg-soft));
+            background-attachment: fixed;
             font-family: Inter, "Noto Sans SC", "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
             font-size: 15px;
             line-height: 1.55;
             -webkit-font-smoothing: antialiased;
         }
 
+        body::after {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            content: "";
+            background:
+                radial-gradient(circle at 8% 4%, var(--accent-glow), transparent 30rem),
+                radial-gradient(circle at 88% 12%, rgba(212, 165, 98, 0.16), transparent 24rem),
+                radial-gradient(circle at 78% 78%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 28rem);
+            transform: translateZ(0);
+        }
+
         body::before {
             position: fixed;
             inset: 0;
-            z-index: -1;
+            z-index: 0;
             pointer-events: none;
             content: "";
             background-image:
@@ -197,9 +208,9 @@
             top: 0;
             z-index: 100;
             border-bottom: 1px solid var(--border);
-            background: color-mix(in srgb, var(--panel) 82%, transparent);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
+            background: color-mix(in srgb, var(--panel) 68%, transparent);
+            backdrop-filter: blur(24px) saturate(1.25);
+            -webkit-backdrop-filter: blur(24px) saturate(1.25);
             box-shadow: 0 1px 0 rgba(255, 255, 255, 0.16);
         }
 
@@ -310,6 +321,8 @@
         }
 
         .site-shell {
+            position: relative;
+            z-index: 1;
             width: min(1320px, calc(100% - 40px));
             margin: 0 auto;
             padding: 2.25rem 0 3rem;
@@ -333,9 +346,9 @@
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             background: var(--panel-elevated);
-            box-shadow: var(--shadow-soft);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(24px) saturate(1.18);
+            -webkit-backdrop-filter: blur(24px) saturate(1.18);
         }
 
         .profile-card {
