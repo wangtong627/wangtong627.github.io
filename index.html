@@ -1,576 +1,1480 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-locale="en" data-accent="ruby">
 <head>
-    <meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Tong Wang's academic homepage.">
+    <meta name="author" content="Tong Wang">
+    <meta name="keywords" content="Tong Wang, 王通, computer vision, multimodal models, generative AI, medical image analysis">
+    <title>Tong Wang | 王通</title>
     <link rel="shortcut icon" href="./files/xx.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <title>TongWang 王通</title>
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var theme = 'light';
+            var locale = 'en';
+            var accent = 'ruby';
+            try {
+                theme = localStorage.getItem('tong-theme') || theme;
+                locale = localStorage.getItem('tong-locale') || locale;
+                accent = localStorage.getItem('tong-accent') || accent;
+            } catch (error) {}
+            if (theme !== 'light' && theme !== 'dark') theme = 'light';
+            if (locale !== 'en' && locale !== 'zh') locale = 'en';
+            if (['ruby', 'blue', 'gold'].indexOf(accent) === -1) accent = 'ruby';
+            root.classList.add('js');
+            root.setAttribute('data-theme', theme);
+            root.setAttribute('data-locale', locale);
+            root.setAttribute('data-accent', accent);
+            root.lang = locale === 'zh' ? 'zh-CN' : 'en';
+        })();
+    </script>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7f9fc;
-            color: #333;
-            line-height: 1.6;
-            font-size: 0.85rem;
-            margin: 0;
-            padding: 0;
+        :root {
+            --bg: #f7f9fc;
+            --bg-soft: #eef3f8;
+            --panel: #ffffff;
+            --panel-elevated: rgba(255, 255, 255, 0.86);
+            --text: #1f2937;
+            --heading: #111827;
+            --muted: #667085;
+            --muted-strong: #475467;
+            --border: rgba(15, 23, 42, 0.11);
+            --shadow: 0 24px 70px rgba(15, 23, 42, 0.10);
+            --shadow-soft: 0 14px 34px rgba(15, 23, 42, 0.08);
+            --accent: #9b2d20;
+            --accent-hover: #b23c2b;
+            --accent-soft: rgba(155, 45, 32, 0.10);
+            --accent-glow: rgba(155, 45, 32, 0.20);
+            --gold: #d4a562;
+            --logo-bg: #ffffff;
+            --radius-lg: 24px;
+            --radius-md: 18px;
+            --radius-sm: 12px;
+            --nav-height: 72px;
+        }
+
+        :root[data-accent="blue"] {
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --accent-soft: rgba(37, 99, 235, 0.11);
+            --accent-glow: rgba(37, 99, 235, 0.22);
+        }
+
+        :root[data-accent="gold"] {
+            --accent: #b7791f;
+            --accent-hover: #975a16;
+            --accent-soft: rgba(183, 121, 31, 0.13);
+            --accent-glow: rgba(212, 165, 98, 0.26);
+        }
+
+        :root[data-theme="dark"] {
+            --bg: #0b1120;
+            --bg-soft: #111827;
+            --panel: #111827;
+            --panel-elevated: rgba(17, 24, 39, 0.84);
+            --text: #e5e7eb;
+            --heading: #f9fafb;
+            --muted: #a3adc2;
+            --muted-strong: #cbd5e1;
+            --border: rgba(148, 163, 184, 0.22);
+            --shadow: 0 24px 80px rgba(0, 0, 0, 0.40);
+            --shadow-soft: 0 14px 34px rgba(0, 0, 0, 0.32);
+            --accent: #f0a89d;
+            --accent-hover: #ffc4ba;
+            --accent-soft: rgba(240, 168, 157, 0.12);
+            --accent-glow: rgba(240, 168, 157, 0.22);
+        }
+
+        :root[data-theme="dark"][data-accent="blue"] {
+            --accent: #93c5fd;
+            --accent-hover: #bfdbfe;
+            --accent-soft: rgba(147, 197, 253, 0.13);
+            --accent-glow: rgba(96, 165, 250, 0.24);
+        }
+
+        :root[data-theme="dark"][data-accent="gold"] {
+            --accent: #e4b976;
+            --accent-hover: #f4d49e;
+            --accent-soft: rgba(228, 185, 118, 0.14);
+            --accent-glow: rgba(228, 185, 118, 0.24);
+        }
+
+        * {
             box-sizing: border-box;
         }
-        #container {
-            max-width: 1000px;
-            min-width: 600px;
-            width: 75%;
-            background: #fff;
-            padding: 2rem 3rem;
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, var(--accent-glow), transparent 30rem),
+                radial-gradient(circle at 88% 12%, rgba(212, 165, 98, 0.16), transparent 24rem),
+                linear-gradient(180deg, var(--bg), var(--bg-soft));
+            font-family: Inter, "Noto Sans SC", "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.68;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            content: "";
+            background-image:
+                linear-gradient(rgba(148, 163, 184, 0.055) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(148, 163, 184, 0.055) 1px, transparent 1px);
+            background-size: 46px 46px;
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent 72%);
+        }
+
+        :root[data-locale="zh"] body {
+            letter-spacing: 0.005em;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .lang-zh {
+            display: none !important;
+        }
+
+        :root[data-locale="zh"] .lang-en {
+            display: none !important;
+        }
+
+        :root[data-locale="zh"] .lang-zh {
+            display: revert !important;
+        }
+
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+            background: color-mix(in srgb, var(--panel) 82%, transparent);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.16);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: min(1180px, calc(100% - 40px));
+            min-height: var(--nav-height);
             margin: 0 auto;
+            gap: 1rem;
         }
-        .menu {
-            display: none;
+
+        .brand {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 0.35rem;
+            color: var(--heading);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            white-space: nowrap;
         }
-        h1,
-        h2 {
-            color: #2b2d42;
-            font-size: 1.4rem;
+
+        .brand span:first-child {
+            font-size: 1.22rem;
         }
-        h1 {
-            font-size: 1.8rem;
+
+        .brand span:last-child {
+            color: var(--accent);
+            font-size: 0.98rem;
+            letter-spacing: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            gap: 0.25rem;
+            min-width: 0;
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 999px;
+            padding: 0.46rem 0.72rem;
+            color: var(--muted-strong);
+            font-size: 0.88rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent);
+            background: var(--accent-soft);
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0.5rem;
+        }
+
+        .segmented,
+        .control-button {
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: color-mix(in srgb, var(--panel) 82%, transparent);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+        }
+
+        .segmented button,
+        .control-button {
+            min-height: 36px;
+            color: var(--muted-strong);
+            font: inherit;
+            font-size: 0.8rem;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .segmented button {
+            border: 0;
+            border-radius: 999px;
+            background: transparent;
+            padding: 0 0.62rem;
+        }
+
+        .segmented button.active {
+            color: #fff;
+            background: var(--accent);
+        }
+
+        .control-button {
+            gap: 0.44rem;
+            padding: 0 0.72rem;
+        }
+
+        .control-button:hover {
+            color: var(--accent);
+            border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+            transform: translateY(-1px);
+        }
+
+        .site-shell {
+            width: min(1180px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 2.25rem 0 3rem;
+        }
+
+        .page-grid {
+            display: grid;
+            grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .profile-column {
+            position: sticky;
+            top: calc(var(--nav-height) + 1.25rem);
+            display: grid;
+            gap: 1rem;
+        }
+
+        .card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            background: var(--panel-elevated);
+            box-shadow: var(--shadow-soft);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .profile-card {
+            position: relative;
+            overflow: hidden;
+            padding: 1.45rem;
+            text-align: center;
+        }
+
+        .profile-card::before {
+            position: absolute;
+            inset: 0 0 auto;
+            height: 6px;
+            content: "";
+            background: linear-gradient(90deg, var(--accent), var(--gold));
+        }
+
+        .avatar-wrap {
+            position: relative;
+            width: 190px;
+            height: 190px;
+            margin: 0.45rem auto 1.1rem;
+            overflow: hidden;
+            border: 4px solid color-mix(in srgb, var(--accent) 22%, var(--panel));
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+            background: var(--panel);
+            transition: transform 220ms ease, box-shadow 220ms ease;
+        }
+
+        .avatar-wrap:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 30px 80px var(--accent-glow);
+        }
+
+        .avatar-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            margin: 0;
+            color: var(--heading);
+            font-size: clamp(2rem, 4vw, 2.55rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.06em;
+        }
+
+        .profile-cn-name {
+            margin-top: 0.35rem;
+            color: var(--accent);
+            font-size: 1.12rem;
+            font-weight: 800;
+        }
+
+        .profile-title {
+            margin: 0.85rem 0 0;
+            color: var(--heading);
+            font-size: 1rem;
+            font-weight: 800;
+        }
+
+        .profile-affiliation {
+            margin: 0.35rem 0 0;
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.55;
+        }
+
+        .email-line {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            max-width: 100%;
+            margin-top: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 0.46rem 0.78rem;
+            color: var(--muted-strong);
+            background: var(--accent-soft);
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.77rem;
+            white-space: nowrap;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.55rem;
+            margin-top: 1.15rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--muted-strong);
+            background: color-mix(in srgb, var(--panel) 82%, transparent);
+        }
+
+        .social-links a:hover {
+            color: #fff;
+            border-color: var(--accent);
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .side-card {
+            padding: 1.05rem;
+        }
+
+        .side-card h2 {
+            margin: 0 0 0.75rem;
+            color: var(--heading);
+            font-size: 0.98rem;
+            font-weight: 800;
+        }
+
+        .chip-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--border));
+            border-radius: 999px;
+            padding: 0.32rem 0.58rem;
+            color: var(--muted-strong);
+            background: var(--accent-soft);
+            font-size: 0.78rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .status-list {
+            display: grid;
+            gap: 0.7rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .status-list li {
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .status-list strong {
+            display: block;
+            color: var(--heading);
+            font-size: 0.8rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .content-column {
+            display: grid;
+            gap: 1.2rem;
+        }
+
+        .hero-card {
+            padding: clamp(1.35rem, 3vw, 2rem);
+            overflow: hidden;
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.9rem;
+            border: 1px solid color-mix(in srgb, var(--accent) 34%, var(--border));
+            border-radius: 999px;
+            padding: 0.32rem 0.68rem;
+            color: var(--accent);
+            background: var(--accent-soft);
+            font-size: 0.82rem;
+            font-weight: 800;
+        }
+
+        .hero-title {
+            max-width: 760px;
+            margin: 0;
+            color: var(--heading);
+            font-size: clamp(2rem, 4vw, 3.35rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.07em;
+        }
+
+        .hero-title span {
+            color: var(--accent);
+        }
+
+        .hero-lead {
+            max-width: 780px;
+            margin: 1rem 0 0;
+            color: var(--muted-strong);
+            font-size: 1rem;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.7rem;
+            margin-top: 1.35rem;
+        }
+
+        .stat {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 0.85rem;
+            background: color-mix(in srgb, var(--panel) 70%, transparent);
+        }
+
+        .stat strong {
+            display: block;
+            color: var(--heading);
+            font-size: 1.15rem;
+            line-height: 1.1;
+        }
+
+        .stat span {
+            display: block;
+            margin-top: 0.25rem;
+            color: var(--muted);
+            font-size: 0.76rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .section-card {
+            scroll-margin-top: calc(var(--nav-height) + 1.2rem);
+            padding: clamp(1.2rem, 2.5vw, 1.75rem);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
             margin-bottom: 1rem;
         }
-        .anchor {
-            padding-top: 0;
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.62rem;
+            margin: 0;
+            color: var(--heading);
+            font-size: clamp(1.35rem, 2.8vw, 1.8rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+
+        .section-title i {
+            color: var(--accent);
+        }
+
+        .section-tag {
+            flex: none;
+            border-radius: 999px;
+            padding: 0.28rem 0.62rem;
+            color: var(--accent);
+            background: var(--accent-soft);
+            font-size: 0.76rem;
+            font-weight: 800;
+        }
+
+        .body-copy {
+            color: var(--muted-strong);
+            text-align: justify;
+        }
+
+        .body-copy p {
+            margin: 0 0 0.9rem;
+        }
+
+        .body-copy p:last-child {
+            margin-bottom: 0;
+        }
+
+        .interest-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .interest-box {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 0.9rem;
+            background: color-mix(in srgb, var(--panel) 76%, transparent);
+        }
+
+        .interest-box strong {
+            display: block;
+            color: var(--heading);
+            font-size: 0.9rem;
+        }
+
+        .interest-box span {
+            display: block;
+            margin-top: 0.32rem;
+            color: var(--muted);
+            font-size: 0.82rem;
+            line-height: 1.45;
+        }
+
+        .experience-list {
+            display: grid;
+            gap: 0.9rem;
+        }
+
+        .experience-card {
+            display: grid;
+            grid-template-columns: 150px minmax(0, 1fr);
+            gap: 1.15rem;
+            align-items: center;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            background: color-mix(in srgb, var(--panel) 74%, transparent);
+            transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+        }
+
+        .experience-card:hover {
+            border-color: color-mix(in srgb, var(--accent) 34%, var(--border));
+            box-shadow: var(--shadow-soft);
+            transform: translateY(-2px);
+        }
+
+        .logo-frame {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 96px;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 18px;
+            padding: 1rem;
+            background: var(--logo-bg);
+        }
+
+        .logo-frame img {
+            max-height: 66px;
+            object-fit: contain;
+        }
+
+        .experience-content h3 {
+            margin: 0 0 0.25rem;
+            color: var(--heading);
+            font-size: 1.02rem;
+            line-height: 1.35;
+        }
+
+        .experience-content p {
+            margin: 0.18rem 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .experience-content .role {
+            color: var(--muted-strong);
+            font-weight: 800;
+        }
+
+        .pub-group {
+            margin-top: 1rem;
+        }
+
+        .pub-group:first-of-type {
             margin-top: 0;
         }
-        .info-table {
-            width: 100%;
-            margin-bottom: 20px;
-        }
-        .info-table td {
-            vertical-align: top;
-            border: none;
-            padding-top: 0;
-        }
-        .info-column {
-            width: 75%;
-            text-align: left;
-            padding-right: 20px;
+
+        .pub-heading {
             display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            height: 180px; /* 控制文字与图像等高 */
-        }
-        .photo-column {
-            width: 30%;
-            text-align: right;
-            padding-left: 20px;
-        }
-        .photo-column img {
-            max-height: 180px;
-            max-width: 100%;
-            object-fit: contain;
-        }
-        .info-column p {
-            margin: 5px 0;
-        }
-        .info-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-        }
-        .top-info p {
-            margin: 0;
-        }
-        .bottom-info {
-            margin: 0;
-        }
-        .email-nowrap {
-            white-space: nowrap;
-        }
-        /* 新增导航栏样式 */
-        .top-nav {
-            display: flex;
-            justify-content: center; /* 居中对齐 */
-            gap: 1.5rem; /* 链接之间的间距 */
-            /* margin-bottom: 1.5rem; */ /* 移除与下方内容的距离 */
-            flex-wrap: wrap; /* 如果空间不足，允许换行 */
-            background-color: #fff; /* 可选：添加背景色使导航栏更突出 */
-            padding: 0.5rem 0; /* 可选：添加内边距 */
-            /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */ /* 可选：添加阴影 */
-            position: sticky; /* 可选：固定在顶部 */
-            top: 0; /* 可选：固定在顶部 */
-            z-index: 1000; /* 可选：确保在其他内容之上 */
-        }
-        .top-nav a {
-            text-decoration: none;
-            /* color: #000; */ /* 黑色 */
-            color: #9b2d20; /* 链接的红色 */
-            /* font-weight: normal; */ /* 正常字体粗细 */
-            font-weight: bold; /* 加粗 */
-            font-size: 0.9rem; /* 字体大小 */
-            padding: 0.3rem 0.5rem; /* 内边距，增加点击区域 */
-            border-radius: 4px; /* 圆角 */
-            /* transition: background-color 0.2s ease; */ /* 背景颜色过渡效果 */
-            transition: color 0.2s ease, background-color 0.2s ease; /* 颜色和背景色过渡 */
-        }
-        .top-nav a:hover {
-            /* background-color: #e9ecef; */ /* 悬停时的背景色 */
-            /* color: #000; */ /* 悬停时文字颜色保持黑色 */
-            color: #b23c2b; /* 悬停时变为链接悬停的红色 */
-            background-color: #f8f9fa; /* 可选：轻微背景色变化 */
-            text-decoration: underline; /* 悬停时添加下划线 */
-        }
-        /* .social-links 类（容器样式） */
-        .social-links {
-            margin-top: 5px; /* 容器顶部与上方元素的距离为5px */
-            /* 强制容器内的内容不换行，所有链接保持在同一行 */
-            /* white-space: nowrap;*/
-            /* 占完整一行 */
-            /* width: 100%;*/
-        }
-        /* .social-links a 类（链接样式） */
-        .social-links a {
-            margin-right: 0.6rem; /* 每个链接右侧的间距，拉开链接之间的距离 */
-            text-decoration: none; /* 去除链接默认的下划线 */
-            color: #9b2d20; /* 链接文字和图标的颜色（深红褐色） */
-            font-size: 0.85rem; /* 链接文字大小为0.85rem（约13.6px） */
-            /* 确保单个链接内的图标和文字不换行（如“Google Scholar”整体保持在一行） */
-            white-space: nowrap;
-        }
-        .social-links a:hover {
-            color: #b23c2b;
-            text-decoration: underline;
-        }
-        a {
-            color: #9b2d20;
-            text-decoration: none;
-        }
-        a:hover {
-            color: #b23c2b;
-            text-decoration: underline;
-        }
-        .conf-name {
-            color: #000;
-            font-weight: bold;
-        }
-        .experience-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-        }
-        .experience-logo {
-            flex-shrink: 0;
-            width: 25%;
-            height: 100px;
-            display: flex;
-            justify-content: center;
             align-items: center;
-            margin-right: 20px;
+            gap: 0.52rem;
+            margin: 1rem 0 0.72rem;
+            color: var(--heading);
+            font-size: 1.02rem;
+            font-weight: 800;
         }
-        .experience-logo img {
-            max-height: 60%;
-            max-width: 80%;
-            object-fit: contain;
+
+        .pub-heading::before {
+            width: 0.6rem;
+            height: 0.6rem;
+            border-radius: 50%;
+            content: "";
+            background: var(--accent);
+            box-shadow: 0 0 0 6px var(--accent-soft);
         }
-        .experience-details {
-            flex: 1;
-            padding-left: 20px;
+
+        .publication-list {
+            display: grid;
+            gap: 0.8rem;
         }
-        .experience-details p {
-            margin: 0.1rem 0;
-            color: #000;
+
+        .publication-card {
+            position: relative;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            background: color-mix(in srgb, var(--panel) 76%, transparent);
+            transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
         }
-        .experience-details .subtitle {
-            color: #666;
+
+        .publication-card:hover {
+            border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+            box-shadow: var(--shadow-soft);
+            transform: translateY(-2px);
         }
-        .biography {
-            text-align: justify;
-            text-justify: inter-word;
-        }
-        .biography ul {
-            padding-left: 1.2em;
-            margin-top: 0.2em;
-            margin-bottom: 1.5em;
-            list-style-type: disc;
-        }
-        .pub-table {
-            border-collapse: collapse;
-            width: 100%;
-            background-color: #F0F0F0;
-            margin-top: 0.5rem;
-        }
-        .pub-table td {
-            padding: 0.3rem 1rem;
-            border-bottom: none;
-        }
-        .pub-table tr {
-            border-bottom: 1px solid #ddd;
-        }
-        .pub-table tr:last-child {
-            border-bottom: none;
-        }
-        .publication-item {
-            margin: 0;
-        }
+
         .publication-title {
-            font-weight: bold;
-            font-size: 0.95rem;
-            margin-bottom: 0.1rem;
+            margin: 0;
+            color: var(--heading);
+            font-size: 1rem;
+            font-weight: 800;
+            line-height: 1.42;
         }
-        .publication-authors {
-            margin-bottom: 0.1rem;
-            color: #000;
-            font-size: 0.85rem;
-        }
-        .publication-authors .me {
-            font-weight: bold;
-            text-decoration: underline;
-        }
+
+        .publication-authors,
         .publication-info {
-            color: #000;
-            font-size: 0.85rem;
-            margin-bottom: 0.1rem;
+            margin: 0.35rem 0 0;
+            color: var(--muted);
+            font-size: 0.88rem;
+            line-height: 1.55;
         }
-        .publication-links {
-            color: #333;
-            font-size: 0.85rem;
-            margin-top: 0.1rem;
+
+        .me {
+            color: var(--heading);
+            font-weight: 800;
+            text-decoration: underline;
+            text-decoration-color: var(--accent);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 3px;
         }
-        .publication-links b.pub_year,
-        .publication-links b.pub_conf_name {
-            margin-right: 0.8em;
+
+        .publication-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.45rem;
+            margin-top: 0.72rem;
         }
+
+        .venue-badge,
         .link-button {
-            display: inline-block;
-            background-color: #f7f9fc;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 0.1em 0.4em;
-            text-decoration: none;
-            color: #9b2d20;
-            margin-right: 0.5em;
+            display: inline-flex;
+            align-items: center;
+            min-height: 30px;
+            border-radius: 999px;
+            padding: 0 0.62rem;
+            font-size: 0.78rem;
+            font-weight: 800;
         }
+
+        .venue-badge {
+            color: var(--heading);
+            background: color-mix(in srgb, var(--accent) 14%, var(--panel));
+        }
+
+        .link-button {
+            border: 1px solid color-mix(in srgb, var(--accent) 32%, var(--border));
+            color: var(--accent);
+            background: transparent;
+        }
+
         .link-button:hover {
-            background-color: #e9ecef;
-            text-decoration: none;
+            color: #fff;
+            background: var(--accent);
+            transform: translateY(-1px);
         }
-        #footer {
+
+        .simple-list {
+            display: grid;
+            gap: 0.62rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .simple-list li {
+            position: relative;
+            padding-left: 1.25rem;
+            color: var(--muted-strong);
+        }
+
+        .simple-list li::before {
+            position: absolute;
+            top: 0.72em;
+            left: 0;
+            width: 0.42rem;
+            height: 0.42rem;
+            border-radius: 50%;
+            content: "";
+            background: var(--accent);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.9rem;
+        }
+
+        .service-box {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            background: color-mix(in srgb, var(--panel) 76%, transparent);
+        }
+
+        .service-box h3 {
+            margin: 0 0 0.65rem;
+            color: var(--heading);
+            font-size: 1rem;
+        }
+
+        .footer {
+            margin-top: 1rem;
+            padding: 1.5rem 0 0.5rem;
+            color: var(--muted);
+            font-size: 0.84rem;
             text-align: center;
-            font-size: 0.8rem;
-            color: #999;
-            margin-top: 3rem;
         }
-        hr {
-            border: none;
-            border-top: 1px solid #eee;
-            margin: 2rem 0 1rem 0;
+
+        .js .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 520ms ease, transform 520ms ease;
         }
-        .experience-item {
-            border-bottom: none;
+
+        .js .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .experience-item+.experience-item {
-            border-top: none;
+
+        @media (max-width: 980px) {
+            :root {
+                --nav-height: 112px;
+            }
+
+            .nav-inner {
+                flex-wrap: wrap;
+                width: min(100% - 28px, 1180px);
+                padding: 0.75rem 0;
+            }
+
+            .nav-links {
+                order: 3;
+                justify-content: flex-start;
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 0.2rem;
+                scrollbar-width: none;
+            }
+
+            .nav-links::-webkit-scrollbar {
+                display: none;
+            }
+
+            .site-shell {
+                width: min(100% - 28px, 1180px);
+            }
+
+            .page-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-column {
+                position: static;
+            }
+
+            .profile-card {
+                display: grid;
+                grid-template-columns: 150px minmax(0, 1fr);
+                align-items: center;
+                gap: 1.2rem;
+                text-align: left;
+            }
+
+            .avatar-wrap {
+                width: 150px;
+                height: 150px;
+                margin: 0;
+            }
+
+            .profile-main {
+                min-width: 0;
+            }
+
+            .social-links,
+            .email-line {
+                justify-content: flex-start;
+            }
+
+            .interest-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 720px) {
+            :root {
+                --nav-height: 146px;
+            }
+
+            body {
+                font-size: 14px;
+            }
+
+            .brand {
+                width: 100%;
+            }
+
+            .nav-controls {
+                width: 100%;
+                justify-content: space-between;
+                gap: 0.4rem;
+            }
+
+            .control-button,
+            .segmented {
+                flex: 1;
+                justify-content: center;
+            }
+
+            .segmented button {
+                flex: 1;
+            }
+
+            .site-shell {
+                padding-top: 1.2rem;
+            }
+
+            .profile-card {
+                display: block;
+                text-align: center;
+            }
+
+            .avatar-wrap {
+                width: 160px;
+                height: 160px;
+                margin: 0.35rem auto 1rem;
+            }
+
+            .social-links,
+            .email-line {
+                justify-content: center;
+            }
+
+            .email-line {
+                white-space: normal;
+            }
+
+            .hero-stats,
+            .interest-grid,
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 0.45rem;
+            }
+
+            .experience-card {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-frame {
+                min-height: 88px;
+            }
+
+            .publication-actions {
+                align-items: flex-start;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- 将导航栏移动到最顶部 -->
-    <div class="top-nav">
-        <a href="#biography">Biography</a>
-        <a href="#experiences">Experiences</a>
-        <a href="#publications">Publications</a>
-        <a href="#awards">Awards</a>
-        <a href="#services">Services</a>
-    </div>
+    <header class="top-nav">
+        <div class="nav-inner">
+            <a class="brand" href="#home" aria-label="Tong Wang homepage">
+                <span>Tong Wang</span>
+                <span>王通</span>
+            </a>
+            <nav class="nav-links" aria-label="Primary navigation">
+                <a class="nav-link active" href="#biography"><span class="lang-en">Biography</span><span class="lang-zh">个人简介</span></a>
+                <a class="nav-link" href="#experiences"><span class="lang-en">Experiences</span><span class="lang-zh">经历</span></a>
+                <a class="nav-link" href="#publications"><span class="lang-en">Publications</span><span class="lang-zh">论文</span></a>
+                <a class="nav-link" href="#awards"><span class="lang-en">Awards</span><span class="lang-zh">荣誉</span></a>
+                <a class="nav-link" href="#services"><span class="lang-en">Services</span><span class="lang-zh">服务</span></a>
+            </nav>
+            <div class="nav-controls" aria-label="Display controls">
+                <div class="segmented" role="group" aria-label="Language switcher">
+                    <button type="button" data-set-locale="en">EN</button>
+                    <button type="button" data-set-locale="zh">中文</button>
+                </div>
+                <button class="control-button" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon" id="theme-icon" aria-hidden="true"></i>
+                    <span id="theme-label">Dark</span>
+                </button>
+                <button class="control-button" id="accent-toggle" type="button" aria-label="Change accent color">
+                    <i class="fas fa-palette" aria-hidden="true"></i>
+                    <span id="accent-label">Ruby</span>
+                </button>
+            </div>
+        </div>
+    </header>
 
-    <div id="container">
-        <a id="home" class="anchor"></a>
-        <div id="toptitle">
-            <h1>TongWang 王通</h1>
-        </div>
-        <!-- 原来的导航栏位置现在为空 -->
+    <main id="home" class="site-shell">
+        <div class="page-grid">
+            <aside class="profile-column" aria-label="Profile information">
+                <section class="card profile-card reveal">
+                    <div class="avatar-wrap">
+                        <img src="./files/tong_wang_main.png" alt="Tong Wang portrait" fetchpriority="high">
+                    </div>
+                    <div class="profile-main">
+                        <h1 class="profile-name">Tong Wang</h1>
+                        <div class="profile-cn-name">王通</div>
+                        <p class="profile-title"><span class="lang-en">Ph.D. Student</span><span class="lang-zh">博士研究生</span></p>
+                        <p class="profile-affiliation">
+                            <span class="lang-en">Computer Vision Department, MBZUAI<br>Masdar City, Abu Dhabi, United Arab Emirates</span>
+                            <span class="lang-zh">阿联酋人工智能大学计算机视觉系<br>阿布扎比马斯达尔城，阿联酋</span>
+                        </p>
+                        <div class="email-line" title="Email">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <span>tong [DOT] wang [AT] mbzuai [DOT] ac [DOT] ae</span>
+                        </div>
+                        <div class="social-links" aria-label="Academic links">
+                            <a href="https://github.com/wangtong627" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://huggingface.co/TongWang-NJ" target="_blank" rel="noopener noreferrer" aria-label="Hugging Face"><i class="fas fa-robot"></i></a>
+                            <a href="https://scholar.google.com/citations?user=x7FY8P8AAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                            <a href="https://www.semanticscholar.org/author/Tong-Wang/2155339760" target="_blank" rel="noopener noreferrer" aria-label="Semantic Scholar"><i class="fas fa-book-open"></i></a>
+                            <a href="https://dblp.org/pid/51/6856-22.html" target="_blank" rel="noopener noreferrer" aria-label="DBLP"><i class="fas fa-book"></i></a>
+                            <a href="https://openreview.net/profile?id=~Tong_Wang8" target="_blank" rel="noopener noreferrer" aria-label="OpenReview"><i class="fas fa-file-alt"></i></a>
+                            <a href="https://www.researchgate.net/profile/Tong-Wang-156" target="_blank" rel="noopener noreferrer" aria-label="ResearchGate"><i class="fas fa-flask"></i></a>
+                        </div>
+                    </div>
+                </section>
 
-        <table class="info-table" width="100%">
-            <tr>
-                <td class="info-column">
-                    <div class="info-content">
-                        <div class="top-info">
-                            <p>
-                                <font color="#424949" size="4"><b>Ph.D Student</b></font><br /><br />
-                                Computer Vision Department, 1B Building<br />
-                                Mohamed bin Zayed University of Artificial Intelligence<br />
-                                Masdar City, Abu Dhabi<br />
-                                United Arab Emirates<br /><br />
-                            </p>
-                        </div>
-                        <div class="bottom-info">
-                            <span class="email-nowrap">
-                            Email:
-                                <font face="courier new, monospace">tong</font>&nbsp;[DOT]
-                                <font face="courier new, monospace">wang</font>&nbsp;[AT]
-                                <font face="courier new, monospace">mbzuai</font>&nbsp;[DOT]
-                                <font face="courier new, monospace">ac</font>&nbsp;[DOT]
-                                <font face="courier new, monospace">ae</font>
-                            </span>
-                        </div>
+                <section class="card side-card reveal">
+                    <h2><span class="lang-en">Research Interests</span><span class="lang-zh">研究方向</span></h2>
+                    <div class="chip-list">
+                        <span class="chip">Vision-Language Models</span>
+                        <span class="chip">Visual Grounding</span>
+                        <span class="chip">Generative AI</span>
+                        <span class="chip">Diffusion Models</span>
+                        <span class="chip">Medical Image Analysis</span>
                     </div>
-                </td>
-                <td class="photo-column">
-                    <img src="./files/tong_wang_main.png" alt="TongWang Photo" />
-                </td>
-            </tr>
-        </table>
-        <div class="social-links">
-            <a href="https://github.com/wangtong627" target="_blank"><i class="fab fa-github"></i>&nbsp;GitHub</a>
-            <!-- 添加 Hugging Face 链接 -->
-            <a href="https://huggingface.co/TongWang-NJ" target="_blank"><i class="fas fa-hands-helping"></i>&nbsp;HuggingFace</a>
-            <a href="https://scholar.google.com/citations?user=x7FY8P8AAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i>&nbsp;GoogleScholar</a>
-            <a href="https://www.semanticscholar.org/author/Tong-Wang/2155339760" target="_blank"><i class="fas fa-book-open"></i>&nbsp;SemanticScholar</a>
-            <a href="https://dblp.org/pid/51/6856-22.html" target="_blank"><i class="fas fa-book"></i>&nbsp;DBLP</a>
-            <a href="https://openreview.net/profile?id=~Tong_Wang8" target="_blank"><i class="fas fa-file-alt"></i>&nbsp;OpenReview</a>
-            <a href="https://www.researchgate.net/profile/Tong-Wang-156" target="_blank"><i class="fas fa-flask"></i>&nbsp;ResearchGate</a>
-        </div>
-        <hr>
-        <!-- 为 Biography 添加 id -->
-        <h2 id="biography">🎈 Biography</h2>
-        <div class="biography">
-            <p>I am currently a Ph.D student at the Key Laboratory of New Generation Artificial Intelligence Technology and Its Interdisciplinary Applications of Ministry of Education, Southeast University. I am also a visiting Ph.D student at Mohamed bin Zayed University of Artificial Intelligence (MBZUAI).
-            <p><strong>Research Interests:</strong></p>
-            <ul>
-                <li><strong>Multimodal Models:</strong> Vision-Language Models, LLM-based Visual Grounding Models</li>
-                <li><strong>Generative AI:</strong> Autoregressive Models, Diffusion Models, Efficient Generative Models </li>
-                <li><strong>Medical Image Analysis:</strong> Image Segmentation, Medical Video Analysis, Medical Image Representation Learning</li>
-            </ul>
-        </div>
-        <hr>
-        <!-- 为 Experiences 添加 id -->
-        <h2 id="experiences">👨‍💻 Experiences</h2>
-        <div class="experience-item">
-            <div class="experience-logo">
-                <img src="./files/mbzuai_logo.png" alt="MBZUAI Logo" />
-            </div>
-            <div class="experience-details">
-                <p style="font-weight: bold;">Mohamed bin Zayed University of Artificial Intelligence</p>
-                <p>Visiting Student | 2024 – Present</p>
-                <p>Mentor: <a href="https://sites.google.com/view/fahadkhans" target="_blank">Prof. Fahad Shahbaz Khan</a>, <a href="https://salman-h-khan.github.io/" target="_blank">Prof. Salman Khan</a>, <a href="https://sites.google.com/site/liunian228/" target="_blank">Dr. Nian Liu</a> and <a href="https://ytongxie.github.io/" target="_blank">Dr. Yutong Xie</a></p>
-                <p style="color: #000;">Research focus: Multimodal Models, Generative Model, Medical Image Analysis</p>
-            </div>
-        </div>
-        <div class="experience-item">
-            <div class="experience-logo">
-                <img src="./files/seu_logo.png" alt="Southeast University Logo" />
-            </div>
-            <div class="experience-details">
-                <p style="font-weight: bold;">Southeast University</p>
-                <p>Ph.D Student | 2022 – Present</p>
-                <p>PhD Advisor: <a href="https://cs.seu.edu.cn/gyyang/main.htm" target="_blank">Prof. Guanyu Yang</a></p>
-                <p style="color: #000;">Research focus: Computer Vision, Medical Image Analysis</p>
-            </div>
-        </div>
-        <hr>
-        <!-- 为 Publications 添加 id -->
-        <h2 id="publications">📝 Publications</h2>
-        <h3>Preprint Papers</h3>
-        <table class="pub-table">
-            
-            <tr>
-                <td>
-                    <div class="publication-item">
-                        <div class="publication-title">Diversity Has Always Been There in Your Visual Autoregressive Models</div>
-                        <div class="publication-authors"><span class="me">Tong Wang</span>, Guanyu Yang, Nian Liu, Kai Wang, Yaxing Wang, Abdelrahman M Shaker, Salman Khan, Fahad Shahbaz Khan, Senmao Li.</div>
-                        <div class="publication-info">arXiv preprint arXiv:2511.17074</div>
-                        <div class="publication-links">
-                            <b class="pub_year">Preprint 2025</b>
-                            <a class="link-button" href="https://arxiv.org/abs/2511.17074">Paper</a>
-                            <a class="link-button" href="https://github.com/wangtong627/DiverseVAR">Code</a>
-                            <a class="link-button" href="https://wangtong627.github.io/DiverseVAR">Page</a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            
-            <tr>
-                <td>
-                    <div class="publication-item">
-                        <div class="publication-title">Composed Object Retrieval: Object-level Retrieval via Composed Expressions</div>
-                        <div class="publication-authors"><span class="me">Tong Wang</span>, Guanyu Yang, Nian Liu, Zongyan Han, Jinxing Zhou, Salman Khan, Fahad Shahbaz Khan.</div>
-                        <div class="publication-info">arXiv preprint arXiv:2508.04424</div>
-                        <div class="publication-links">
-                            <b class="pub_year">Preprint 2025</b>
-                            <a class="link-button" href="https://arxiv.org/abs/2508.04424">Paper</a>
-                            <a class="link-button" href="https://github.com/wangtong627/COR">Code</a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="publication-item">
-                        <div class="publication-title">OpenSeg-R: Improving Open-Vocabulary Segmentation via Step-by-Step Visual Reasoning</div>
-                        <div class="publication-authors">Zongyan Han, Jiale Cao, Shuo Chen, <span class="me">Tong Wang</span>, Jorma Laaksonen, Rao Muhammad Anwer.</div>
-                        <div class="publication-info">arXiv preprint arXiv:2505.16974</div>
-                        <div class="publication-links">
-                            <b class="pub_year">Preprint 2025</b>
-                            <a class="link-button" href="https://arxiv.org/abs/2505.16974">Paper</a>
-                            <a class="link-button" href="https://github.com/Hanzy1996/OpenSeg-R">Code</a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-        
-        <h3>Conference Papers</h3>
-        <table class="pub-table">
+                </section>
 
-            <tr>
-                <td>
-                    <div class="publication-item">
-                        <div class="publication-title">CMSA-Net: Causal Multi-scale Aggregation with Adaptive Multi-source Reference for Video Polyp Segmentation</div>
-                        <div class="publication-authors"><span class="me">Tong Wang</span>, Yaolei Qi, Siwen Wang, Imran Razzak, Guanyu Yang, Yutong Xie.</div>
-                        <div class="publication-info">arXiv preprint arXiv:2602.22821</div>
-                        <div class="publication-links">
-                            <b class="pub_year">MICCAI 2026 (Early Accept)</b>
-                            <a class="link-button" href="https://arxiv.org/abs/2602.22821">Paper</a>
-                            <a class="link-button" href="https://github.com/wangtong627/CMSA-Net">Code</a>
+                <section class="card side-card reveal">
+                    <h2><span class="lang-en">Current Focus</span><span class="lang-zh">当前关注</span></h2>
+                    <ul class="status-list">
+                        <li>
+                            <strong><span class="lang-en">Visiting</span><span class="lang-zh">访问</span></strong>
+                            <span class="lang-en">MBZUAI, 2024 - Present</span>
+                            <span class="lang-zh">MBZUAI，2024年至今</span>
+                        </li>
+                        <li>
+                            <strong><span class="lang-en">Affiliation</span><span class="lang-zh">所属单位</span></strong>
+                            <span class="lang-en">Southeast University</span>
+                            <span class="lang-zh">东南大学</span>
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+
+            <div class="content-column">
+                <section class="card hero-card reveal" aria-label="Intro">
+                    <div class="hero-kicker"><i class="fas fa-star" aria-hidden="true"></i><span class="lang-en">Academic Homepage</span><span class="lang-zh">个人学术主页</span></div>
+                    <h2 class="hero-title">
+                        <span class="lang-en">Multimodal models, generative AI, and medical vision.</span>
+                        <span class="lang-zh">多模态模型、生成式 AI 与医学视觉。</span>
+                    </h2>
+                    <p class="hero-lead">
+                        <span class="lang-en">I work on computer vision systems that connect visual understanding, generation, and real-world medical applications.</span>
+                        <span class="lang-zh">我的研究关注连接视觉理解、内容生成与医学应用的计算机视觉系统。</span>
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat"><strong>9</strong><span><span class="lang-en">Papers Listed</span><span class="lang-zh">收录论文</span></span></div>
+                        <div class="stat"><strong>3</strong><span><span class="lang-en">Research Areas</span><span class="lang-zh">研究方向</span></span></div>
+                        <div class="stat"><strong>2024+</strong><span><span class="lang-en">MBZUAI Visit</span><span class="lang-zh">MBZUAI 访问</span></span></div>
+                    </div>
+                </section>
+
+                <section id="biography" class="card section-card reveal">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-user-astronaut" aria-hidden="true"></i><span class="lang-en">Biography</span><span class="lang-zh">个人简介</span></h2>
+                        <span class="section-tag"><span class="lang-en">About</span><span class="lang-zh">关于我</span></span>
+                    </div>
+                    <div class="body-copy">
+                        <p class="lang-en">I am currently a Ph.D. student at the Key Laboratory of New Generation Artificial Intelligence Technology and Its Interdisciplinary Applications of Ministry of Education, Southeast University. I am also a visiting Ph.D. student at Mohamed bin Zayed University of Artificial Intelligence (MBZUAI).</p>
+                        <p class="lang-zh">我目前是东南大学教育部新一代人工智能技术及其交叉应用重点实验室的博士研究生，同时也是阿联酋人工智能大学（MBZUAI）的访问博士生。</p>
+                    </div>
+                    <div class="interest-grid">
+                        <div class="interest-box">
+                            <strong><span class="lang-en">Multimodal Models</span><span class="lang-zh">多模态模型</span></strong>
+                            <span><span class="lang-en">Vision-Language Models, LLM-based Visual Grounding Models</span><span class="lang-zh">视觉语言模型，基于大语言模型的视觉定位模型</span></span>
+                        </div>
+                        <div class="interest-box">
+                            <strong><span class="lang-en">Generative AI</span><span class="lang-zh">生成式 AI</span></strong>
+                            <span><span class="lang-en">Autoregressive Models, Diffusion Models, Efficient Generative Models</span><span class="lang-zh">自回归模型，扩散模型，高效生成模型</span></span>
+                        </div>
+                        <div class="interest-box">
+                            <strong><span class="lang-en">Medical Image Analysis</span><span class="lang-zh">医学图像分析</span></strong>
+                            <span><span class="lang-en">Image Segmentation, Medical Video Analysis, Medical Image Representation Learning</span><span class="lang-zh">图像分割，医学视频分析，医学图像表征学习</span></span>
                         </div>
                     </div>
-                </td>
-            </tr>
-            
-            <tr>
-                <td>
-                    <div class="publication-item">
-                        <div class="publication-title">Think Before You Segment: An Object-aware Reasoning Agent for Referring Audio-Visual Segmentation</div>
-                        <div class="publication-authors">Jinxing Zhou, Yanghao Zhou, Mingfei Han, <span class="me">Tong Wang</span>, Xiaojun Chang, Hisham Cholakkal, Rao Muhammad Anwer.</div>
-                        <div class="publication-info">arXiv preprint arXiv:2508.04418</div>
-                        <div class="publication-links">
-                            <b class="pub_year">AAAI 2026</b>
-                            <a class="link-button" href="https://arxiv.org/abs/2508.04418">Paper</a>
-                            <a class="link-button" href="https://github.com/jasongief/TGS-Agent">Code</a>
+                </section>
+
+                <section id="experiences" class="card section-card reveal">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-route" aria-hidden="true"></i><span class="lang-en">Experiences</span><span class="lang-zh">经历</span></h2>
+                        <span class="section-tag"><span class="lang-en">Timeline</span><span class="lang-zh">时间线</span></span>
+                    </div>
+                    <div class="experience-list">
+                        <article class="experience-card">
+                            <div class="logo-frame">
+                                <img src="./files/mbzuai_logo.png" alt="MBZUAI logo">
+                            </div>
+                            <div class="experience-content">
+                                <h3>Mohamed bin Zayed University of Artificial Intelligence</h3>
+                                <p class="role"><span class="lang-en">Visiting Student | 2024 - Present</span><span class="lang-zh">访问学生 | 2024年至今</span></p>
+                                <p><span class="lang-en">Mentors:</span><span class="lang-zh">合作导师：</span> <a href="https://sites.google.com/view/fahadkhans" target="_blank" rel="noopener noreferrer">Prof. Fahad Shahbaz Khan</a>, <a href="https://salman-h-khan.github.io/" target="_blank" rel="noopener noreferrer">Prof. Salman Khan</a>, <a href="https://sites.google.com/site/liunian228/" target="_blank" rel="noopener noreferrer">Dr. Nian Liu</a> <span class="lang-en">and</span><span class="lang-zh">和</span> <a href="https://ytongxie.github.io/" target="_blank" rel="noopener noreferrer">Dr. Yutong Xie</a></p>
+                                <p><span class="lang-en">Research focus: Multimodal Models, Generative Model, Medical Image Analysis</span><span class="lang-zh">研究重点：多模态模型、生成模型、医学图像分析</span></p>
+                            </div>
+                        </article>
+                        <article class="experience-card">
+                            <div class="logo-frame">
+                                <img src="./files/seu_logo.png" alt="Southeast University logo">
+                            </div>
+                            <div class="experience-content">
+                                <h3>Southeast University</h3>
+                                <p class="role"><span class="lang-en">Ph.D. Student | 2022 - Present</span><span class="lang-zh">博士研究生 | 2022年至今</span></p>
+                                <p><span class="lang-en">Ph.D. Advisor:</span><span class="lang-zh">博士生导师：</span> <a href="https://cs.seu.edu.cn/gyyang/main.htm" target="_blank" rel="noopener noreferrer">Prof. Guanyu Yang</a></p>
+                                <p><span class="lang-en">Research focus: Computer Vision, Medical Image Analysis</span><span class="lang-zh">研究重点：计算机视觉、医学图像分析</span></p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section id="publications" class="card section-card reveal">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-file-alt" aria-hidden="true"></i><span class="lang-en">Publications</span><span class="lang-zh">论文发表</span></h2>
+                        <span class="section-tag"><span class="lang-en">Selected Works</span><span class="lang-zh">代表工作</span></span>
+                    </div>
+
+                    <div class="pub-group">
+                        <h3 class="pub-heading"><span class="lang-en">Preprint Papers</span><span class="lang-zh">预印本论文</span></h3>
+                        <div class="publication-list">
+                            <article class="publication-card">
+                                <h4 class="publication-title"><span class="lang-en">Diversity Has Always Been There in Your Visual Autoregressive Models</span><span class="lang-zh">视觉自回归模型中的多样性一直存在</span></h4>
+                                <p class="publication-authors"><span class="me">Tong Wang</span>, Guanyu Yang, Nian Liu, Kai Wang, Yaxing Wang, Abdelrahman M Shaker, Salman Khan, Fahad Shahbaz Khan, Senmao Li.</p>
+                                <p class="publication-info">arXiv preprint arXiv:2511.17074</p>
+                                <div class="publication-actions">
+                                    <span class="venue-badge">Preprint 2025</span>
+                                    <a class="link-button" href="https://arxiv.org/abs/2511.17074" target="_blank" rel="noopener noreferrer"><span class="lang-en">Paper</span><span class="lang-zh">论文</span></a>
+                                    <a class="link-button" href="https://github.com/wangtong627/DiverseVAR" target="_blank" rel="noopener noreferrer"><span class="lang-en">Code</span><span class="lang-zh">代码</span></a>
+                                    <a class="link-button" href="https://wangtong627.github.io/DiverseVAR" target="_blank" rel="noopener noreferrer"><span class="lang-en">Page</span><span class="lang-zh">主页</span></a>
+                                </div>
+                            </article>
+
+                            <article class="publication-card">
+                                <h4 class="publication-title"><span class="lang-en">Composed Object Retrieval: Object-level Retrieval via Composed Expressions</span><span class="lang-zh">组合对象检索：通过组合表达实现对象级检索</span></h4>
+                                <p class="publication-authors"><span class="me">Tong Wang</span>, Guanyu Yang, Nian Liu, Zongyan Han, Jinxing Zhou, Salman Khan, Fahad Shahbaz Khan.</p>
+                                <p class="publication-info">arXiv preprint arXiv:2508.04424</p>
+                                <div class="publication-actions">
+                                    <span class="venue-badge">Preprint 2025</span>
+                                    <a class="link-button" href="https://arxiv.org/abs/2508.04424" target="_blank" rel="noopener noreferrer"><span class="lang-en">Paper</span><span class="lang-zh">论文</span></a>
+                                    <a class="link-button" href="https://github.com/wangtong627/COR" target="_blank" rel="noopener noreferrer"><span class="lang-en">Code</span><span class="lang-zh">代码</span></a>
+                                </div>
+                            </article>
+
+                            <article class="publication-card">
+                                <h4 class="publication-title"><span class="lang-en">OpenSeg-R: Improving Open-Vocabulary Segmentation via Step-by-Step Visual Reasoning</span><span class="lang-zh">OpenSeg-R：通过逐步视觉推理改进开放词汇分割</span></h4>
+                                <p class="publication-authors">Zongyan Han, Jiale Cao, Shuo Chen, <span class="me">Tong Wang</span>, Jorma Laaksonen, Rao Muhammad Anwer.</p>
+                                <p class="publication-info">arXiv preprint arXiv:2505.16974</p>
+                                <div class="publication-actions">
+                                    <span class="venue-badge">Preprint 2025</span>
+                                    <a class="link-button" href="https://arxiv.org/abs/2505.16974" target="_blank" rel="noopener noreferrer"><span class="lang-en">Paper</span><span class="lang-zh">论文</span></a>
+                                    <a class="link-button" href="https://github.com/Hanzy1996/OpenSeg-R" target="_blank" rel="noopener noreferrer"><span class="lang-en">Code</span><span class="lang-zh">代码</span></a>
+                                </div>
+                            </article>
                         </div>
                     </div>
-                </td>
-            </tr>
-            
-            <tr>
-                <td>
-                    <div class="publication-item">
-                        <div class="publication-title">Energy-induced Explicit quantification for Multi-modality MRI fusion.</div>
-                        <div class="publication-authors">Xiaoming Qi, Yuan Zhang, <span class="me">Tong Wang</span>, Guanyu Yang, Yueming Jin, Shuo Li.</div>
-                        <div class="publication-info">European Conference on Computer Vision</div>
-                        <div class="publication-links">
-                            <b class="pub_conf_name">ECCV 2024</b>
-                            <a class="link-button" href="https://doi.org/10.1007/978-3-031-72667-5_25">Paper</a>
-                            <a class="link-button" href="https://github.com/JerryQseu/EEPA">Code</a>
+
+                    <div class="pub-group">
+                        <h3 class="pub-heading"><span class="lang-en">Conference Papers</span><span class="lang-zh">会议论文</span></h3>
+                        <div class="publication-list">
+                            <article class="publication-card">
+                                <h4 class="publication-title"><span class="lang-en">CMSA-Net: Causal Multi-scale Aggregation with Adaptive Multi-source Reference for Video Polyp Segmentation</span><span class="lang-zh">CMSA-Net：用于视频息肉分割的因果多尺度聚合与自适应多源参考</span></h4>
+                                <p class="publication-authors"><span class="me">Tong Wang</span>, Yaolei Qi, Siwen Wang, Imran Razzak, Guanyu Yang, Yutong Xie.</p>
+                                <p class="publication-info">arXiv preprint arXiv:2602.22821</p>
+                                <div class="publication-actions">
+                                    <span class="venue-badge">MICCAI 2026 (Early Accept)</span>
+                                    <a class="link-button" href="https://arxiv.org/abs/2602.22821" target="_blank" rel="noopener noreferrer"><span class="lang-en">Paper</span><span class="lang-zh">论文</span></a>
+                                    <a class="link-button" href="https://github.com/wangtong627/CMSA-Net" target="_blank" rel="noopener noreferrer"><span class="lang-en">Code</span><span class="lang-zh">代码</span></a>
+                                </div>
+                            </article>
+
+                            <article class="publication-card">
+                                <h4 class="publication-title"><span class="lang-en">Think Before You Segment: An Object-aware Reasoning Agent for Referring Audio-Visual Segmentation</span><span class="lang-zh">先思考再分割：用于指代音视频分割的对象感知推理智能体</span></h4>
+                                <p class="publication-authors">Jinxing Zhou, Yanghao Zhou, Mingfei Han, <span class="me">Tong Wang</span>, Xiaojun Chang, Hisham Cholakkal, Rao Muhammad Anwer.</p>
+                                <p class="publication-info">arXiv preprint arXiv:2508.04418</p>
+                                <div class="publication-actions">
+                                    <span class="venue-badge">AAAI 2026</span>
+                                    <a class="link-button" href="https://arxiv.org/abs/2508.04418" target="_blank" rel="noopener noreferrer"><span class="lang-en">Paper</span><span class="lang-zh">论文</span></a>
+                                    <a class="link-button" href="https://github.com/jasongief/TGS-Agent" target="_blank" rel="noopener noreferrer"><span class="lang-en">Code</span><span class="lang-zh">代码</span></a>
+                                </div>
+                            </article>
+
+                            <article class="publication-card">
+                                <h4 class="publication-title"><span class="lang-en">Energy-induced Explicit Quantification for Multi-modality MRI Fusion</span><span class="lang-zh">面向多模态 MRI 融合的能量诱导显式量化</span></h4>
+                                <p class="publication-authors">Xiaoming Qi, Yuan Zhang, <span class="me">Tong Wang</span>, Guanyu Yang, Yueming Jin, Shuo Li.</p>
+                                <p class="publication-info">European Conference on Computer Vision</p>
+                                <div class="publication-actions">
+                                    <span class="venue-badge">ECCV 2024</span>
+                                    <a class="link-button" href="https://doi.org/10.1007/978-3-031-72667-5_25" target="_blank" rel="noopener noreferrer"><span class="lang-en">Paper</span><span class="lang-zh">论文</span></a>
+                                    <a class="link-button" href="https://github.com/JerryQseu/EEPA" target="_blank" rel="noopener noreferrer"><span class="lang-en">Code</span><span class="lang-zh">代码</span></a>
+                                </div>
+                            </article>
                         </div>
                     </div>
-                </td>
-            </tr>
-        </table>
-        <h3>Journal Papers</h3>
-        <table class="pub-table">
-            <tr>
-                <td>
-                    <div class="publication-item">
-                        <div class="publication-title">Polyp segmentation via semantic enhanced perceptual network.</div>
-                        <div class="publication-authors"><span class="me">Tong Wang</span>, Xiaoming Qi, Guanyu Yang.</div>
-                        <div class="publication-info">IEEE Transactions on Circuits and Systems for Video Technology</div>
-                        <div class="publication-links">
-                            <b class="pub_conf_name">IEEE TCSVT 2024</b>
-                            <a class="link-button" href="https://ieeexplore.ieee.org/document/10608167">Paper</a>
-                            <a class="link-button" href="https://github.com/wangtong627/SEPNet">Code</a>
+
+                    <div class="pub-group">
+                        <h3 class="pub-heading"><span class="lang-en">Journal Papers</span><span class="lang-zh">期刊论文</span></h3>
+                        <div class="publication-list">
+                            <article class="publication-card">
+                                <h4 class="publication-title"><span class="lang-en">Polyp Segmentation via Semantic Enhanced Perceptual Network</span><span class="lang-zh">基于语义增强感知网络的息肉分割</span></h4>
+                                <p class="publication-authors"><span class="me">Tong Wang</span>, Xiaoming Qi, Guanyu Yang.</p>
+                                <p class="publication-info">IEEE Transactions on Circuits and Systems for Video Technology</p>
+                                <div class="publication-actions">
+                                    <span class="venue-badge">IEEE TCSVT 2024</span>
+                                    <a class="link-button" href="https://ieeexplore.ieee.org/document/10608167" target="_blank" rel="noopener noreferrer"><span class="lang-en">Paper</span><span class="lang-zh">论文</span></a>
+                                    <a class="link-button" href="https://github.com/wangtong627/SEPNet" target="_blank" rel="noopener noreferrer"><span class="lang-en">Code</span><span class="lang-zh">代码</span></a>
+                                </div>
+                            </article>
+
+                            <article class="publication-card">
+                                <h4 class="publication-title"><span class="lang-en">Neighborhood Contrastive Representation Learning for Attributed Graph Clustering</span><span class="lang-zh">面向属性图聚类的邻域对比表示学习</span></h4>
+                                <p class="publication-authors"><span class="me">Tong Wang</span>, Junhua Wu, Yaolei Qi, Xiaoming Qi, Juwei Guan, Yuan Zhang, Guanyu Yang.</p>
+                                <p class="publication-info">Neurocomputing</p>
+                                <div class="publication-actions">
+                                    <span class="venue-badge">NeuroCom 2023</span>
+                                    <a class="link-button" href="https://doi.org/10.1016/j.neucom.2023.126880" target="_blank" rel="noopener noreferrer"><span class="lang-en">Paper</span><span class="lang-zh">论文</span></a>
+                                    <a class="link-button" href="https://github.com/wangtong627/NCAGC-NeuroCom" target="_blank" rel="noopener noreferrer"><span class="lang-en">Code</span><span class="lang-zh">代码</span></a>
+                                </div>
+                            </article>
+
+                            <article class="publication-card">
+                                <h4 class="publication-title"><span class="lang-en">Multi-scale Graph Attention Subspace Clustering Network</span><span class="lang-zh">多尺度图注意力子空间聚类网络</span></h4>
+                                <p class="publication-authors"><span class="me">Tong Wang</span>, Junhua Wu, Zhenquan Zhang, Wen Zhou, Guang Chen, Shasha Liu.</p>
+                                <p class="publication-info">Neurocomputing</p>
+                                <div class="publication-actions">
+                                    <span class="venue-badge">NeuroCom 2021</span>
+                                    <a class="link-button" href="https://doi.org/10.1016/j.neucom.2021.06.058" target="_blank" rel="noopener noreferrer"><span class="lang-en">Paper</span><span class="lang-zh">论文</span></a>
+                                    <a class="link-button" href="https://github.com/wangtong627/MSGA-NeuroCom" target="_blank" rel="noopener noreferrer"><span class="lang-en">Code</span><span class="lang-zh">代码</span></a>
+                                </div>
+                            </article>
                         </div>
                     </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="publication-item">
-                        <div class="publication-title">Neighborhood contrastive representation learning for attributed graph clustering.</div>
-                        <div class="publication-authors"><span class="me">Tong Wang</span>, Junhua Wu, Yaolei Qi, Xiaoming Qi, Juwei Guan, Yuan Zhang, Guanyu Yang.</div>
-                        <div class="publication-info">Neurocomputing</div>
-                        <div class="publication-links">
-                            <b class="pub_conf_name">NeuroCom 2023</b>
-                            <a class="link-button" href="https://doi.org/10.1016/j.neucom.2023.126880">Paper</a>
-                            <a class="link-button" href="https://github.com/wangtong627/NCAGC-NeuroCom">Code</a>
-                       </div>
+                </section>
+
+                <section id="awards" class="card section-card reveal">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-award" aria-hidden="true"></i><span class="lang-en">Awards and Honors</span><span class="lang-zh">奖励与荣誉</span></h2>
+                        <span class="section-tag"><span class="lang-en">Honors</span><span class="lang-zh">荣誉</span></span>
                     </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="publication-item">
-                        <div class="publication-title">Multi-scale graph attention subspace clustering network.</div>
-                        <div class="publication-authors"><span class="me">Tong Wang</span>, Junhua Wu, Zhenquan Zhang, Wen Zhou, Guang Chen, Shasha Liu.</div>
-                        <div class="publication-info">Neurocomputing</div>
-                        <div class="publication-links">
-                            <b class="pub_conf_name">NeuroCom 2021</b>
-                            <a class="link-button" href="https://doi.org/10.1016/j.neucom.2021.06.058">Paper</a>
-                            <a class="link-button" href="https://github.com/wangtong627/MSGA-NeuroCom">Code</a>
+                    <ul class="simple-list">
+                        <li><span class="lang-en">2025, Outstanding Postgraduate, Southeast University.</span><span class="lang-zh">2025年，东南大学优秀研究生。</span></li>
+                        <li><span class="lang-en">2024, Outstanding Postgraduate, Southeast University.</span><span class="lang-zh">2024年，东南大学优秀研究生。</span></li>
+                        <li><span class="lang-en">2022, Outstanding Graduates, Nanjing Tech University.</span><span class="lang-zh">2022年，南京工业大学优秀毕业生。</span></li>
+                        <li><span class="lang-en">2022, Outstanding Master's Thesis, Nanjing Tech University.</span><span class="lang-zh">2022年，南京工业大学优秀硕士学位论文。</span></li>
+                        <li><span class="lang-en">2021, National Scholarship, Ministry of Education.</span><span class="lang-zh">2021年，教育部国家奖学金。</span></li>
+                        <li><span class="lang-en">2018, National Scholarship, Ministry of Education.</span><span class="lang-zh">2018年，教育部国家奖学金。</span></li>
+                    </ul>
+                </section>
+
+                <section id="services" class="card section-card reveal">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-handshake" aria-hidden="true"></i><span class="lang-en">Services</span><span class="lang-zh">学术服务</span></h2>
+                        <span class="section-tag"><span class="lang-en">Community</span><span class="lang-zh">学术共同体</span></span>
+                    </div>
+                    <div class="service-grid">
+                        <div class="service-box">
+                            <h3><span class="lang-en">Journal Reviewer</span><span class="lang-zh">期刊审稿人</span></h3>
+                            <ul class="simple-list">
+                                <li>IEEE Transactions on Circuits and Systems for Video Technology (IEEE TCSVT)</li>
+                                <li>Neurocomputing</li>
+                                <li>Knowledge-Based Systems</li>
+                            </ul>
+                        </div>
+                        <div class="service-box">
+                            <h3><span class="lang-en">Conference Reviewer</span><span class="lang-zh">会议审稿人</span></h3>
+                            <ul class="simple-list">
+                                <li>ECCV 2026</li>
+                                <li>MICCAI 2026</li>
+                                <li>ICML 2026</li>
+                                <li>CVPR 2026</li>
+                                <li>AAAI 2026</li>
+                            </ul>
                         </div>
                     </div>
-                </td>
-            </tr>
-        </table>
-        <hr>
-        <!-- 为 Awards 添加 id -->
-        <h2 id="awards">🏅 Awards and Honors</h2>
-        <ul>
-            <li>2025, Outstanding Postgraduate, Southeast University.</li>
-            <li>2024, Outstanding Postgraduate, Southeast University.</li>
-            <li>2022, Outstanding Graduates, Nanjing Tech University.</li>
-            <li>2022, Outstanding Master’s Thesis, Nanjing Tech University.</li>
-            <li>2021, National Scholarship, Ministry of Education.</li>
-            <!-- <li>2020, Second Prize, "Huawei Cup" China Graduate Student Mathematical Modeling Contest.</li> -->
-            <!-- <li>2018, Outstanding Graduate, Lanzhou University of Technology.</li> -->
-            <li>2018, National Scholarship, Ministry of Education.</li>
-            <!-- <li>2017, Second Prize, "Challenge Cup" National Extracurricular Academic Works Competition for College Students.</li> -->
-            <!-- <li>2016, Second Prize, National College students Mathematical Contest in Modeling.</li> -->
-        </ul>
-        <hr>
-        <!-- 为 Services 添加 id -->
-        <h2 id="services">👻 Services</h2>
-        <h3>Journal Reviewer</h3>
-        <ul>
-            <li><span>IEEE Transactions on Circuits and Systems for Video Technology (IEEE TCSVT)</span></li>
-            <li><span>Neurocomputing</span></li>
-            <li><span>Knowledge-Based Systems</span></li>
-        </ul>
-        <h3>Conference Reviewer</h3>
-        <ul>
-            <li><span>ECCV 2026</span></li>
-            <li><span>MICCAI 2026</span></li>
-            <li><span>ICML 2026</span></li>
-            <li><span>CVPR 2026</span></li>
-            <li><span>AAAI 2026</span></li>
-        </ul>
-        <hr>
-        <div id="footer">
-            <div id="footer-text">
-                This page is generated by Gemini.
+                </section>
+
+                <footer class="footer">
+                    <span class="lang-en">© 2026 Tong Wang. Last updated in 2026.</span>
+                    <span class="lang-zh">© 2026 王通。最后更新于 2026 年。</span>
+                </footer>
             </div>
         </div>
-    </div>
+    </main>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var themeToggle = document.getElementById('theme-toggle');
+            var themeIcon = document.getElementById('theme-icon');
+            var themeLabel = document.getElementById('theme-label');
+            var accentToggle = document.getElementById('accent-toggle');
+            var accentLabel = document.getElementById('accent-label');
+            var accentOrder = ['ruby', 'blue', 'gold'];
+            var accentNames = {
+                ruby: { en: 'Ruby', zh: '红' },
+                blue: { en: 'Blue', zh: '蓝' },
+                gold: { en: 'Gold', zh: '金' }
+            };
+
+            function persist(key, value) {
+                try {
+                    localStorage.setItem(key, value);
+                } catch (error) {}
+            }
+
+            function currentLocale() {
+                return root.getAttribute('data-locale') === 'zh' ? 'zh' : 'en';
+            }
+
+            function applyLocale(locale) {
+                root.setAttribute('data-locale', locale);
+                root.lang = locale === 'zh' ? 'zh-CN' : 'en';
+                persist('tong-locale', locale);
+                document.title = locale === 'zh' ? '王通 | 个人主页' : 'Tong Wang | Homepage';
+                document.querySelectorAll('[data-set-locale]').forEach(function (button) {
+                    var active = button.getAttribute('data-set-locale') === locale;
+                    button.classList.toggle('active', active);
+                    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+                });
+                updateThemeControl();
+                updateAccentControl();
+            }
+
+            function updateThemeControl() {
+                var locale = currentLocale();
+                var isDark = root.getAttribute('data-theme') === 'dark';
+                if (themeIcon) themeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+                if (themeLabel) themeLabel.textContent = locale === 'zh' ? (isDark ? '浅色' : '暗色') : (isDark ? 'Light' : 'Dark');
+                if (themeToggle) themeToggle.setAttribute('aria-label', locale === 'zh' ? '切换明暗模式' : 'Toggle dark mode');
+            }
+
+            function updateAccentControl() {
+                var locale = currentLocale();
+                var accent = root.getAttribute('data-accent') || 'ruby';
+                if (accentLabel) accentLabel.textContent = accentNames[accent][locale];
+                if (accentToggle) accentToggle.setAttribute('aria-label', locale === 'zh' ? '切换主页配色' : 'Change accent color');
+            }
+
+            function applyTheme(theme) {
+                root.setAttribute('data-theme', theme);
+                persist('tong-theme', theme);
+                updateThemeControl();
+            }
+
+            function applyAccent(accent) {
+                root.setAttribute('data-accent', accent);
+                persist('tong-accent', accent);
+                updateAccentControl();
+            }
+
+            document.querySelectorAll('[data-set-locale]').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    applyLocale(button.getAttribute('data-set-locale'));
+                });
+            });
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function () {
+                    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+                });
+            }
+
+            if (accentToggle) {
+                accentToggle.addEventListener('click', function () {
+                    var current = root.getAttribute('data-accent') || 'ruby';
+                    var next = accentOrder[(accentOrder.indexOf(current) + 1) % accentOrder.length];
+                    applyAccent(next);
+                });
+            }
+
+            if ('IntersectionObserver' in window) {
+                var revealObserver = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12 });
+                document.querySelectorAll('.reveal').forEach(function (element) {
+                    revealObserver.observe(element);
+                });
+            } else {
+                document.querySelectorAll('.reveal').forEach(function (element) {
+                    element.classList.add('is-visible');
+                });
+            }
+
+            var sections = Array.prototype.slice.call(document.querySelectorAll('section[id]'));
+            var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-link'));
+
+            function updateActiveNav() {
+                var current = sections[0] ? sections[0].id : '';
+                var offset = window.scrollY + 180;
+                sections.forEach(function (section) {
+                    if (section.offsetTop <= offset) current = section.id;
+                });
+                navLinks.forEach(function (link) {
+                    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveNav, { passive: true });
+            window.addEventListener('resize', updateActiveNav);
+            applyLocale(currentLocale());
+            updateActiveNav();
+        })();
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
