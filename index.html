@@ -39,10 +39,10 @@
             --bg-soft: #eef3f8;
             --panel: #ffffff;
             --panel-elevated: rgba(255, 255, 255, 0.86);
-            --text: #1f2937;
+            --text: #111827;
             --heading: #111827;
-            --muted: #667085;
-            --muted-strong: #475467;
+            --muted: #475467;
+            --muted-strong: #344054;
             --border: rgba(15, 23, 42, 0.11);
             --shadow: 0 24px 70px rgba(15, 23, 42, 0.10);
             --shadow-soft: 0 14px 34px rgba(15, 23, 42, 0.08);
@@ -77,10 +77,10 @@
             --bg-soft: #111827;
             --panel: #111827;
             --panel-elevated: rgba(17, 24, 39, 0.84);
-            --text: #e5e7eb;
+            --text: #f3f4f6;
             --heading: #f9fafb;
-            --muted: #a3adc2;
-            --muted-strong: #cbd5e1;
+            --muted: #cbd5e1;
+            --muted-strong: #e2e8f0;
             --border: rgba(148, 163, 184, 0.22);
             --shadow: 0 24px 80px rgba(0, 0, 0, 0.40);
             --shadow-soft: 0 14px 34px rgba(0, 0, 0, 0.32);
@@ -295,7 +295,7 @@
 
         .page-grid {
             display: grid;
-            grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+            grid-template-columns: minmax(290px, 340px) minmax(0, 1fr);
             gap: 2rem;
             align-items: start;
         }
@@ -388,25 +388,21 @@
         .email-line {
             display: inline-flex;
             align-items: center;
-            justify-content: flex-start;
-            gap: 0.45rem;
+            justify-content: center;
             width: 100%;
             max-width: 100%;
             margin-top: 1rem;
             border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 0.46rem 0.78rem;
+            border-radius: 999px;
+            padding: 0.46rem 0.7rem;
             color: var(--muted-strong);
             background: var(--accent-soft);
             font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-            font-size: 0.77rem;
-            text-align: left;
-            white-space: normal;
-        }
-
-        .email-line span {
-            min-width: 0;
-            overflow-wrap: anywhere;
+            font-size: 0.72rem;
+            font-weight: 700;
+            line-height: 1.25;
+            text-align: center;
+            white-space: nowrap;
         }
 
         .social-links {
@@ -675,6 +671,8 @@
         }
 
         .news-date {
+            display: inline-block;
+            min-width: 6.2rem;
             color: var(--heading);
             font-weight: 800;
             white-space: nowrap;
@@ -1049,10 +1047,6 @@
                 justify-content: center;
             }
 
-            .email-line {
-                white-space: normal;
-            }
-
             .hero-stats,
             .interest-grid,
             .service-grid {
@@ -1134,11 +1128,10 @@
                         <div class="profile-cn-name">王通</div>
                         <p class="profile-title"><span class="lang-en">Ph.D. Student</span><span class="lang-zh">博士研究生</span></p>
                         <p class="profile-affiliation">
-                            <span class="lang-en">Computer Vision Department, MBZUAI<br>Masdar City, Abu Dhabi, United Arab Emirates</span>
-                            <span class="lang-zh">阿联酋人工智能大学计算机视觉系<br>阿布扎比马斯达尔城，阿联酋</span>
+                            <span class="lang-en">1B Building, 1st Floor<br>Computer Vision Department, MBZUAI<br>Masdar City, Abu Dhabi, UAE</span>
+                            <span class="lang-zh">1B楼，1层<br>阿联酋人工智能大学计算机视觉系<br>阿布扎比马斯达尔城，UAE</span>
                         </p>
                         <div class="email-line" title="Email">
-                            <i class="fas fa-envelope" aria-hidden="true"></i>
                             <span>tong [DOT] wang [AT] mbzuai [DOT] ac [DOT] ae</span>
                         </div>
                         <div class="social-links" aria-label="Academic links">
@@ -1205,10 +1198,11 @@
                         <span class="section-tag"><span class="lang-en">Recent</span><span class="lang-zh">近期</span></span>
                     </div>
                     <ul class="news-list">
-                        <li><span class="news-date">2026.05</span> <span class="lang-en">Our paper CMSA-Net has been accepted as a MICCAI 2026 Early Accept paper.</span><span class="lang-zh">我们的论文 CMSA-Net 被 MICCAI 2026 提前接收。</span></li>
-                        <li><span class="news-date">2025.11.08</span> <span class="lang-en">Our paper Think Before You Segment: An Object-aware Reasoning Agent for Referring Audio-Visual Segmentation got accepted to AAAI 2026.</span><span class="lang-zh">我们的论文 Think Before You Segment: An Object-aware Reasoning Agent for Referring Audio-Visual Segmentation 被 AAAI 2026 接收。</span></li>
-                        <li><span class="news-date">2025.11</span> <span class="lang-en">We proposed DiverseVAR in Diversity Has Always Been There in Your Visual Autoregressive Models.</span><span class="lang-zh">我们提出了 DiverseVAR，相关论文为 Diversity Has Always Been There in Your Visual Autoregressive Models。</span></li>
-                        <li><span class="news-date">2025.08</span> <span class="lang-en">Our work Composed Object Retrieval was released on arXiv.</span><span class="lang-zh">我们的工作 Composed Object Retrieval 已发布在 arXiv。</span></li>
+                        <li><span class="news-date">[May, 2026]</span> <span class="lang-en">CMSA-Net has been accepted by MICCAI 2026. 🎉🎉🎉</span><span class="lang-zh">CMSA-Net 被 MICCAI 2026 接收。🎉🎉🎉</span></li>
+                        <li><span class="news-date">[Feb, 2026]</span> <span class="lang-en">CMSA-Net is available on arXiv.</span><span class="lang-zh">CMSA-Net 已发布在 arXiv。</span></li>
+                        <li><span class="news-date">[Nov, 2025]</span> <span class="lang-en"><a href="https://github.com/jasongief/TGS-Agent" target="_blank" rel="noopener noreferrer">TGS-Agent</a> has been accepted by AAAI 2026. 🎉🎉🎉</span><span class="lang-zh"><a href="https://github.com/jasongief/TGS-Agent" target="_blank" rel="noopener noreferrer">TGS-Agent</a> 被 AAAI 2026 接收。🎉🎉🎉</span></li>
+                        <li><span class="news-date">[Nov, 2025]</span> <span class="lang-en">We released <a href="https://github.com/wangtong627/DiverseVAR" target="_blank" rel="noopener noreferrer">DiverseVAR</a> for visual autoregressive models.</span><span class="lang-zh">我们发布了用于视觉自回归模型的 <a href="https://github.com/wangtong627/DiverseVAR" target="_blank" rel="noopener noreferrer">DiverseVAR</a>。</span></li>
+                        <li><span class="news-date">[Aug, 2025]</span> <span class="lang-en">Composed Object Retrieval is available on arXiv.</span><span class="lang-zh">Composed Object Retrieval 已发布在 arXiv。</span></li>
                     </ul>
                 </section>
 
