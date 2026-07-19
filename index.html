@@ -824,8 +824,9 @@
             content: "";
             background: var(--accent);
             opacity: 0;
-            transform: scaleY(0.55);
-            transition: opacity 180ms ease, transform 180ms ease;
+            transform: scaleY(0.12);
+            transform-origin: center;
+            transition: opacity 180ms ease, transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .publication-title {
@@ -1119,33 +1120,33 @@
         /* Liquid-glass design system: optically layered, readable, and theme-aware. */
         :root {
             color-scheme: light;
-            --bg: #eaf3fb;
-            --bg-soft: #dbe8f4;
-            --panel: rgba(252, 254, 255, 0.84);
-            --panel-elevated: rgba(246, 251, 255, 0.56);
-            --text: #10243a;
-            --heading: #07182b;
-            --muted: #52677d;
-            --muted-strong: #2e475f;
-            --border: rgba(83, 133, 178, 0.24);
-            --shadow: 0 28px 80px rgba(34, 74, 111, 0.18);
-            --shadow-soft: 0 18px 46px rgba(34, 74, 111, 0.14);
+            --bg: #dce9f3;
+            --bg-soft: #cbddea;
+            --panel: rgba(237, 247, 253, 0.88);
+            --panel-elevated: rgba(224, 239, 249, 0.68);
+            --text: #0b2037;
+            --heading: #06172a;
+            --muted: #3d5872;
+            --muted-strong: #213e59;
+            --border: rgba(60, 110, 155, 0.34);
+            --shadow: 0 28px 80px rgba(25, 60, 93, 0.24);
+            --shadow-soft: 0 18px 46px rgba(25, 60, 93, 0.19);
             --accent: #bf493b;
             --accent-hover: #a5362a;
             --accent-soft: rgba(191, 73, 59, 0.11);
             --accent-glow: rgba(229, 105, 88, 0.24);
             --gold: #d5a45d;
             --logo-bg: #ffffff;
-            --glass-fill: rgba(246, 251, 255, 0.54);
-            --glass-fill-strong: rgba(250, 253, 255, 0.72);
-            --glass-row: rgba(255, 255, 255, 0.26);
-            --glass-edge-high: rgba(255, 255, 255, 0.98);
-            --glass-edge-mid: rgba(104, 178, 236, 0.58);
-            --glass-edge-low: rgba(72, 111, 151, 0.20);
-            --glass-specular: rgba(255, 255, 255, 0.72);
-            --glass-shadow: rgba(31, 67, 101, 0.20);
-            --ambient-blue: rgba(74, 164, 228, 0.26);
-            --grid-line: rgba(56, 109, 156, 0.07);
+            --glass-fill: rgba(220, 237, 248, 0.70);
+            --glass-fill-strong: rgba(237, 247, 253, 0.84);
+            --glass-row: rgba(225, 239, 249, 0.42);
+            --glass-edge-high: rgba(255, 255, 255, 0.72);
+            --glass-edge-mid: rgba(85, 158, 214, 0.48);
+            --glass-edge-low: rgba(49, 90, 130, 0.30);
+            --glass-specular: rgba(255, 255, 255, 0.40);
+            --glass-shadow: rgba(20, 55, 87, 0.28);
+            --ambient-blue: rgba(51, 137, 200, 0.20);
+            --grid-line: rgba(42, 89, 132, 0.09);
             --radius-lg: 26px;
             --radius-md: 18px;
             --radius-sm: 12px;
@@ -1168,31 +1169,31 @@
 
         :root[data-theme="dark"] {
             color-scheme: dark;
-            --bg: #010812;
-            --bg-soft: #031326;
-            --panel: rgba(6, 23, 40, 0.88);
-            --panel-elevated: rgba(5, 24, 43, 0.58);
-            --text: #dce8f4;
-            --heading: #f5f9fd;
-            --muted: #9fb2c6;
-            --muted-strong: #cbd8e5;
-            --border: rgba(111, 178, 232, 0.27);
-            --shadow: 0 30px 90px rgba(0, 4, 12, 0.54);
-            --shadow-soft: 0 20px 54px rgba(0, 4, 12, 0.42);
+            --bg: #00050c;
+            --bg-soft: #010c19;
+            --panel: rgba(3, 16, 30, 0.92);
+            --panel-elevated: rgba(3, 17, 32, 0.72);
+            --text: #e0eaf4;
+            --heading: #f4f8fc;
+            --muted: #a8bbcf;
+            --muted-strong: #cfdae6;
+            --border: rgba(94, 157, 207, 0.23);
+            --shadow: 0 30px 90px rgba(0, 2, 8, 0.64);
+            --shadow-soft: 0 20px 54px rgba(0, 2, 8, 0.50);
             --accent: #ff8d79;
             --accent-hover: #ffb1a2;
             --accent-soft: rgba(255, 141, 121, 0.12);
             --accent-glow: rgba(255, 123, 101, 0.22);
-            --glass-fill: rgba(4, 22, 40, 0.64);
-            --glass-fill-strong: rgba(4, 27, 49, 0.80);
-            --glass-row: rgba(9, 35, 60, 0.34);
-            --glass-edge-high: rgba(216, 242, 255, 0.76);
-            --glass-edge-mid: rgba(88, 182, 255, 0.86);
-            --glass-edge-low: rgba(39, 100, 153, 0.34);
-            --glass-specular: rgba(200, 235, 255, 0.42);
-            --glass-shadow: rgba(0, 3, 11, 0.62);
-            --ambient-blue: rgba(30, 129, 208, 0.22);
-            --grid-line: rgba(126, 186, 232, 0.052);
+            --glass-fill: rgba(2, 15, 29, 0.80);
+            --glass-fill-strong: rgba(3, 18, 34, 0.88);
+            --glass-row: rgba(5, 22, 40, 0.36);
+            --glass-edge-high: rgba(184, 224, 248, 0.48);
+            --glass-edge-mid: rgba(62, 145, 210, 0.62);
+            --glass-edge-low: rgba(25, 75, 120, 0.30);
+            --glass-specular: rgba(185, 224, 248, 0.25);
+            --glass-shadow: rgba(0, 1, 6, 0.72);
+            --ambient-blue: rgba(18, 98, 165, 0.15);
+            --grid-line: rgba(109, 167, 210, 0.038);
         }
 
         :root[data-theme="dark"][data-accent="blue"] {
@@ -1653,8 +1654,27 @@
         .publication-card::before {
             top: 0.85rem;
             bottom: 0.85rem;
-            background: linear-gradient(to bottom, var(--accent), var(--glass-edge-mid));
+            background: linear-gradient(
+                to bottom,
+                color-mix(in srgb, var(--accent) 42%, transparent),
+                var(--accent) 18%,
+                var(--accent) 82%,
+                color-mix(in srgb, var(--accent) 42%, transparent)
+            );
             box-shadow: 0 0 14px var(--accent-glow);
+        }
+
+        .publication-card:hover {
+            background: color-mix(in srgb, var(--glass-fill-strong) 70%, var(--accent-soft));
+            box-shadow:
+                inset 3px 0 0 var(--accent),
+                inset 0 1px 0 var(--glass-edge-high),
+                0 0 22px color-mix(in srgb, var(--accent-glow) 64%, transparent);
+        }
+
+        .publication-card:hover::before {
+            opacity: 1;
+            transform: scaleY(1);
         }
 
         .link-button {
@@ -1997,6 +2017,7 @@
                             <a href="https://www.semanticscholar.org/author/Tong-Wang/2155339760" target="_blank" rel="noopener noreferrer" aria-label="Semantic Scholar"><i class="fas fa-book-open"></i><span class="social-tooltip">Semantic Scholar</span></a>
                             <a href="https://dblp.org/pid/51/6856-22.html" target="_blank" rel="noopener noreferrer" aria-label="DBLP"><i class="fas fa-book"></i><span class="social-tooltip">DBLP</span></a>
                             <a href="https://openreview.net/profile?id=~Tong_Wang8" target="_blank" rel="noopener noreferrer" aria-label="OpenReview"><i class="fas fa-file-alt"></i><span class="social-tooltip">OpenReview</span></a>
+                            <a href="https://orcid.org/my-orcid?orcid=0000-0001-5141-9360" target="_blank" rel="noopener noreferrer" aria-label="ORCID"><i class="fab fa-orcid"></i><span class="social-tooltip">ORCID</span></a>
                         </div>
                     </div>
                 </section>
